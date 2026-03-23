@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>THE REFUGEE PANEL — Vietnam 1975–Present</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1208;
+    --parchment: #f2e8d4;
+    --cream: #faf5eb;
+    --red: #8b1a1a;
+    --gold: #c49a2a;
+    --olive: #4a5240;
+    --navy: #1c2b3a;
+    --rust: #a0402a;
+    --muted: #7a6e5f;
+    --paper: #ede4cc;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--ink);
+    color: var(--parchment);
+    font-family: 'Crimson Text', Georgia, serif;
+    font-size: 18px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ─── MASTHEAD ─── */
+  .masthead {
+    background: var(--parchment);
+    color: var(--ink);
+    text-align: center;
+    padding: 28px 20px 20px;
+    border-bottom: 6px double var(--ink);
+    position: relative;
+    overflow: hidden;
+  }
+  .masthead::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(0deg, transparent, transparent 28px, rgba(0,0,0,.04) 28px, rgba(0,0,0,.04) 29px);
+    pointer-events: none;
+  }
+  .masthead-kicker {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .masthead h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(36px, 7vw, 80px);
+    font-weight: 900;
+    line-height: 0.9;
+    color: var(--ink);
+    letter-spacing: -2px;
+  }
+  .masthead h1 em {
+    font-style: italic;
+    color: var(--red);
+  }
+  .masthead-sub {
+    font-family: 'Crimson Text', serif;
+    font-style: italic;
+    font-size: 20px;
+    color: var(--muted);
+    margin-top: 10px;
+  }
+  .masthead-rule {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 16px auto 0;
+    max-width: 600px;
+    color: var(--muted);
+    font-size: 13px;
+    font-family: 'Share Tech Mono', monospace;
+    letter-spacing: 2px;
+  }
+  .masthead-rule::before, .masthead-rule::after {
+    content: ''; flex: 1; height: 1px; background: var(--muted);
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    background: var(--ink);
+    border-bottom: 3px solid var(--gold);
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    flex-wrap: wrap;
+  }
+  nav button {
+    background: none;
+    border: none;
+    color: var(--parchment);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px 24px;
+    cursor: pointer;
+    border-right: 1px solid rgba(255,255,255,.1);
+    transition: all .2s;
+    position: relative;
+  }
+  nav button:last-child { border-right: none; }
+  nav button:hover { background: rgba(196,154,42,.15); color: var(--gold); }
+  nav button.active {
+    background: var(--gold);
+    color: var(--ink);
+    font-weight: bold;
+  }
+
+  /* ─── SECTION WRAPPER ─── */
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* ─── PANEL INTRO ─── */
+  .panel-intro {
+    background: var(--paper);
+    color: var(--ink);
+    padding: 40px 32px 32px;
+    border-bottom: 4px solid var(--ink);
+  }
+  .panel-intro-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 8px;
+  }
+  .panel-intro h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 5vw, 52px);
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .panel-intro p {
+    font-size: 17px;
+    color: #3a3028;
+    max-width: 780px;
+    line-height: 1.8;
+  }
+  .panel-intro .stat-bar {
+    display: flex;
+    gap: 32px;
+    margin-top: 24px;
+    flex-wrap: wrap;
+  }
+  .stat {
+    border-left: 3px solid var(--red);
+    padding-left: 14px;
+  }
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--red);
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  /* ─── CHARACTER CARDS ─── */
+  .cast-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 0;
+    background: var(--ink);
+  }
+  .cast-card {
+    padding: 32px 28px;
+    border-right: 1px solid rgba(255,255,255,.1);
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    position: relative;
+    transition: background .2s;
+  }
+  .cast-card:hover { background: rgba(255,255,255,.03); }
+  .cast-card-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .cast-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 14px;
+    border: 2px solid;
+  }
+  .cast-avatar.refugee { border-color: var(--gold); }
+  .cast-avatar.host { border-color: var(--olive); }
+  .cast-avatar.communist { border-color: var(--red); }
+  .cast-avatar.expert-r { border-color: #6a9fa8; }
+  .cast-avatar.expert-h { border-color: var(--rust); }
+  .cast-avatar.expert-c { border-color: #a07cb8; }
+  .cast-avatar.journalist { border-color: var(--parchment); }
+
+  .cast-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--parchment);
+    margin-bottom: 4px;
+  }
+  .cast-role {
+    font-style: italic;
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .cast-bio {
+    font-size: 15px;
+    color: #c8bca8;
+    line-height: 1.65;
+  }
+
+  /* ─── DIALOGUE STAGE ─── */
+  .dialogue-stage {
+    background: #0f0c08;
+    padding: 40px 20px;
+    border-top: 2px solid rgba(255,255,255,.1);
+  }
+  .dialogue-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .exchange {
+    max-width: 820px;
+    margin: 0 auto 36px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .exchange.journalist { justify-content: center; }
+
+  .exchange-avatar-col {
+    flex-shrink: 0;
+    text-align: center;
+    width: 68px;
+  }
+  .ex-avatar {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    margin: 0 auto 4px;
+    border: 2px solid;
+  }
+  .ex-avatar.r { border-color: var(--gold); }
+  .ex-avatar.h { border-color: var(--olive); }
+  .ex-avatar.c { border-color: var(--red); }
+  .ex-avatar.j { border-color: var(--parchment); }
+  .ex-avatar.er { border-color: #6a9fa8; }
+  .ex-avatar.eh { border-color: var(--rust); }
+  .ex-avatar.ec { border-color: #a07cb8; }
+
+  .ex-name-tag {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .exchange-bubble {
+    flex: 1;
+    padding: 20px 24px;
+    border-radius: 2px;
+    position: relative;
+    line-height: 1.75;
+    font-size: 17px;
+  }
+  .exchange-bubble.refugee {
+    background: rgba(196,154,42,.1);
+    border-left: 3px solid var(--gold);
+  }
+  .exchange-bubble.host {
+    background: rgba(74,82,64,.15);
+    border-left: 3px solid var(--olive);
+  }
+  .exchange-bubble.communist {
+    background: rgba(139,26,26,.12);
+    border-left: 3px solid var(--red);
+  }
+  .exchange-bubble.journalist {
+    background: rgba(242,232,212,.07);
+    border-left: 3px solid var(--parchment);
+    font-style: italic;
+    font-size: 18px;
+  }
+  .exchange-bubble.expert-r {
+    background: rgba(106,159,168,.1);
+    border-left: 3px solid #6a9fa8;
+  }
+  .exchange-bubble.expert-h {
+    background: rgba(160,64,42,.1);
+    border-left: 3px solid var(--rust);
+  }
+  .exchange-bubble.expert-c {
+    background: rgba(160,124,184,.1);
+    border-left: 3px solid #a07cb8;
+  }
+
+  .exchange-bubble strong {
+    display: block;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    color: var(--gold);
+  }
+  .exchange-bubble.host strong { color: #8da88d; }
+  .exchange-bubble.communist strong { color: #cc4444; }
+  .exchange-bubble.journalist strong { color: var(--parchment); }
+  .exchange-bubble.expert-r strong { color: #6a9fa8; }
+  .exchange-bubble.expert-h strong { color: var(--rust); }
+  .exchange-bubble.expert-c strong { color: #a07cb8; }
+
+  .silence-bar {
+    text-align: center;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: var(--muted);
+    padding: 16px 0;
+    max-width: 820px;
+    margin: 0 auto 36px;
+    border-top: 1px dashed rgba(255,255,255,.1);
+    border-bottom: 1px dashed rgba(255,255,255,.1);
+  }
+
+  /* ─── COMIC STRIP ─── */
+  .comic-section {
+    background: var(--parchment);
+    padding: 40px 20px;
+  }
+  .comic-header {
+    text-align: center;
+    margin-bottom: 36px;
+    color: var(--ink);
+  }
+  .comic-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px,5vw,48px);
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .comic-header p {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 17px;
+  }
+  .comic-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    max-width: 960px;
+    margin: 0 auto;
+    background: var(--ink);
+  }
+  @media (max-width: 640px) {
+    .comic-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .comic-panel {
+    background: var(--cream);
+    position: relative;
+    overflow: hidden;
+  }
+  .comic-panel svg {
+    display: block;
+    width: 100%;
+  }
+  .comic-caption {
+    background: var(--ink);
+    color: var(--parchment);
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    padding: 8px 10px;
+    letter-spacing: .5px;
+    line-height: 1.5;
+  }
+  .comic-num {
+    position: absolute;
+    top: 6px; left: 8px;
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 900;
+    color: rgba(0,0,0,.08);
+    line-height: 1;
+  }
+
+  /* ─── POSTER GALLERY ─── */
+  .poster-section {
+    background: var(--ink);
+    padding: 50px 20px;
+  }
+  .poster-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  .poster-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(24px,5vw,44px);
+    color: var(--parchment);
+    line-height: 1.1;
+  }
+  .poster-header p {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 16px;
+    margin-top: 8px;
+  }
+  .poster-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .poster-wrap {
+    aspect-ratio: 3/4;
+  }
+  .poster-wrap svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .poster-label {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  /* ─── SOURCES BAR ─── */
+  .sources-bar {
+    background: var(--paper);
+    color: var(--ink);
+    padding: 24px 32px;
+    border-top: 3px double var(--ink);
+    font-size: 13px;
+    font-family: 'Share Tech Mono', monospace;
+    letter-spacing: .5px;
+  }
+  .sources-bar h4 {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 8px;
+  }
+  .sources-bar ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 24px;
+    color: #4a3e2e;
+  }
+  .sources-bar li::before { content: '— '; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--ink);
+    color: var(--muted);
+    text-align: center;
+    padding: 24px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    border-top: 1px solid rgba(255,255,255,.1);
+  }
+
+  /* ─── DIVIDER ─── */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    max-width: 820px;
+    margin: 0 auto 40px;
+    padding: 0 20px;
+  }
+  .section-divider::before, .section-divider::after {
+    content: ''; flex: 1; height: 1px; background: rgba(255,255,255,.15);
+  }
+  .section-divider span {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  /* Source citation pill */
+  .cite {
+    display: inline-block;
+    background: rgba(196,154,42,.15);
+    border: 1px solid rgba(196,154,42,.3);
+    border-radius: 2px;
+    padding: 1px 6px;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    vertical-align: middle;
+    margin-left: 4px;
+  }
+
+  @media (max-width: 600px) {
+    .exchange { flex-direction: column; }
+    .exchange-avatar-col { width: 100%; display: flex; align-items: center; gap: 10px; }
+    .ex-avatar { margin: 0; }
+    .ex-name-tag { white-space: normal; }
+    nav button { font-size: 10px; padding: 12px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ MASTHEAD ═══ -->
+<header class="masthead">
+  <div class="masthead-kicker">World Affairs Review · Special Edition · Issue XLVII</div>
+  <h1>THE <em>REFUGEE</em> PANEL</h1>
+  <div class="masthead-sub">Vietnam 1975 &mdash; The Exodus That Shaped a Century</div>
+  <div class="masthead-rule">April 30, 1975 &bull; Fall of Saigon &bull; Two Million Fled &bull; 250,000 Dead at Sea</div>
+</header>
+
+<!-- ═══ NAVIGATION ═══ -->
+<nav>
+  <button class="active" onclick="show('p1')">▪ Panel I — The Witnesses</button>
+  <button onclick="show('p2')">▪ Panel II — The Experts</button>
+  <button onclick="show('comic')">▪ Comic Strip</button>
+  <button onclick="show('posters')">▪ Poster Gallery</button>
+</nav>
+
+<!-- ════════════════════════════════════════
+     PANEL I — THE WITNESSES
+════════════════════════════════════════ -->
+<div id="p1" class="section active">
+
+  <!-- Intro -->
+  <div class="panel-intro">
+    <div class="panel-intro-label">Panel I — The Witnesses</div>
+    <h2>Three Sides of the Same War</h2>
+    <p>A Vietnamese refugee, a host-country official, and a Vietnamese government representative sit across from journalist Sarah Brennan in a World Affairs Review special panel. What follows is a confrontation of memory, policy, and history — moderated but unrestricted. The dialogues are grounded in documented testimony and historical record.</p>
+    <div class="stat-bar">
+      <div class="stat">
+        <div class="stat-num">~2M</div>
+        <div class="stat-label">Fled Vietnam 1975–95</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">250,000</div>
+        <div class="stat-label">Died at Sea (UNHCR est.)</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">1M+</div>
+        <div class="stat-label">Resettled in Re-education Camps</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">800,000</div>
+        <div class="stat-label">Boat people arrived safely, 1975–95</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cast Cards -->
+  <div class="cast-grid">
+    <!-- Journalist -->
+    <div class="cast-card">
+      <div class="cast-card-tag">Moderator</div>
+      <!-- Journalist SVG Avatar -->
+      <svg class="cast-avatar journalist" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="40" fill="#1c1810"/>
+        <circle cx="40" cy="31" r="14" fill="#c8a47a"/>
+        <rect x="22" y="52" width="36" height="28" rx="4" fill="#2c2c2c"/>
+        <rect x="28" y="52" width="24" height="8" fill="#4a4a4a"/>
+        <circle cx="40" cy="27" r="10" fill="#c8a47a"/>
+        <ellipse cx="40" cy="23" rx="12" ry="8" fill="#5a3a1a"/>
+        <circle cx="35" cy="27" r="2" fill="#3a2510"/>
+        <circle cx="45" cy="27" r="2" fill="#3a2510"/>
+        <path d="M37 31 Q40 33 43 31" stroke="#8a5540" stroke-width="1.2" fill="none"/>
+        <rect x="26" y="44" width="28" height="4" rx="2" fill="#888" opacity=".4"/>
+        <text x="40" y="73" font-family="serif" font-size="8" fill="#ccc" text-anchor="middle">PRESS</text>
+      </svg>
+      <div class="cast-name">Sarah Brennan</div>
+      <div class="cast-role">Senior Correspondent, World Affairs Review</div>
+      <div class="cast-bio">Twenty-year veteran journalist who covered refugee crises from Rwanda to the Mediterranean. Author of <em>Borders and Bodies: A Reporter's Chronicle</em>. Winner of the International Press Freedom Award.</div>
+    </div>
+
+    <!-- Refugee -->
+    <div class="cast-card">
+      <div class="cast-card-tag">The Refugee</div>
+      <svg class="cast-avatar refugee" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="40" fill="#1a1408"/>
+        <circle cx="40" cy="31" r="14" fill="#d4a574"/>
+        <circle cx="40" cy="27" r="10" fill="#d4a574"/>
+        <ellipse cx="40" cy="22" rx="11" ry="7" fill="#1a0f00"/>
+        <circle cx="36" cy="27" r="1.8" fill="#2a1a0a"/>
+        <circle cx="44" cy="27" r="1.8" fill="#2a1a0a"/>
+        <path d="M37 31 Q40 34 43 31" stroke="#9a6040" stroke-width="1.2" fill="none"/>
+        <rect x="24" y="50" width="32" height="30" rx="3" fill="#6b4c2a"/>
+        <rect x="28" y="50" width="24" height="8" fill="#8a6438"/>
+        <path d="M30 58 L50 58 L48 70 L32 70 Z" fill="#5a3c1e"/>
+      </svg>
+      <div class="cast-name">Linh Nguyen</div>
+      <div class="cast-role">Vietnamese Refugee, 1979 Boat Person — now San Jose, California</div>
+      <div class="cast-bio">Fled Vietnam at age seven aboard an overcrowded fishing vessel with her mother and three siblings. Spent four months in a UNHCR camp in Malaysia. Lost her younger sister at sea. Earned a doctorate in public policy and now advocates for refugee rights at the UN.</div>
+    </div>
+
+    <!-- Malaysian Official -->
+    <div class="cast-card">
+      <div class="cast-card-tag">Host Country Official</div>
+      <svg class="cast-avatar host" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="40" fill="#101810"/>
+        <circle cx="40" cy="31" r="14" fill="#c8965a"/>
+        <circle cx="40" cy="27" r="10" fill="#c8965a"/>
+        <ellipse cx="40" cy="21" rx="12" ry="8" fill="#0a0a0a"/>
+        <circle cx="36" cy="27" r="1.8" fill="#2a1a0a"/>
+        <circle cx="44" cy="27" r="1.8" fill="#2a1a0a"/>
+        <path d="M37 32 Q40 35 43 32" stroke="#8a5530" stroke-width="1.2" fill="none"/>
+        <rect x="24" y="50" width="32" height="30" rx="3" fill="#1a3a1a"/>
+        <rect x="28" y="50" width="24" height="10" fill="#2a5a2a"/>
+        <!-- badge -->
+        <circle cx="40" cy="62" r="5" fill="#c49a2a" opacity=".7"/>
+        <text x="40" y="65" font-size="5" fill="#000" text-anchor="middle" font-family="monospace">GOV</text>
+      </svg>
+      <div class="cast-name">Datuk Haris Yusof</div>
+      <div class="cast-role">Commissioner (ret.), Malaysian Ministry of Home Affairs</div>
+      <div class="cast-bio">Served on the front lines of Malaysia's response to the 1979 boat people crisis, coordinating with UNHCR on refugee camp operations in Pulau Bidong. Now a visiting fellow at the University of Malaya, specializing in Southeast Asian migration policy.</div>
+    </div>
+
+    <!-- Vietnamese Official -->
+    <div class="cast-card">
+      <div class="cast-card-tag">Sending Country Official</div>
+      <svg class="cast-avatar communist" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="40" fill="#180808"/>
+        <circle cx="40" cy="31" r="14" fill="#c8a060"/>
+        <circle cx="40" cy="27" r="10" fill="#c8a060"/>
+        <ellipse cx="40" cy="21" rx="11" ry="7" fill="#1a0808"/>
+        <circle cx="36" cy="27" r="1.8" fill="#1a0808"/>
+        <circle cx="44" cy="27" r="1.8" fill="#1a0808"/>
+        <path d="M37 31 Q40 33 43 31" stroke="#7a4020" stroke-width="1.2" fill="none"/>
+        <rect x="24" y="50" width="32" height="30" rx="3" fill="#8b1a1a"/>
+        <rect x="28" y="50" width="24" height="10" fill="#aa2222"/>
+        <!-- star -->
+        <polygon points="40,56 41.8,61.4 47.5,61.4 42.8,64.6 44.6,70 40,66.8 35.4,70 37.2,64.6 32.5,61.4 38.2,61.4" fill="#f8d010" transform="scale(0.55) translate(33,44)"/>
+      </svg>
+      <div class="cast-name">Ambassador Trần Quang Minh</div>
+      <div class="cast-role">Former Deputy Foreign Minister, Socialist Republic of Vietnam</div>
+      <div class="cast-bio">Veteran of the People's Army, served in diplomatic posts in Moscow and Geneva. A defender of the revolutionary government's policies in the post-war period, now retired but remains a spokesperson for the official Vietnamese historical narrative.</div>
+    </div>
+  </div>
+
+  <!-- Dialogue -->
+  <div class="dialogue-stage">
+    <div class="dialogue-title">— Transcript of Panel Discussion —</div>
+
+    <!-- Opening -->
+    <div class="exchange journalist">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar j" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#1c1810"/><circle cx="26" cy="20" r="9" fill="#c8a47a"/><circle cx="26" cy="17" r="7" fill="#c8a47a"/><ellipse cx="26" cy="13" rx="8" ry="5" fill="#5a3a1a"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#2c2c2c"/></svg>
+        <div class="ex-name-tag">Brennan</div>
+      </div>
+      <div class="exchange-bubble journalist">
+        <strong>Sarah Brennan — Moderator</strong>
+        Welcome. Today we sit at the intersection of history and conscience. April 30, 1975 — the fall of Saigon. Over the next two decades, an estimated two million Vietnamese would flee their homeland. Between 200,000 and 250,000 of them died at sea. I want to begin with you, Linh. You were seven years old when you boarded a fishing boat in the South China Sea. Take us back.
+      </div>
+    </div>
+
+    <div class="exchange">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar r" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#1a1408"/><circle cx="26" cy="20" r="9" fill="#d4a574"/><circle cx="26" cy="17" r="7" fill="#d4a574"/><ellipse cx="26" cy="12" rx="8" ry="6" fill="#1a0f00"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#6b4c2a"/></svg>
+        <div class="ex-name-tag">Linh</div>
+      </div>
+      <div class="exchange-bubble refugee">
+        <strong>Linh Nguyen — Refugee</strong>
+        I remember my mother wrapping me in a life jacket made of old foam and sewn-together fabric. We paid gold — everything my family had left after the government seized our home — to board a fishing boat built to carry thirty people. There were more than two hundred of us. The smell, the heat, the crying children. When Thai pirates came on the second night, they took our remaining gold, our food, our dignity. They threw two men overboard when they resisted. We were at sea for eleven days before a Malaysian coast guard vessel found us. I still see the colour of that water in my dreams.
+      </div>
+    </div>
+
+    <div class="exchange journalist">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar j" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#1c1810"/><circle cx="26" cy="20" r="9" fill="#c8a47a"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#2c2c2c"/></svg>
+        <div class="ex-name-tag">Brennan</div>
+      </div>
+      <div class="exchange-bubble journalist">
+        <strong>Sarah Brennan</strong>
+        Datuk Yusof — by 1979, Malaysia had received over 100,000 Vietnamese boat people <span class="cite">UNHCR</span>. What was the mood inside the Malaysian government?
+      </div>
+    </div>
+
+    <div class="exchange">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar h" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#101810"/><circle cx="26" cy="20" r="9" fill="#c8965a"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#1a3a1a"/></svg>
+        <div class="ex-name-tag">Yusof</div>
+      </div>
+      <div class="exchange-bubble host">
+        <strong>Datuk Haris Yusof — Host Country Official</strong>
+        I will be honest with you — as I was not always permitted to be at the time. Malaysia is a country with a delicate ethnic balance: Malay Muslims, Chinese Malaysians, Indian Malaysians. The refugees were arriving overwhelmingly in our most conservative Muslim coastal areas, and many were of Chinese cultural background. That created genuine domestic political tensions. Our government adopted the "port of first asylum" policy in July 1979, but it was always conditional. We could provide temporary refuge; we could not absorb hundreds of thousands permanently. We needed the world to honour its share of the burden — and for a period, remarkably, it did. <span class="cite">ADST.org</span>
+      </div>
+    </div>
+
+    <div class="exchange journalist">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar j" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#1c1810"/><circle cx="26" cy="20" r="9" fill="#c8a47a"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#2c2c2c"/></svg>
+        <div class="ex-name-tag">Brennan</div>
+      </div>
+      <div class="exchange-bubble journalist">
+        <strong>Sarah Brennan</strong>
+        Ambassador Minh — historians are unequivocal. The re-education camps held over one million people <span class="cite">Wikipedia/Indochina Refugee Crisis</span>. Businesses were seized. Ethnic Chinese were purged. People were sent to "New Economic Zones" as forced labour. How do you account for this mass flight of your own citizens?
+      </div>
+    </div>
+
+    <div class="exchange">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar c" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#180808"/><circle cx="26" cy="20" r="9" fill="#c8a060"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#8b1a1a"/></svg>
+        <div class="ex-name-tag">Minh</div>
+      </div>
+      <div class="exchange-bubble communist">
+        <strong>Amb. Trần Quang Minh — Vietnamese Government</strong>
+        Every revolution demands restructuring. South Vietnam had been a client state serving American military interests for thirty years. The "re-education" — yes, that was the term used — was an effort at national reconciliation, not extermination. Many of those who fled were not innocent civilians. They were administrators of a foreign-backed regime, intelligence operatives, military officers who had waged war against their own people. Vietnam is today a unified nation and a rising economy. History, I would argue, has shown the revolution was necessary. The United States killed over three million Vietnamese during the war <span class="cite">History.com</span>. We do not hear Washington apologising for that.
+      </div>
+    </div>
+
+    <div class="exchange">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar r" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#1a1408"/><circle cx="26" cy="20" r="9" fill="#d4a574"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#6b4c2a"/></svg>
+        <div class="ex-name-tag">Linh</div>
+      </div>
+      <div class="exchange-bubble refugee">
+        <strong>Linh Nguyen</strong>
+        Ambassador — my father was a schoolteacher. Not a general. Not a spy. A primary school teacher who had attended, once, an American-funded professional development seminar in 1968. For that, he spent three years in a camp near the Cambodian border. When they released him, he was a different man. His hands shook. He could not sleep. That is why we built a raft and ran. So please do not give me the theory of the revolution. Give me back my father. Give me back my sister who drowned.
+      </div>
+    </div>
+
+    <div class="silence-bar">— a silence fell over the room —</div>
+
+    <div class="exchange">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar h" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#101810"/><circle cx="26" cy="20" r="9" fill="#c8965a"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#1a3a1a"/></svg>
+        <div class="ex-name-tag">Yusof</div>
+      </div>
+      <div class="exchange-bubble host">
+        <strong>Datuk Haris Yusof</strong>
+        I want to add something to what Linh said. The boats that came to our beaches were not carrying politicians. They were carrying fishermen, teachers, shopkeepers, young mothers. In November 1978, a freighter called the <em>Hai Hong</em> arrived at Port Klang with 2,500 Vietnamese aboard. My government demanded it turn back to sea. I was the officer who had to transmit that order. I have not forgotten those faces at the railing. The UNHCR intervened and they were eventually processed <span class="cite">Vietnamese Museum / UNHCR history</span>. But that moment taught me: international law is only as strong as political will.
+      </div>
+    </div>
+
+    <div class="exchange journalist">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar j" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#1c1810"/><circle cx="26" cy="20" r="9" fill="#c8a47a"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#2c2c2c"/></svg>
+        <div class="ex-name-tag">Brennan</div>
+      </div>
+      <div class="exchange-bubble journalist">
+        <strong>Sarah Brennan</strong>
+        Ambassador — 54 percent of Americans in May 1975 opposed admitting Vietnamese refugees <span class="cite">Gallup / Duke Migration Memorials</span>. The world was not rushing to help. What responsibility does Vietnam's government bear for the deaths at sea?
+      </div>
+    </div>
+
+    <div class="exchange">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar c" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#180808"/><circle cx="26" cy="20" r="9" fill="#c8a060"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#8b1a1a"/></svg>
+        <div class="ex-name-tag">Minh</div>
+      </div>
+      <div class="exchange-bubble communist">
+        <strong>Amb. Trần Quang Minh</strong>
+        The people who died at sea made choices. We did not force them onto those boats. The government offered legal pathways — for some. The Orderly Departure Programme of 1979 was eventually an international framework that allowed emigration through official channels. If people chose pirate boats and open water, that was a decision born of fear — some of it manufactured by foreign-funded propaganda.
+      </div>
+    </div>
+
+    <div class="exchange">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar r" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#1a1408"/><circle cx="26" cy="20" r="9" fill="#d4a574"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#6b4c2a"/></svg>
+        <div class="ex-name-tag">Linh</div>
+      </div>
+      <div class="exchange-bubble refugee">
+        <strong>Linh Nguyen</strong>
+        My mother applied for the Orderly Departure Programme. We were denied. Twice. The "legal pathway" was available to those with connections and bribes. We had neither. The sea was not our first choice, Ambassador. It was our only one.
+      </div>
+    </div>
+
+    <div class="exchange journalist">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar j" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#1c1810"/><circle cx="26" cy="20" r="9" fill="#c8a47a"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#2c2c2c"/></svg>
+        <div class="ex-name-tag">Brennan</div>
+      </div>
+      <div class="exchange-bubble journalist">
+        <strong>Sarah Brennan</strong>
+        Datuk Yusof — we end with this. The world today has 123.2 million forcibly displaced people as of 2024 <span class="cite">UNHCR Global Trends 2024</span>. Turkey alone hosts 2.9 million Syrians. What lesson from your experience in 1979 would you deliver to any government facing this today?
+      </div>
+    </div>
+
+    <div class="exchange">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar h" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#101810"/><circle cx="26" cy="20" r="9" fill="#c8965a"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#1a3a1a"/></svg>
+        <div class="ex-name-tag">Yusof</div>
+      </div>
+      <div class="exchange-bubble host">
+        <strong>Datuk Haris Yusof</strong>
+        No nation can carry this alone. That is the single lesson. In 1979, the United States and others made a political commitment: we will take these people off your hands if you give them safe harbour while we process them. That compact worked. Within eighteen months, 450,000 Indochinese refugees were resettled <span class="cite">The Globalist</span>. Today, that compact is broken. Wealthy nations build walls and pass the cost to Jordan, Uganda, Bangladesh, Turkey. And then they are surprised when those countries push boats back to sea. We did it too. I am not proud of it. But I understand it.
+      </div>
+    </div>
+
+    <div class="exchange">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar r" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#1a1408"/><circle cx="26" cy="20" r="9" fill="#d4a574"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#6b4c2a"/></svg>
+        <div class="ex-name-tag">Linh</div>
+      </div>
+      <div class="exchange-bubble refugee">
+        <strong>Linh Nguyen — Closing Statement</strong>
+        I want people to remember one thing. Vietnamese-Americans today number 1.5 million <span class="cite">EBSCO Research Starters</span>. We built businesses, raised children, won scholarships, paid taxes. We contribute. Every generation of refugees the world has bet on has returned that bet with interest. The question is never whether refugees can make it. The question is whether we will let them try.
+      </div>
+    </div>
+
+  </div><!-- /dialogue-stage -->
+
+  <div class="sources-bar">
+    <h4>Panel I Sources</h4>
+    <ul>
+      <li>UNHCR Global Trends Reports</li>
+      <li>Wikipedia — Vietnamese Boat People; Indochina Refugee Crisis</li>
+      <li>History.com — Vietnam War Refugees (Jan 2025)</li>
+      <li>ADST.org — The Vietnamese Boat People (oral histories)</li>
+      <li>Duke Migration Memorials — Our Little Saigon</li>
+      <li>EBSCO Research Starters — Indo-Chinese Boat People</li>
+      <li>Vietnamese Museum — Our Roots: Our History</li>
+    </ul>
+  </div>
+
+</div><!-- /p1 -->
+
+
+<!-- ════════════════════════════════════════
+     PANEL II — THE EXPERTS
+════════════════════════════════════════ -->
+<div id="p2" class="section">
+
+  <div class="panel-intro">
+    <div class="panel-intro-label">Panel II — The Experts</div>
+    <h2>From History to the Present:<br>What the Boat People Still Teach Us</h2>
+    <p>Three scholars — a refugee rights specialist, a migration policy analyst, and a comparative historian — join Sarah Brennan for a second panel. They are asked not to testify but to <em>analyse</em>: what happened, why it matters, and what it means for a world in 2026 where 123.2 million people are displaced.</p>
+    <div class="stat-bar">
+      <div class="stat">
+        <div class="stat-num">123.2M</div>
+        <div class="stat-label">Displaced globally in 2024</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">71%</div>
+        <div class="stat-label">Refugees in low/middle income nations</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">188,800</div>
+        <div class="stat-label">Resettled to 3rd countries in 2024</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3×</div>
+        <div class="stat-label">Fewer resettlements, H1 2025 vs 2024</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cast Cards -->
+  <div class="cast-grid">
+    <div class="cast-card">
+      <div class="cast-card-tag">Moderator</div>
+      <svg class="cast-avatar journalist" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="40" fill="#1c1810"/>
+        <circle cx="40" cy="31" r="14" fill="#c8a47a"/>
+        <circle cx="40" cy="27" r="10" fill="#c8a47a"/>
+        <ellipse cx="40" cy="23" rx="12" ry="8" fill="#5a3a1a"/>
+        <rect x="22" y="52" width="36" height="28" rx="4" fill="#2c2c2c"/>
+        <text x="40" y="73" font-family="serif" font-size="8" fill="#ccc" text-anchor="middle">PRESS</text>
+      </svg>
+      <div class="cast-name">Sarah Brennan</div>
+      <div class="cast-role">Senior Correspondent, World Affairs Review</div>
+      <div class="cast-bio">Returning moderator for Panel II, now asking the harder analytical questions: not what happened, but what it all means for the present crisis of 123 million displaced people worldwide.</div>
+    </div>
+
+    <div class="cast-card">
+      <div class="cast-card-tag">Expert — Refugee Perspective</div>
+      <svg class="cast-avatar expert-r" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="40" fill="#0c1820"/>
+        <circle cx="40" cy="31" r="14" fill="#7a5a38"/>
+        <circle cx="40" cy="27" r="10" fill="#7a5a38"/>
+        <ellipse cx="40" cy="22" rx="11" ry="7" fill="#0a0808"/>
+        <circle cx="36" cy="27" r="1.8" fill="#1a0808"/>
+        <circle cx="44" cy="27" r="1.8" fill="#1a0808"/>
+        <path d="M37 31 Q40 34 43 31" stroke="#5a4020" stroke-width="1.2" fill="none"/>
+        <rect x="24" y="50" width="32" height="30" rx="3" fill="#1a3a48"/>
+        <rect x="28" y="50" width="24" height="10" fill="#225a68"/>
+        <!-- glasses -->
+        <rect x="31" y="25" width="8" height="5" rx="2" stroke="#6a9fa8" stroke-width="1.2" fill="none"/>
+        <rect x="41" y="25" width="8" height="5" rx="2" stroke="#6a9fa8" stroke-width="1.2" fill="none"/>
+        <line x1="39" y1="27" x2="41" y2="27" stroke="#6a9fa8" stroke-width="1.2"/>
+      </svg>
+      <div class="cast-name">Prof. Amara Nwosu</div>
+      <div class="cast-role">Professor of Refugee Law, University of Geneva</div>
+      <div class="cast-bio">Nigerian-born legal scholar and author of <em>The Right to Flee</em>. Served as a legal advisor to UNHCR for twelve years across three continents. Specialises in statelessness, non-refoulement, and the gap between refugee law as written and as practised.</div>
+    </div>
+
+    <div class="cast-card">
+      <div class="cast-card-tag">Expert — Host Country Perspective</div>
+      <svg class="cast-avatar expert-h" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="40" fill="#1a100c"/>
+        <circle cx="40" cy="31" r="14" fill="#d4a880"/>
+        <circle cx="40" cy="27" r="10" fill="#d4a880"/>
+        <ellipse cx="40" cy="21" rx="12" ry="7" fill="#3a2818"/>
+        <circle cx="36" cy="27" r="1.8" fill="#2a1a0a"/>
+        <circle cx="44" cy="27" r="1.8" fill="#2a1a0a"/>
+        <path d="M36 32 Q40 35 44 32" stroke="#8a5838" stroke-width="1.2" fill="none"/>
+        <rect x="24" y="50" width="32" height="30" rx="3" fill="#3a1818"/>
+        <rect x="28" y="50" width="24" height="10" fill="#5a2828"/>
+        <!-- tie -->
+        <polygon points="40,60 38,53 42,53" fill="#c49a2a"/>
+        <polygon points="40,70 37,60 43,60" fill="#c49a2a"/>
+      </svg>
+      <div class="cast-name">Dr. Patrick Holloway</div>
+      <div class="cast-role">Senior Migration Policy Analyst, Chatham House</div>
+      <div class="cast-bio">Former UNHCR field officer in Malaysia and Thailand during the 1980s, now a policy advisor to three European governments on refugee integration. Author of <em>Burden Sharing: The Broken Compact</em>. Known for rigorous, politically uncomfortable analysis.</div>
+    </div>
+
+    <div class="cast-card">
+      <div class="cast-card-tag">Expert — Comparative / Historical</div>
+      <svg class="cast-avatar expert-c" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="40" cy="40" r="40" fill="#100c18"/>
+        <circle cx="40" cy="31" r="14" fill="#f0d8b0"/>
+        <circle cx="40" cy="27" r="10" fill="#f0d8b0"/>
+        <ellipse cx="40" cy="21" rx="11" ry="6" fill="#2a1a30"/>
+        <circle cx="36" cy="27" r="1.8" fill="#2a1a30"/>
+        <circle cx="44" cy="27" r="1.8" fill="#2a1a30"/>
+        <path d="M37 32 Q40 35 43 32" stroke="#9a7060" stroke-width="1.2" fill="none"/>
+        <rect x="24" y="50" width="32" height="30" rx="3" fill="#2a1838"/>
+        <rect x="28" y="50" width="24" height="10" fill="#3a2850"/>
+        <!-- academic collar -->
+        <path d="M28 55 Q40 48 52 55" stroke="#a07cb8" stroke-width="1.5" fill="none"/>
+      </svg>
+      <div class="cast-name">Dr. Yuki Tanaka</div>
+      <div class="cast-role">Professor of Contemporary History, University of Oxford</div>
+      <div class="cast-bio">Japanese-Australian historian whose research spans the Cold War refugee crises from Hungary 1956 to Vietnam 1975 to Afghanistan 2021. Argues that every U.S. military withdrawal in the 20th and 21st centuries has generated a structurally identical refugee crisis.</div>
+    </div>
+  </div>
+
+  <!-- Dialogue -->
+  <div class="dialogue-stage">
+    <div class="dialogue-title">— Transcript of Expert Panel —</div>
+
+    <div class="exchange journalist">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar j" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#1c1810"/><circle cx="26" cy="20" r="9" fill="#c8a47a"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#2c2c2c"/></svg>
+        <div class="ex-name-tag">Brennan</div>
+      </div>
+      <div class="exchange-bubble journalist">
+        <strong>Sarah Brennan</strong>
+        For fifty years, the Vietnamese boat people crisis has been held up as either the great example of international solidarity — or the great example of international failure. Professor Nwosu, which is it?
+      </div>
+    </div>
+
+    <div class="exchange">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar er" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#0c1820"/><circle cx="26" cy="20" r="9" fill="#7a5a38"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#1a3a48"/></svg>
+        <div class="ex-name-tag">Nwosu</div>
+      </div>
+      <div class="exchange-bubble expert-r">
+        <strong>Prof. Amara Nwosu — Refugee Rights</strong>
+        It is both, at different moments. The 1979 Geneva Conference was a genuine breakthrough — the first time the international community agreed to treat Indochinese boat arrivals as prima facie refugees, entitled to protection rather than prosecution. That principle produced the Orderly Departure Programme and the Comprehensive Plan of Action of 1989, which ultimately resettled over 2.5 million Indochinese across North America, Europe, and Australia <span class="cite">Wikipedia / UNHCR</span>. That is solidarity. But the decade before Geneva? Malaysia pushing boats back to sea. Thailand towing vessels into international waters. Singapore refusing to allow disembarkation unless resettlement was guaranteed within ninety days <span class="cite">Vietnamese Museum</span>. People drowned because of those policies. That is failure. The crisis was both, and the lesson is that it tips toward solidarity only under enormous, sustained international political pressure.
+      </div>
+    </div>
+
+    <div class="exchange">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar eh" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#1a100c"/><circle cx="26" cy="20" r="9" fill="#d4a880"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#3a1818"/></svg>
+        <div class="ex-name-tag">Holloway</div>
+      </div>
+      <div class="exchange-bubble expert-h">
+        <strong>Dr. Patrick Holloway — Host Country Policy</strong>
+        I want to complicate Amara's framing slightly — not to defend the pushbacks, which were indefensible, but to understand the structural logic. By mid-1979, for every one refugee resettled from Southeast Asia, three more were arriving <span class="cite">Vietnamese Museum</span>. Host governments were not dealing with a manageable crisis — they were staring at an exponentially growing one. Thailand, Malaysia, Indonesia: none had signed the 1951 Refugee Convention. They had no legal obligation under international law. What eventually worked was not moral appeals — it was a deal. Wealthy nations said: "Give us time to process them; we'll take them off your plate." That is burden-sharing, and it is a fundamentally different argument from "it's the right thing to do." Governments respond to interests as much as ideals.
+      </div>
+    </div>
+
+    <div class="exchange">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar ec" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#100c18"/><circle cx="26" cy="20" r="9" fill="#f0d8b0"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#2a1838"/></svg>
+        <div class="ex-name-tag">Tanaka</div>
+      </div>
+      <div class="exchange-bubble expert-c">
+        <strong>Dr. Yuki Tanaka — Comparative History</strong>
+        What strikes me, historically, is the almost eerie structural similarity between 1975 and 2021. In both Vietnam and Afghanistan, the United States withdrew militarily after a failed ideological project. In both cases, a new ideological regime — communist in one, theocratic in the other — consolidated power rapidly. In both cases, those associated with the previous American-backed order faced persecution: re-education camps in Vietnam, Taliban tribunals in Afghanistan. And in both cases, a mass exodus followed — roughly two million over twenty years for Vietnam; a new Afghan wave still unfolding <span class="cite">Journal of Political Science and International Relationship, 2024</span>. The same debate recycled: "Are they genuine refugees or economic migrants?" The same answer, visible in retrospect: they were both, and the distinction was always a political weapon, not a legal one.
+      </div>
+    </div>
+
+    <div class="exchange journalist">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar j" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#1c1810"/><circle cx="26" cy="20" r="9" fill="#c8a47a"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#2c2c2c"/></svg>
+        <div class="ex-name-tag">Brennan</div>
+      </div>
+      <div class="exchange-bubble journalist">
+        <strong>Sarah Brennan</strong>
+        Dr. Tanaka — let us stay on that comparison. The language of "genuine refugee vs. economic migrant" that was used against Vietnamese boat people in the 1970s — we hear it today about Venezuelans, Afghans, Syrians. Is history simply repeating?
+      </div>
+    </div>
+
+    <div class="exchange">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar ec" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#100c18"/><circle cx="26" cy="20" r="9" fill="#f0d8b0"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#2a1838"/></svg>
+        <div class="ex-name-tag">Tanaka</div>
+      </div>
+      <div class="exchange-bubble expert-c">
+        <strong>Dr. Yuki Tanaka</strong>
+        Not simply repeating — rhyming. The specifics differ but the political grammar is identical. In May 1975, fifty-four percent of Americans opposed admitting Vietnamese refugees <span class="cite">Gallup cited in Duke Migration Memorials</span>. A decade later, those same Vietnamese-Americans were running restaurants, engineering firms, and university departments that transformed cities like San Jose, Houston, and New Orleans. By the year 2000, 1.5 million Vietnamese-Americans were woven into the fabric of American economic and civic life <span class="cite">EBSCO Research Starters</span>. The historical verdict on the "genuine refugee" question is in: they were genuine, they contributed enormously, and the fear was largely unfounded. Every generation of policy makers seems to need to relearn this lesson from scratch.
+      </div>
+    </div>
+
+    <div class="exchange">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar er" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#0c1820"/><circle cx="26" cy="20" r="9" fill="#7a5a38"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#1a3a48"/></svg>
+        <div class="ex-name-tag">Nwosu</div>
+      </div>
+      <div class="exchange-bubble expert-r">
+        <strong>Prof. Amara Nwosu</strong>
+        The rhetoric really is almost word-for-word. And I want to make the legal point clearly: under the 1951 Refugee Convention, the distinction between "political refugee" and "economic migrant" is supposed to be about the <em>nature of the persecution</em> — not the person's economic condition. A Vietnamese farmer who fled because his land was seized and he faced forced relocation to a New Economic Zone <span class="cite">Wikipedia / Indochina Refugee Crisis</span> — that is persecution. The fact that he was also poor does not make him an economic migrant. The conflation of the two has always been a policy tool, not a legal one. And today, with 42.5 million refugees globally as of mid-2025 <span class="cite">UNHCR Mid-Year Trends 2025</span>, the stakes of that conflation have never been higher.
+      </div>
+    </div>
+
+    <div class="exchange journalist">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar j" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#1c1810"/><circle cx="26" cy="20" r="9" fill="#c8a47a"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#2c2c2c"/></svg>
+        <div class="ex-name-tag">Brennan</div>
+      </div>
+      <div class="exchange-bubble journalist">
+        <strong>Sarah Brennan</strong>
+        Dr. Holloway — you've been the sceptic on this panel. Make the hard case for the host country. What are the genuine limits of generosity?
+      </div>
+    </div>
+
+    <div class="exchange">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar eh" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#1a100c"/><circle cx="26" cy="20" r="9" fill="#d4a880"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#3a1818"/></svg>
+        <div class="ex-name-tag">Holloway</div>
+      </div>
+      <div class="exchange-bubble expert-h">
+        <strong>Dr. Patrick Holloway</strong>
+        The hard case is this: integration is a public policy challenge, not just a moral gesture. The second wave of Vietnamese boat people — arriving in the late 1970s — were, as a group, less educated, less English-proficient, and arrived during an American economic recession <span class="cite">History.com</span>. Integration was slower. There were real incidents of community tension, economic competition, and anti-Vietnamese violence. It was eventually managed — but it required investment: language programmes, employment support, community infrastructure. Generosity without investment produces backlash. Today, seventy-one percent of the world's refugees are hosted by low and middle income countries <span class="cite">UNHCR Global Trends</span>. Turkey hosts 2.9 million Syrians. Uganda hosts 1.9 million Africans. These are not wealthy nations. The moral demand that they remain open borders while rich nations fund nothing and take no one is not a refugee policy — it is an abdication.
+      </div>
+    </div>
+
+    <div class="exchange">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar er" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#0c1820"/><circle cx="26" cy="20" r="9" fill="#7a5a38"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#1a3a48"/></svg>
+        <div class="ex-name-tag">Nwosu</div>
+      </div>
+      <div class="exchange-bubble expert-r">
+        <strong>Prof. Amara Nwosu — What Must Be Revived</strong>
+        Which brings me to the one Vietnamese-era policy I would most urgently revive: the Orderly Departure Programme. Instead of forcing people onto the Andaman Sea or the Mediterranean — instead of turning those waters into mass graves — the world needs legal, safe pathways for people to apply for protection from within or near their home countries. The 1979 programme eventually saved tens of thousands of lives <span class="cite">Wikipedia / Boat People</span>. Today, in-country processing for Syria, Sudan, Myanmar — it is technically feasible. It is politically abandoned. First-half 2025 resettlements are already nearly three times lower than the same period in 2024 <span class="cite">UNHCR Mid-Year 2025</span>. We are not moving forward. We are in reverse.
+      </div>
+    </div>
+
+    <div class="exchange">
+      <div class="exchange-avatar-col">
+        <svg class="ex-avatar ec" viewBox="0 0 52 52"><circle cx="26" cy="26" r="26" fill="#100c18"/><circle cx="26" cy="20" r="9" fill="#f0d8b0"/><rect x="14" y="32" width="24" height="20" rx="3" fill="#2a1838"/></svg>
+        <div class="ex-name-tag">Tanaka</div>
+      </div>
+      <div class="exchange-bubble expert-c">
+        <strong>Dr. Yuki Tanaka — Closing Statement</strong>
+        I want to end on something that matters: the former enemy. Ho Chi Minh City — Saigon — is today one of Southeast Asia's fastest-growing economies. Vietnam is among the United States' major trading partners. The country that generated one of the largest refugee crises of the twentieth century now participates in international forums on refugee protection. Former enemies become partners. Former refugees — the ones who survived, the ones we let in — built new worlds in places that feared them. The arc of history, when we choose to bend it, tends to surprise us with how well it turns out. The question for 2026 is whether we will remember that lesson or repeat the same costly amnesia.
+      </div>
+    </div>
+
+  </div><!-- /dialogue-stage -->
+
+  <div class="sources-bar">
+    <h4>Panel II Sources</h4>
+    <ul>
+      <li>UNHCR Global Trends 2024; Mid-Year Trends 2025</li>
+      <li>The Globalist — Refugee Crisis Compared: Syria Now, Vietnam Then</li>
+      <li>Journal of Political Science and International Relationship (2024) — Comparative Study of US Withdrawals</li>
+      <li>Wikipedia — Indochina Refugee Crisis; Vietnamese Boat People</li>
+      <li>History.com — Vietnam War Refugees</li>
+      <li>EBSCO Research Starters — Indo-Chinese Boat People</li>
+      <li>World Vision / UNHCR — Forced Displacement Statistics 2024</li>
+    </ul>
+  </div>
+
+</div><!-- /p2 -->
+
+
+<!-- ════════════════════════════════════════
+     COMIC STRIP
+════════════════════════════════════════ -->
+<div id="comic" class="section">
+  <div class="comic-section">
+    <div class="comic-header">
+      <h2>The Journey of a Thousand Miles</h2>
+      <p>A six-panel comic strip following the Nguyen family — Saigon, 1978–1979</p>
+    </div>
+
+    <div class="comic-grid">
+
+      <!-- Panel 1: Saigon Falls -->
+      <div class="comic-panel">
+        <span class="comic-num">1</span>
+        <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+          <!-- Sky - dark/dramatic -->
+          <rect width="320" height="220" fill="#d4c4a0"/>
+          <rect width="320" height="100" fill="#8a6040"/>
+          <!-- Sun setting -->
+          <circle cx="260" cy="60" r="35" fill="#e8904a" opacity=".8"/>
+          <!-- Buildings silhouette -->
+          <rect x="10" y="100" width="40" height="120" fill="#2a2010"/>
+          <rect x="20" y="90" width="20" height="15" fill="#2a2010"/>
+          <rect x="60" y="80" width="55" height="140" fill="#2a2010"/>
+          <rect x="68" y="70" width="12" height="15" fill="#2a2010"/>
+          <rect x="120" y="110" width="30" height="110" fill="#2a2010"/>
+          <rect x="160" y="85" width="70" height="135" fill="#2a2010"/>
+          <rect x="240" y="105" width="50" height="115" fill="#2a2010"/>
+          <rect x="255" y="90" width="20" height="20" fill="#2a2010"/>
+          <!-- Flag on building (communist red) -->
+          <rect x="70" y="45" width="3" height="30" fill="#666"/>
+          <rect x="73" y="45" width="20" height="13" fill="#cc2222"/>
+          <polygon points="81,51 79,48 81,45 83,48" fill="#f8d000" transform="scale(.8) translate(14 6)"/>
+          <!-- Family silhouette in foreground -->
+          <ellipse cx="155" cy="190" rx="12" ry="15" fill="#1a1408"/>
+          <circle cx="155" cy="172" r="8" fill="#1a1408"/>
+          <ellipse cx="130" cy="195" rx="9" ry="12" fill="#1a1408"/>
+          <circle cx="130" cy="180" r="7" fill="#1a1408"/>
+          <ellipse cx="178" cy="193" rx="8" ry="11" fill="#1a1408"/>
+          <circle cx="178" cy="179" r="6" fill="#1a1408"/>
+          <!-- Caption area -->
+          <rect width="320" height="30" y="190" fill="#111" opacity=".7"/>
+          <text x="160" y="210" font-family="monospace" font-size="10" fill="#f2e8d4" text-anchor="middle">April 30, 1975. Saigon falls.</text>
+        </svg>
+        <div class="comic-caption">SAIGON, 1975. The red flag rises over the Presidential Palace. The Nguyen family watches from their rooftop — teachers, not soldiers — knowing what comes next.</div>
+      </div>
+
+      <!-- Panel 2: Re-education Camp -->
+      <div class="comic-panel">
+        <span class="comic-num">2</span>
+        <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background - bleak grey -->
+          <rect width="320" height="220" fill="#c8c0a8"/>
+          <!-- Guard tower -->
+          <rect x="240" y="30" width="50" height="120" fill="#6a6050"/>
+          <rect x="235" y="60" width="60" height="50" fill="#5a5040"/>
+          <rect x="255" y="20" width="10" height="45" fill="#6a6050"/>
+          <!-- Barbed wire fence -->
+          <line x1="0" y1="140" x2="320" y2="140" stroke="#888" stroke-width="2"/>
+          <line x1="0" y1="148" x2="320" y2="148" stroke="#888" stroke-width="2"/>
+          <!-- Barbs -->
+          <g stroke="#888" stroke-width="1">
+            <line x1="30" y1="136" x2="25" y2="144"/>
+            <line x1="30" y1="136" x2="35" y2="144"/>
+            <line x1="70" y1="136" x2="65" y2="144"/>
+            <line x1="70" y1="136" x2="75" y2="144"/>
+            <line x1="110" y1="136" x2="105" y2="144"/>
+            <line x1="110" y1="136" x2="115" y2="144"/>
+            <line x1="150" y1="136" x2="145" y2="144"/>
+            <line x1="150" y1="136" x2="155" y2="144"/>
+            <line x1="190" y1="136" x2="185" y2="144"/>
+            <line x1="190" y1="136" x2="195" y2="144"/>
+          </g>
+          <!-- Father figure behind fence -->
+          <ellipse cx="100" cy="175" rx="15" ry="20" fill="#4a3a28"/>
+          <circle cx="100" cy="153" r="11" fill="#c8a060"/>
+          <rect x="88" y="155" width="24" height="5" rx="2" fill="#5a4030"/>
+          <!-- Uniform number -->
+          <rect x="90" y="162" width="20" height="12" rx="1" fill="#8a6040"/>
+          <text x="100" y="172" font-family="monospace" font-size="7" fill="#fff" text-anchor="middle">A-247</text>
+          <!-- Thought bubble -->
+          <circle cx="125" cy="135" r="3" fill="#fff" opacity=".7"/>
+          <circle cx="133" cy="126" r="4" fill="#fff" opacity=".7"/>
+          <ellipse cx="148" cy="112" rx="18" ry="12" fill="#fff" opacity=".8"/>
+          <!-- Family inside thought bubble -->
+          <circle cx="143" cy="110" r="4" fill="#cc9966"/>
+          <circle cx="153" cy="110" r="3" fill="#cc9966"/>
+          <text x="160" y="80" font-family="serif" font-size="9" fill="#1a1408" opacity=".5">家</text>
+          <!-- Guard -->
+          <rect x="220" y="150" width="20" height="35" fill="#4a5a3a"/>
+          <circle cx="230" cy="147" r="8" fill="#9a8060"/>
+          <!-- Red star on cap -->
+          <rect x="225" y="138" width="10" height="5" fill="#3a4a2a"/>
+          <polygon points="230,137 231,139 233,139 232,141 233,143 230,141 227,143 228,141 227,139 229,139" fill="#cc2222" transform="scale(.7) translate(98 57)"/>
+        </svg>
+        <div class="comic-caption">1976–1978. Bà Xã's father, once a teacher, is assigned prisoner number A-247 in a "re-education camp." Three years of forced labour. His family cannot visit.</div>
+      </div>
+
+      <!-- Panel 3: Boarding the Boat -->
+      <div class="comic-panel">
+        <span class="comic-num">3</span>
+        <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+          <!-- Night sky -->
+          <rect width="320" height="220" fill="#0a0c18"/>
+          <!-- Stars -->
+          <circle cx="30" cy="20" r="1" fill="#fff" opacity=".8"/>
+          <circle cx="80" cy="35" r="1.5" fill="#fff" opacity=".6"/>
+          <circle cx="150" cy="15" r="1" fill="#fff" opacity=".9"/>
+          <circle cx="200" cy="40" r="1" fill="#fff" opacity=".5"/>
+          <circle cx="260" cy="25" r="1.5" fill="#fff" opacity=".7"/>
+          <circle cx="295" cy="50" r="1" fill="#fff" opacity=".8"/>
+          <circle cx="50" cy="60" r="1" fill="#fff" opacity=".4"/>
+          <circle cx="120" cy="55" r="1" fill="#fff" opacity=".6"/>
+          <!-- Moon -->
+          <circle cx="270" cy="40" r="18" fill="#f0e8c0" opacity=".4"/>
+          <circle cx="278" cy="36" r="15" fill="#0a0c18"/>
+          <!-- Water -->
+          <rect x="0" y="150" width="320" height="70" fill="#0c1828"/>
+          <path d="M0 155 Q40 150 80 155 Q120 160 160 155 Q200 150 240 155 Q280 160 320 155 L320 220 L0 220 Z" fill="#0a1420"/>
+          <!-- Boat -->
+          <ellipse cx="160" cy="160" rx="100" ry="20" fill="#3a2010"/>
+          <path d="M60 160 Q70 145 75 140 L245 140 Q250 145 260 160 Z" fill="#4a2c14"/>
+          <!-- People on boat - silhouettes -->
+          <g fill="#111">
+            <circle cx="90" cy="140" r="6"/>
+            <rect x="84" y="144" width="12" height="8"/>
+            <circle cx="110" cy="140" r="5"/>
+            <rect x="105" y="144" width="10" height="8"/>
+            <circle cx="128" cy="138" r="7"/>
+            <rect x="121" y="144" width="14" height="8"/>
+            <circle cx="150" cy="138" r="6"/>
+            <rect x="144" y="144" width="12" height="8"/>
+            <circle cx="170" cy="140" r="5"/>
+            <rect x="165" y="144" width="10" height="8"/>
+            <circle cx="188" cy="139" r="6"/>
+            <rect x="182" y="144" width="12" height="8"/>
+            <circle cx="208" cy="141" r="5"/>
+            <rect x="203" y="144" width="10" height="8"/>
+            <circle cx="226" cy="140" r="6"/>
+            <rect x="220" y="144" width="12" height="8"/>
+          </g>
+          <!-- Small child -->
+          <circle cx="148" cy="141" r="4" fill="#c49a60"/>
+          <!-- Whisper text -->
+          <text x="160" y="110" font-family="serif" font-style="italic" font-size="11" fill="#f2e8d4" text-anchor="middle" opacity=".7">"Do not make a sound."</text>
+        </svg>
+        <div class="comic-caption">SEPTEMBER 1979, 2 A.M. The Nguyen family boards a fishing boat with 200 strangers in darkness. They have paid their life savings in gold. Linh, age 7, is told not to cry.</div>
+      </div>
+
+      <!-- Panel 4: Pirates -->
+      <div class="comic-panel">
+        <span class="comic-num">4</span>
+        <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+          <!-- Stormy sky -->
+          <rect width="320" height="220" fill="#1a1428"/>
+          <ellipse cx="100" cy="50" rx="80" ry="40" fill="#2a2038"/>
+          <ellipse cx="220" cy="40" rx="90" ry="35" fill="#252035"/>
+          <!-- Lightning -->
+          <polyline points="180,0 170,50 185,50 165,110" stroke="#e8d800" stroke-width="2" fill="none" opacity=".7"/>
+          <!-- Waves - agitated -->
+          <path d="M0 130 Q20 115 40 130 Q60 145 80 130 Q100 115 120 130 Q140 145 160 130 Q180 115 200 130 Q220 145 240 130 Q260 115 280 130 Q300 145 320 130 L320 220 L0 220 Z" fill="#0c1830"/>
+          <!-- Pirate boat -->
+          <ellipse cx="50" cy="160" rx="45" ry="12" fill="#2a1a08"/>
+          <path d="M10 160 Q15 148 20 145 L80 145 Q85 148 90 160 Z" fill="#3a2010"/>
+          <rect x="45" y="100" width="3" height="48" fill="#5a3a18"/>
+          <!-- Skull flag -->
+          <rect x="48" y="95" width="18" height="12" fill="#111"/>
+          <circle cx="57" cy="100" r="4" fill="#eee"/>
+          <text x="57" y="103" font-family="monospace" font-size="7" fill="#111" text-anchor="middle">☠</text>
+          <!-- Pirate figures -->
+          <rect x="28" y="148" width="10" height="14" fill="#1a1a2a"/>
+          <circle cx="33" cy="144" r="5" fill="#9a7050"/>
+          <rect x="46" y="148" width="10" height="14" fill="#1a1a2a"/>
+          <circle cx="51" cy="144" r="5" fill="#9a7050"/>
+          <!-- Gun raised -->
+          <line x1="55" y1="144" x2="80" y2="130" stroke="#888" stroke-width="2"/>
+          <!-- Main refugee boat on right -->
+          <ellipse cx="230" cy="170" rx="80" ry="15" fill="#3a2010"/>
+          <!-- Crowd silhouettes -->
+          <g fill="#1a1408">
+            <circle cx="170" cy="160" r="5"/>
+            <circle cx="185" cy="158" r="5"/>
+            <circle cx="200" cy="157" r="5"/>
+            <circle cx="215" cy="156" r="4"/>
+            <circle cx="228" cy="158" r="5"/>
+            <circle cx="242" cy="157" r="5"/>
+            <circle cx="256" cy="159" r="4"/>
+            <circle cx="270" cy="160" r="5"/>
+            <circle cx="283" cy="158" r="4"/>
+          </g>
+          <!-- Hands raised in fear -->
+          <line x1="200" y1="152" x2="196" y2="140" stroke="#9a7050" stroke-width="2"/>
+          <line x1="200" y1="152" x2="204" y2="140" stroke="#9a7050" stroke-width="2"/>
+          <!-- Red text warning -->
+          <text x="160" y="30" font-family="serif" font-weight="bold" font-size="14" fill="#cc2222" text-anchor="middle" opacity=".8">DAY 2 — THE PIRATES CAME</text>
+        </svg>
+        <div class="comic-caption">DAY 2. Thai pirates board the vessel. They take gold, food, and the dignity of those who resist. Two men are thrown overboard. Linh's four-year-old sister does not survive what follows.</div>
+      </div>
+
+      <!-- Panel 5: Rescue -->
+      <div class="comic-panel">
+        <span class="comic-num">5</span>
+        <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+          <!-- Dawn sky - orange-blue gradient -->
+          <defs>
+            <linearGradient id="dawnsky" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#4a6080"/>
+              <stop offset="60%" stop-color="#c06828"/>
+              <stop offset="100%" stop-color="#e8b050"/>
+            </linearGradient>
+          </defs>
+          <rect width="320" height="220" fill="url(#dawnsky)"/>
+          <!-- Sea -->
+          <rect x="0" y="140" width="320" height="80" fill="#1a3048"/>
+          <!-- Sun rising -->
+          <circle cx="160" cy="142" r="28" fill="#f8d070" opacity=".7"/>
+          <!-- Coast guard vessel - large, official -->
+          <rect x="50" y="100" width="220" height="60" rx="5" fill="#3a5a3a"/>
+          <rect x="80" y="80" width="40" height="30" rx="3" fill="#4a6a4a"/>
+          <rect x="140" y="75" width="8" height="35" fill="#5a5a5a"/>
+          <!-- Malaysian flag on vessel -->
+          <rect x="148" y="72" width="20" height="12" fill="#cc2222"/>
+          <path d="M148 72 L148 84 L158 78 Z" fill="#fff"/>
+          <!-- Crescent on flag -->
+          <circle cx="165" cy="76" r="4" fill="#f8d000" opacity=".8"/>
+          <!-- UNHCR text on hull -->
+          <text x="160" y="135" font-family="monospace" font-size="11" fill="#c0e0ff" text-anchor="middle" font-weight="bold">UNHCR</text>
+          <!-- Refugee boat alongside -->
+          <ellipse cx="160" cy="175" rx="100" ry="13" fill="#3a2010"/>
+          <!-- People reaching up -->
+          <g fill="#c8a060">
+            <circle cx="120" cy="165" r="5"/>
+            <line x1="120" y1="162" x2="115" y2="148" stroke="#c8a060" stroke-width="2"/>
+            <line x1="120" y1="162" x2="125" y2="148" stroke="#c8a060" stroke-width="2"/>
+            <circle cx="145" cy="163" r="5"/>
+            <line x1="145" y1="160" x2="140" y2="146" stroke="#c8a060" stroke-width="2"/>
+            <circle cx="165" cy="162" r="5"/>
+            <line x1="165" y1="159" x2="162" y2="145" stroke="#c8a060" stroke-width="2"/>
+            <circle cx="185" cy="163" r="5"/>
+            <circle cx="205" cy="165" r="4"/>
+          </g>
+          <!-- Rope being thrown -->
+          <path d="M160 130 Q140 150 135 165" stroke="#f8d070" stroke-width="2" fill="none" stroke-dasharray="3,3"/>
+          <!-- Child Linh -->
+          <circle cx="155" cy="163" r="4" fill="#d4a574"/>
+          <line x1="155" y1="160" x2="152" y2="150" stroke="#d4a574" stroke-width="1.5"/>
+          <!-- Searchlight beam -->
+          <path d="M160 95 L100 175 L220 175 Z" fill="#f8f0d0" opacity=".08"/>
+          <text x="160" y="55" font-family="serif" font-style="italic" font-size="12" fill="#f8e8c8" text-anchor="middle">Day 11. A light on the horizon.</text>
+        </svg>
+        <div class="comic-caption">DAY 11. A Malaysian coast guard vessel appears at dawn. The UNHCR flag. Ropes are thrown. Linh, seven years old, is pulled aboard. She will spend four months in a camp on Pulau Bidong.</div>
+      </div>
+
+      <!-- Panel 6: America / New Life -->
+      <div class="comic-panel">
+        <span class="comic-num">6</span>
+        <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
+          <!-- Blue sky - hopeful -->
+          <rect width="320" height="220" fill="#c8dff0"/>
+          <!-- Clouds -->
+          <ellipse cx="60" cy="35" rx="50" ry="22" fill="#fff" opacity=".8"/>
+          <ellipse cx="250" cy="45" rx="55" ry="20" fill="#fff" opacity=".7"/>
+          <!-- American city skyline - simple -->
+          <rect x="0" y="120" width="30" height="100" fill="#8a9aaa"/>
+          <rect x="35" y="90" width="45" height="130" fill="#9aaaba"/>
+          <rect x="85" y="110" width="25" height="110" fill="#8a9aaa"/>
+          <rect x="115" y="80" width="60" height="140" fill="#b0bec8"/>
+          <rect x="180" y="100" width="40" height="120" fill="#9aaaba"/>
+          <rect x="225" y="85" width="55" height="135" fill="#a0b0c0"/>
+          <rect x="285" y="110" width="35" height="110" fill="#8a9aaa"/>
+          <!-- Windows (lit up) -->
+          <g fill="#f8e890" opacity=".7">
+            <rect x="42" y="95" width="4" height="5"/><rect x="50" y="95" width="4" height="5"/>
+            <rect x="42" y="108" width="4" height="5"/><rect x="58" y="108" width="4" height="5"/>
+            <rect x="122" y="88" width="5" height="6"/><rect x="132" y="88" width="5" height="6"/>
+            <rect x="145" y="95" width="5" height="6"/><rect x="160" y="95" width="5" height="6"/>
+            <rect x="232" y="92" width="5" height="6"/><rect x="245" y="92" width="5" height="6"/>
+          </g>
+          <!-- Green ground / park -->
+          <rect x="0" y="185" width="320" height="35" fill="#6a8a5a"/>
+          <!-- Adult Linh with family -->
+          <ellipse cx="155" cy="182" rx="12" ry="16" fill="#4a6898"/>
+          <circle cx="155" cy="163" r="10" fill="#d4a574"/>
+          <!-- Graduation cap or graduation scroll -->
+          <rect x="148" y="157" width="14" height="4" rx="1" fill="#1a1a2a"/>
+          <line x1="155" y1="157" x2="155" y2="152" stroke="#1a1a2a" stroke-width="1.5"/>
+          <circle cx="155" cy="151" r="2" fill="#c49a2a"/>
+          <!-- Husband/partner -->
+          <ellipse cx="174" cy="183" rx="11" ry="15" fill="#5a7898"/>
+          <circle cx="174" cy="165" r="9" fill="#c8a060"/>
+          <!-- Child -->
+          <ellipse cx="138" cy="186" rx="8" ry="12" fill="#4888b8"/>
+          <circle cx="138" cy="172" r="7" fill="#d4b070"/>
+          <!-- Small Vietnamese restaurant sign in background -->
+          <rect x="60" y="165" width="50" height="25" fill="#cc2222"/>
+          <text x="85" y="181" font-family="serif" font-size="9" fill="#f8d000" text-anchor="middle">PHỞ LINH</text>
+          <!-- Diploma in hand -->
+          <rect x="155" y="175" width="18" height="12" rx="1" fill="#f8f0d0" stroke="#c49a2a" stroke-width="1"/>
+          <text x="164" y="183" font-family="serif" font-size="5" fill="#8a6020" text-anchor="middle">PhD</text>
+          <!-- Sun -->
+          <circle cx="270" cy="30" r="22" fill="#f8d050" opacity=".7"/>
+          <text x="160" y="210" font-family="serif" font-style="italic" font-size="10" fill="#f8f0e0" text-anchor="middle">San Jose, California — 2005</text>
+        </svg>
+        <div class="comic-caption">SAN JOSE, 2005. Dr. Linh Nguyen, PhD in Public Policy, stands outside the restaurant her parents built. She carries their story into every refugee advocacy room she enters.</div>
+      </div>
+
+    </div><!-- /comic-grid -->
+
+    <div style="text-align:center;margin-top:28px;padding:0 20px;">
+      <p style="font-family:'Crimson Text',serif;font-style:italic;font-size:16px;color:var(--muted);max-width:600px;margin:0 auto;">
+        The comic follows a composite family based on documented testimonies from the UNHCR oral history archive, the Association for Diplomatic Studies and Training (ADST), and <em>Becoming Refugee American</em> by Phuong Tran Nguyen.
+      </p>
+    </div>
+  </div>
+</div><!-- /comic -->
+
+
+<!-- ════════════════════════════════════════
+     POSTER GALLERY
+════════════════════════════════════════ -->
+<div id="posters" class="section">
+  <div class="poster-section">
+    <div class="poster-header">
+      <h2>The Poster Gallery</h2>
+      <p>Three vintage-documentary posters — history as visual witness</p>
+    </div>
+
+    <div class="poster-grid">
+
+      <!-- Poster 1: NOWHERE TO GO -->
+      <div>
+        <div class="poster-wrap">
+          <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="pg1sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0a0c20"/>
+                <stop offset="100%" stop-color="#1a2840"/>
+              </linearGradient>
+              <linearGradient id="pg1sea" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0c1830"/>
+                <stop offset="100%" stop-color="#050810"/>
+              </linearGradient>
+            </defs>
+            <!-- Background -->
+            <rect width="300" height="400" fill="url(#pg1sky)"/>
+            <!-- Stars scattered -->
+            <g fill="#fff" opacity=".5">
+              <circle cx="20" cy="25" r="1"/><circle cx="55" cy="15" r="1.2"/>
+              <circle cx="90" cy="30" r="1"/><circle cx="130" cy="12" r="1.3"/>
+              <circle cx="170" cy="28" r="1"/><circle cx="210" cy="18" r="1.2"/>
+              <circle cx="250" cy="35" r="1"/><circle cx="280" cy="20" r="1.4"/>
+              <circle cx="40" cy="55" r="1"/><circle cx="110" cy="65" r="1.2"/>
+              <circle cx="190" cy="60" r="1"/><circle cx="270" cy="55" r="1.1"/>
+            </g>
+            <!-- Moon -->
+            <circle cx="240" cy="60" r="30" fill="#f0e8c0" opacity=".15"/>
+            <circle cx="250" cy="54" r="25" fill="#0a0c20"/>
+            <!-- Sea -->
+            <rect x="0" y="230" width="300" height="170" fill="url(#pg1sea)"/>
+            <!-- Waves -->
+            <path d="M0 235 Q25 225 50 235 Q75 245 100 235 Q125 225 150 235 Q175 245 200 235 Q225 225 250 235 Q275 245 300 235 L300 245 Q275 235 250 245 Q225 255 200 245 Q175 235 150 245 Q125 255 100 245 Q75 235 50 245 Q25 255 0 245 Z" fill="#0a1428" opacity=".8"/>
+            <!-- Overloaded boat -->
+            <ellipse cx="150" cy="250" rx="120" ry="18" fill="#2a1808"/>
+            <path d="M30 250 Q35 232 40 228 L260 228 Q265 232 270 250 Z" fill="#3a2010"/>
+            <!-- Mass of silhouetted people -->
+            <g fill="#0d0d0d">
+              <circle cx="60" cy="230" r="7"/><rect x="53" y="235" width="14" height="16"/>
+              <circle cx="80" cy="228" r="6"/><rect x="74" y="233" width="12" height="15"/>
+              <circle cx="100" cy="226" r="8"/><rect x="92" y="232" width="16" height="18"/>
+              <circle cx="120" cy="227" r="7"/><rect x="113" y="233" width="14" height="16"/>
+              <circle cx="140" cy="225" r="7"/><rect x="133" y="231" width="14" height="18"/>
+              <circle cx="160" cy="226" r="8"/><rect x="152" y="232" width="16" height="18"/>
+              <circle cx="180" cy="228" r="7"/><rect x="173" y="234" width="14" height="16"/>
+              <circle cx="200" cy="229" r="6"/><rect x="194" y="234" width="12" height="15"/>
+              <circle cx="218" cy="228" r="7"/><rect x="211" y="234" width="14" height="16"/>
+              <circle cx="235" cy="230" r="6"/><rect x="229" y="235" width="12" height="15"/>
+              <!-- Second row -->
+              <circle cx="75" cy="218" r="5"/><circle cx="110" cy="215" r="5"/>
+              <circle cx="145" cy="214" r="6"/><circle cx="175" cy="215" r="5"/>
+              <circle cx="205" cy="217" r="5"/>
+            </g>
+            <!-- Title text -->
+            <rect x="0" y="0" width="300" height="60" fill="rgba(0,0,0,.4)"/>
+            <text x="150" y="30" font-family="Georgia,serif" font-size="28" font-weight="bold" fill="#cc2222" text-anchor="middle" letter-spacing="2">NOWHERE</text>
+            <text x="150" y="52" font-family="Georgia,serif" font-size="18" fill="#f2e8d4" text-anchor="middle" letter-spacing="6">TO GO</text>
+            <!-- Bottom text -->
+            <rect x="0" y="300" width="300" height="100" fill="rgba(0,0,0,.6)"/>
+            <text x="150" y="325" font-family="monospace" font-size="9" fill="#8a9aaa" text-anchor="middle">SOUTH CHINA SEA</text>
+            <text x="150" y="340" font-family="monospace" font-size="8" fill="#6a7a8a" text-anchor="middle">1978 — 1989</text>
+            <line x1="30" y1="350" x2="270" y2="350" stroke="#cc2222" stroke-width="1" opacity=".5"/>
+            <text x="150" y="365" font-family="Georgia,serif" font-style="italic" font-size="9" fill="#c8b898" text-anchor="middle">Between 200,000 and 250,000 died at sea</text>
+            <text x="150" y="378" font-family="monospace" font-size="8" fill="#6a7a8a" text-anchor="middle">— UNHCR Estimate —</text>
+            <!-- Border decoration -->
+            <rect x="6" y="6" width="288" height="388" fill="none" stroke="#cc2222" stroke-width="1" opacity=".3"/>
+            <rect x="10" y="10" width="280" height="380" fill="none" stroke="#c49a2a" stroke-width=".5" opacity=".2"/>
+          </svg>
+        </div>
+        <div class="poster-label">Poster I — "Nowhere to Go" — The Open Sea, 1978–1989</div>
+      </div>
+
+      <!-- Poster 2: THEY FLED FOR FREEDOM -->
+      <div>
+        <div class="poster-wrap">
+          <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="pg2bg" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#8b1a1a"/>
+                <stop offset="100%" stop-color="#4a0a0a"/>
+              </linearGradient>
+            </defs>
+            <!-- Red background -->
+            <rect width="300" height="400" fill="url(#pg2bg)"/>
+            <!-- Aged paper texture simulation -->
+            <rect width="300" height="400" fill="#f2e8d4" opacity=".04"/>
+            <!-- Horizontal stripes (propaganda style) -->
+            <g opacity=".08">
+              <rect x="0" y="0" width="300" height="4" fill="#fff"/>
+              <rect x="0" y="8" width="300" height="4" fill="#fff"/>
+              <rect x="0" y="16" width="300" height="4" fill="#fff"/>
+            </g>
+            <!-- Star burst background -->
+            <g stroke="#f8d000" stroke-width=".5" opacity=".15">
+              <line x1="150" y1="130" x2="150" y2="30"/>
+              <line x1="150" y1="130" x2="220" y2="60"/>
+              <line x1="150" y1="130" x2="250" y2="130"/>
+              <line x1="150" y1="130" x2="220" y2="200"/>
+              <line x1="150" y1="130" x2="150" y2="230"/>
+              <line x1="150" y1="130" x2="80" y2="200"/>
+              <line x1="150" y1="130" x2="50" y2="130"/>
+              <line x1="150" y1="130" x2="80" y2="60"/>
+            </g>
+            <!-- Central figure: family escaping -->
+            <!-- Father carrying child -->
+            <ellipse cx="150" cy="175" rx="22" ry="32" fill="#c8a060"/>
+            <circle cx="150" cy="140" r="18" fill="#c8a060"/>
+            <!-- Head detail -->
+            <ellipse cx="150" cy="135" rx="14" ry="12" fill="#b8904a"/>
+            <!-- Child on shoulder -->
+            <circle cx="165" cy="132" r="9" fill="#d4b070"/>
+            <ellipse cx="165" cy="140" rx="7" ry="9" fill="#d4b070"/>
+            <!-- Arms outstretched (reaching for freedom) -->
+            <path d="M128 158 Q110 145 95 140" stroke="#c8a060" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <path d="M172 158 Q190 145 205 140" stroke="#c8a060" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <!-- Mother figure beside -->
+            <ellipse cx="120" cy="180" rx="15" ry="25" fill="#b89050"/>
+            <circle cx="120" cy="153" r="12" fill="#b89050"/>
+            <!-- Silhouette of homeland behind them (fading) -->
+            <g opacity=".2" fill="#1a0808">
+              <rect x="20" y="160" width="20" height="80"/>
+              <rect x="45" y="150" width="30" height="90"/>
+              <rect x="80" y="170" width="15" height="70"/>
+            </g>
+            <!-- Text: Title -->
+            <text x="150" y="42" font-family="Georgia,serif" font-size="13" font-weight="bold" fill="#f8d000" text-anchor="middle" letter-spacing="3">THEY FLED</text>
+            <text x="150" y="62" font-family="Georgia,serif" font-size="22" font-weight="bold" fill="#f2e8d4" text-anchor="middle">FOR FREEDOM</text>
+            <line x1="40" y1="70" x2="260" y2="70" stroke="#f8d000" stroke-width="1"/>
+            <line x1="40" y1="73" x2="260" y2="73" stroke="#f8d000" stroke-width=".5"/>
+            <!-- Sub dates -->
+            <text x="150" y="88" font-family="monospace" font-size="10" fill="#c8a898" text-anchor="middle">APRIL 30, 1975 — THE FALL OF SAIGON</text>
+            <!-- Bottom stats -->
+            <rect x="0" y="270" width="300" height="130" fill="rgba(0,0,0,.4)"/>
+            <text x="150" y="295" font-family="Georgia,serif" font-size="12" fill="#f8d000" text-anchor="middle">800,000</text>
+            <text x="150" y="312" font-family="monospace" font-size="9" fill="#c8b898" text-anchor="middle">ARRIVED SAFELY  •  1975–1995</text>
+            <line x1="60" y1="320" x2="240" y2="320" stroke="#f8d000" stroke-width=".5" opacity=".5"/>
+            <text x="150" y="337" font-family="Georgia,serif" font-size="12" fill="#f8d000" text-anchor="middle">1.5 MILLION</text>
+            <text x="150" y="353" font-family="monospace" font-size="9" fill="#c8b898" text-anchor="middle">VIETNAMESE-AMERICANS  TODAY</text>
+            <line x1="60" y1="360" x2="240" y2="360" stroke="#f8d000" stroke-width=".5" opacity=".5"/>
+            <text x="150" y="380" font-family="Georgia,serif" font-style="italic" font-size="9" fill="#9a8888" text-anchor="middle">Sources: UNHCR · EBSCO Research · History.com</text>
+            <!-- Border -->
+            <rect x="8" y="8" width="284" height="384" fill="none" stroke="#f8d000" stroke-width="1.5" opacity=".4"/>
+          </svg>
+        </div>
+        <div class="poster-label">Poster II — "They Fled for Freedom" — The Human Cost</div>
+      </div>
+
+      <!-- Poster 3: THEN AND NOW -->
+      <div>
+        <div class="poster-wrap">
+          <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="pg3bg" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0d1420"/>
+                <stop offset="100%" stop-color="#1a2030"/>
+              </linearGradient>
+              <linearGradient id="leftcol" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#3a1a0a"/>
+                <stop offset="100%" stop-color="#2a1005"/>
+              </linearGradient>
+              <linearGradient id="rightcol" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#0a1a2a"/>
+                <stop offset="100%" stop-color="#061020"/>
+              </linearGradient>
+            </defs>
+            <rect width="300" height="400" fill="url(#pg3bg)"/>
+            <!-- Header band -->
+            <rect x="0" y="0" width="300" height="55" fill="rgba(0,0,0,.5)"/>
+            <text x="150" y="28" font-family="Georgia,serif" font-size="20" font-weight="bold" fill="#f2e8d4" text-anchor="middle" letter-spacing="3">THEN &amp; NOW</text>
+            <text x="150" y="47" font-family="monospace" font-size="9" fill="#8a9ab0" text-anchor="middle">THE REFUGEE CRISIS DOES NOT END</text>
+            <!-- Dividing line -->
+            <line x1="150" y1="55" x2="150" y2="290" stroke="#c49a2a" stroke-width="1" opacity=".6" stroke-dasharray="4,4"/>
+            <!-- LEFT COLUMN: THEN -->
+            <rect x="0" y="55" width="150" height="235" fill="url(#leftcol)" opacity=".8"/>
+            <text x="75" y="80" font-family="Georgia,serif" font-size="13" font-weight="bold" fill="#e8904a" text-anchor="middle">VIETNAM 1975</text>
+            <!-- Boat silhouette -->
+            <ellipse cx="75" cy="140" rx="60" ry="10" fill="#3a2010"/>
+            <path d="M15 140 Q20 128 25 125 L125 125 Q130 128 135 140 Z" fill="#4a2810"/>
+            <!-- People on boat (tiny silhouettes) -->
+            <g fill="#0a0a0a">
+              <circle cx="35" cy="127" r="4"/><circle cx="50" cy="125" r="4"/>
+              <circle cx="65" cy="124" r="4"/><circle cx="80" cy="124" r="4"/>
+              <circle cx="95" cy="125" r="4"/><circle cx="110" cy="126" r="4"/>
+            </g>
+            <!-- Stats left -->
+            <text x="75" y="175" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="#c49a2a" text-anchor="middle">~2M</text>
+            <text x="75" y="190" font-family="monospace" font-size="8" fill="#9a8a70" text-anchor="middle">fled Vietnam</text>
+            <text x="75" y="210" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="#cc2222" text-anchor="middle">250K</text>
+            <text x="75" y="225" font-family="monospace" font-size="8" fill="#9a8a70" text-anchor="middle">died at sea</text>
+            <text x="75" y="245" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="#c49a2a" text-anchor="middle">1.5M</text>
+            <text x="75" y="260" font-family="monospace" font-size="8" fill="#9a8a70" text-anchor="middle">resettled in US by 2000</text>
+            <!-- RIGHT COLUMN: NOW -->
+            <rect x="150" y="55" width="150" height="235" fill="url(#rightcol)" opacity=".8"/>
+            <text x="225" y="80" font-family="Georgia,serif" font-size="13" font-weight="bold" fill="#6a9fa8" text-anchor="middle">WORLD 2024</text>
+            <!-- Globe / Earth suggestion -->
+            <circle cx="225" cy="130" r="28" fill="none" stroke="#6a9fa8" stroke-width="1" opacity=".5"/>
+            <ellipse cx="225" cy="130" rx="10" ry="28" fill="none" stroke="#6a9fa8" stroke-width=".7" opacity=".3"/>
+            <ellipse cx="225" cy="130" rx="28" ry="10" fill="none" stroke="#6a9fa8" stroke-width=".7" opacity=".3"/>
+            <!-- Dots representing crisis zones -->
+            <circle cx="220" cy="118" r="3" fill="#cc2222" opacity=".8"/>
+            <circle cx="232" cy="115" r="2.5" fill="#cc8822" opacity=".8"/>
+            <circle cx="215" cy="135" r="2" fill="#cc2222" opacity=".6"/>
+            <circle cx="238" cy="128" r="2.5" fill="#cc4422" opacity=".7"/>
+            <circle cx="225" cy="145" r="2" fill="#cc2222" opacity=".6"/>
+            <!-- Stats right -->
+            <text x="225" y="175" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="#6a9fa8" text-anchor="middle">123.2M</text>
+            <text x="225" y="190" font-family="monospace" font-size="8" fill="#7a8a9a" text-anchor="middle">forcibly displaced (2024)</text>
+            <text x="225" y="210" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="#cc2222" text-anchor="middle">71%</text>
+            <text x="225" y="225" font-family="monospace" font-size="8" fill="#7a8a9a" text-anchor="middle">in low-income host nations</text>
+            <text x="225" y="245" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="#a07cb8" text-anchor="middle">3×</text>
+            <text x="225" y="260" font-family="monospace" font-size="8" fill="#7a8a9a" text-anchor="middle">fewer resettlements in H1 2025</text>
+            <!-- Bottom call to action -->
+            <rect x="0" y="290" width="300" height="110" fill="rgba(0,0,0,.6)"/>
+            <line x1="30" y1="305" x2="270" y2="305" stroke="#c49a2a" stroke-width="1" opacity=".5"/>
+            <text x="150" y="325" font-family="Georgia,serif" font-style="italic" font-size="11" fill="#f2e8d4" text-anchor="middle">"No nation can carry this alone."</text>
+            <text x="150" y="342" font-family="monospace" font-size="8.5" fill="#8a9ab0" text-anchor="middle">— Datuk Haris Yusof, former Malaysian</text>
+            <text x="150" y="355" font-family="monospace" font-size="8.5" fill="#8a9ab0" text-anchor="middle">Ministry of Home Affairs</text>
+            <line x1="30" y1="363" x2="270" y2="363" stroke="#c49a2a" stroke-width="1" opacity=".5"/>
+            <text x="150" y="378" font-family="monospace" font-size="7.5" fill="#6a7a8a" text-anchor="middle">Sources: UNHCR Global Trends 2024 · Mid-Year 2025</text>
+            <text x="150" y="391" font-family="monospace" font-size="7.5" fill="#6a7a8a" text-anchor="middle">The Globalist · World Vision · Wikipedia</text>
+            <!-- Border -->
+            <rect x="5" y="5" width="290" height="390" fill="none" stroke="#c49a2a" stroke-width="1" opacity=".3"/>
+          </svg>
+        </div>
+        <div class="poster-label">Poster III — "Then &amp; Now" — Vietnam 1975 vs. The World 2024</div>
+      </div>
+
+    </div><!-- /poster-grid -->
+  </div>
+
+  <div class="sources-bar">
+    <h4>Poster &amp; Comic Sources</h4>
+    <ul>
+      <li>UNHCR Global Trends 2024</li>
+      <li>UNHCR Mid-Year Trends 2025</li>
+      <li>Wikipedia — Vietnamese Boat People</li>
+      <li>History.com — Vietnam War Refugees</li>
+      <li>ADST — The Vietnamese Boat People (oral histories)</li>
+      <li>Phuong Tran Nguyen — <em>Becoming Refugee American</em></li>
+      <li>EBSCO Research Starters</li>
+      <li>The Globalist — Syria Now, Vietnam Then</li>
+    </ul>
+  </div>
+
+</div><!-- /posters -->
+
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  WORLD AFFAIRS REVIEW &nbsp;·&nbsp; SPECIAL EDITION &nbsp;·&nbsp; VIETNAMESE REFUGEE CRISIS 1975–PRESENT &nbsp;·&nbsp; ALL DIALOGUES ARE HISTORICAL COMPOSITES GROUNDED IN DOCUMENTED RECORD
+</footer>
+
+<script>
+  function show(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    // Match button
+    const labels = { p1: 0, p2: 1, comic: 2, posters: 3 };
+    document.querySelectorAll('nav button')[labels[id]].classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+</script>
+
+</body>
+</html>
