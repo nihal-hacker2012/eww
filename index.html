@@ -3,2011 +3,1593 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vietnam Refugees & America — Grade 10 Panel Discussion</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,600;1,8..60,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<title>From Boat People to Border Crossings</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-/* ═══════════════════════════════════════════
-   ROOT VARIABLES — Americana / Archival theme
-═══════════════════════════════════════════ */
-:root {
-  --navy:    #0d1f35;
-  --navy2:   #162b47;
-  --red:     #b91c1c;
-  --red2:    #dc2626;
-  --gold:    #c9952a;
-  --gold2:   #f0c45a;
-  --cream:   #fdf6e3;
-  --paper:   #f5ead0;
-  --tan:     #e8d8b0;
-  --muted:   #7a6c58;
-  --ink:     #1a140a;
-  --white:   #fffef8;
-  --green:   #2d6a4f;
-  --steel:   #4a6680;
-}
- 
-* { margin:0; padding:0; box-sizing:border-box; }
- 
-body {
-  font-family: 'Source Serif 4', Georgia, serif;
-  background: var(--navy);
-  color: var(--cream);
-  font-size: 17px;
-  line-height: 1.75;
-  overflow-x: hidden;
-}
- 
-/* ─── MASTHEAD ─── */
-.masthead {
-  background: var(--navy);
-  border-bottom: 4px solid var(--gold);
-  padding: 0;
-  position: relative;
-  overflow: hidden;
-}
-.masthead-stars {
-  position: absolute; top: 0; left: 0; right: 0; bottom: 0;
-  background-image:
-    radial-gradient(circle, rgba(255,255,255,.6) 1px, transparent 1px),
-    radial-gradient(circle, rgba(255,255,255,.4) 1px, transparent 1px),
-    radial-gradient(circle, rgba(255,255,255,.3) 1.5px, transparent 1.5px);
-  background-size: 80px 80px, 120px 120px, 200px 200px;
-  background-position: 0 0, 40px 40px, 20px 60px;
-  opacity: .15;
-  pointer-events: none;
-}
-.masthead-inner {
-  position: relative; z-index: 1;
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  padding: 28px 40px;
-  gap: 20px;
-}
-.masthead-left {
-  text-align: left;
-}
-.masthead-flag {
-  width: 70px; height: 46px;
-  display: block; margin-bottom: 8px;
-}
-.masthead-grade {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--gold);
-}
-.masthead-center {
-  text-align: center;
-}
-.masthead-center h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(26px, 5vw, 60px);
-  font-weight: 900;
-  line-height: 0.95;
-  color: var(--white);
-  letter-spacing: -1px;
-}
-.masthead-center h1 em {
-  color: var(--gold2);
-  font-style: italic;
-}
-.masthead-center h1 span {
-  color: var(--red2);
-}
-.masthead-sub {
-  font-style: italic;
-  font-size: 15px;
-  color: #a0b8cc;
-  margin-top: 10px;
-}
-.masthead-right {
-  text-align: right;
-}
-.masthead-right p {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 2px;
-  color: var(--gold);
-  margin-bottom: 4px;
-}
-.masthead-right big {
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  color: var(--white);
-  display: block;
-}
-.masthead-bar {
-  background: var(--red);
-  text-align: center;
-  padding: 8px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px;
-  letter-spacing: 3px;
-  color: #fff;
-  text-transform: uppercase;
-}
- 
-/* ─── NAV ─── */
-nav {
-  background: var(--navy2);
-  border-bottom: 2px solid var(--gold);
-  display: flex;
-  justify-content: center;
-  gap: 0;
-  position: sticky; top: 0; z-index: 200;
-  flex-wrap: wrap;
-  box-shadow: 0 4px 20px rgba(0,0,0,.5);
-}
-.nav-btn {
-  background: none; border: none;
-  color: #a0b8cc;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; letter-spacing: 2px;
-  text-transform: uppercase;
-  padding: 14px 22px;
-  cursor: pointer;
-  border-right: 1px solid rgba(255,255,255,.08);
-  transition: all .2s;
-  display: flex; align-items: center; gap: 8px;
-  white-space: nowrap;
-}
-.nav-btn:hover { color: var(--gold2); background: rgba(201,149,42,.1); }
-.nav-btn.active { color: var(--navy); background: var(--gold); font-weight: 700; }
-.nav-btn .nav-num {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 20px; height: 20px; border-radius: 50%;
-  background: rgba(255,255,255,.15);
-  font-size: 10px;
-}
-.nav-btn.active .nav-num { background: rgba(0,0,0,.2); }
- 
-/* ─── SECTIONS ─── */
-.section { display: none; animation: fadeIn .3s ease; }
-.section.active { display: block; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
- 
-/* ─── PANEL INTRO BANNER ─── */
-.panel-banner {
-  background: linear-gradient(135deg, var(--navy2) 0%, #0a1828 100%);
-  border-bottom: 3px solid var(--gold);
-  padding: 44px 40px 36px;
-  position: relative; overflow: hidden;
-}
-.panel-banner::after {
-  content: '';
-  position: absolute; right: 0; top: 0; bottom: 0; width: 6px;
-  background: linear-gradient(to bottom, var(--red), var(--gold), var(--red));
-}
-.panel-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px; letter-spacing: 5px; text-transform: uppercase;
-  color: var(--red2); margin-bottom: 10px;
-}
-.panel-banner h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(24px, 4vw, 46px);
-  line-height: 1.1; margin-bottom: 14px;
-  color: var(--white);
-}
-.panel-banner p {
-  max-width: 760px; font-size: 16px; color: #b0c4d8; line-height: 1.8;
-}
- 
-/* ─── STAT BAR ─── */
-.stat-strip {
-  display: flex; flex-wrap: wrap;
-  background: var(--red);
-  border-bottom: 2px solid var(--gold);
-}
-.stat-tile {
-  flex: 1; min-width: 140px;
-  padding: 18px 24px;
-  border-right: 1px solid rgba(255,255,255,.15);
-  text-align: center;
-}
-.stat-tile:last-child { border-right: none; }
-.stat-num {
-  font-family: 'Playfair Display', serif;
-  font-size: 30px; font-weight: 900; color: var(--gold2);
-  line-height: 1;
-}
-.stat-lbl {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 9px; letter-spacing: 1px; text-transform: uppercase;
-  color: rgba(255,255,255,.8); margin-top: 4px;
-}
- 
-/* ─── CAST GRID ─── */
-.cast-section {
-  background: #0a1525;
-  border-bottom: 2px solid rgba(255,255,255,.08);
-}
-.cast-header {
-  padding: 24px 40px 16px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px; letter-spacing: 5px; text-transform: uppercase;
-  color: var(--gold);
-  border-bottom: 1px solid rgba(255,255,255,.08);
-}
-.cast-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-}
-.cast-card {
-  padding: 28px 28px;
-  border-right: 1px solid rgba(255,255,255,.06);
-  border-bottom: 1px solid rgba(255,255,255,.06);
-  transition: background .2s;
-  cursor: default;
-}
-.cast-card:hover { background: rgba(255,255,255,.03); }
-.cast-tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 9px; letter-spacing: 3px; text-transform: uppercase;
-  margin-bottom: 14px;
-}
-.cast-tag.t-ref  { color: var(--gold2); }
-.cast-tag.t-us   { color: #6abfff; }
-.cast-tag.t-viet { color: var(--red2); }
-.cast-tag.t-jour { color: #c0c0c0; }
-.cast-tag.t-cong { color: #90d090; }
- 
-/* Avatar SVG wrapper */
-.av-wrap { width: 72px; height: 72px; border-radius: 50%; overflow: hidden; margin-bottom: 14px; }
- 
-.cast-name {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px; font-weight: 700; margin-bottom: 4px; color: var(--white);
-}
-.cast-role { font-style: italic; font-size: 13px; color: var(--muted); margin-bottom: 10px; }
-.cast-bio { font-size: 14px; color: #9ab0c8; line-height: 1.65; }
- 
-/* ─── DIALOGUE STAGE ─── */
-.stage {
-  background: #070f1a;
-  padding: 48px 20px;
-}
-.stage-title {
-  text-align: center;
-  font-family: 'Playfair Display', serif;
-  font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 44px;
-}
- 
-.exchange {
-  max-width: 860px; margin: 0 auto 32px;
-  display: flex; gap: 18px; align-items: flex-start;
-}
-.exchange.center-j { justify-content: center; }
- 
-.ex-av-col {
-  flex-shrink: 0; width: 64px; text-align: center;
-}
-.ex-av {
-  width: 50px; height: 50px; border-radius: 50%;
-  border: 2px solid; margin: 0 auto 5px; display: block;
-  overflow: hidden;
-}
-.ex-av.j  { border-color: #c0c0c0; }
-.ex-av.r  { border-color: var(--gold2); }
-.ex-av.us { border-color: #6abfff; }
-.ex-av.v  { border-color: var(--red2); }
-.ex-av.cg { border-color: #90d090; }
- 
-.ex-tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 8px; letter-spacing: 1px; text-transform: uppercase;
-  color: var(--muted); white-space: nowrap; overflow: hidden;
-  text-overflow: ellipsis; max-width: 64px;
-}
- 
-.bubble {
-  flex: 1; padding: 20px 24px; font-size: 16px; line-height: 1.78;
-  border-radius: 2px; position: relative;
-}
-.bubble strong {
-  display: block; font-family: 'JetBrains Mono', monospace;
-  font-size: 10px; letter-spacing: 2px; text-transform: uppercase;
-  margin-bottom: 10px;
-}
-.bubble.j-bub  { background: rgba(255,255,255,.04); border-left: 3px solid #c0c0c0; font-style: italic; }
-.bubble.j-bub strong { color: #c0c0c0; }
-.bubble.r-bub  { background: rgba(201,149,42,.08); border-left: 3px solid var(--gold); }
-.bubble.r-bub strong { color: var(--gold2); }
-.bubble.us-bub { background: rgba(106,191,255,.07); border-left: 3px solid #6abfff; }
-.bubble.us-bub strong { color: #6abfff; }
-.bubble.v-bub  { background: rgba(185,28,28,.09); border-left: 3px solid var(--red2); }
-.bubble.v-bub strong { color: var(--red2); }
-.bubble.cg-bub { background: rgba(144,208,144,.07); border-left: 3px solid #90d090; }
-.bubble.cg-bub strong { color: #90d090; }
- 
-/* Emotion label */
-.emotion {
-  display: inline-block;
-  margin-left: 8px; padding: 1px 6px;
-  border-radius: 2px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 9px; letter-spacing: 1px; text-transform: uppercase;
-  vertical-align: middle;
-}
-.em-sad  { background: rgba(100,150,200,.2); color: #8ab8e0; }
-.em-ang  { background: rgba(200,50,50,.2);   color: #e08080; }
-.em-firm { background: rgba(100,180,100,.2); color: #80d080; }
-.em-quest{ background: rgba(200,160,50,.2);  color: var(--gold2); }
- 
-/* linked comic / poster badge */
-.link-badge {
-  display: inline-flex; align-items: center; gap: 5px;
-  background: var(--gold);
-  color: var(--ink);
-  border-radius: 3px;
-  padding: 2px 10px 2px 7px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 9px; letter-spacing: 1px; text-transform: uppercase;
-  cursor: pointer; font-weight: 700;
-  transition: background .15s;
-  white-space: nowrap;
-}
-.link-badge:hover { background: var(--gold2); }
-.link-badge .arrow { font-size: 11px; }
- 
-.cite {
-  display: inline-block;
-  background: rgba(201,149,42,.12);
-  border: 1px solid rgba(201,149,42,.3);
-  padding: 0 5px; border-radius: 2px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px; color: var(--gold); margin-left: 3px;
-  vertical-align: middle;
-}
-.pause-bar {
-  text-align: center; padding: 20px 0;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; letter-spacing: 4px; color: #334455;
-  max-width: 860px; margin: 0 auto 32px;
-  border-top: 1px dashed #1a2a3a; border-bottom: 1px dashed #1a2a3a;
-}
- 
-/* ─── REAL PHOTO SECTION ─── */
-.photo-grid-section {
-  background: var(--ink);
-  padding: 40px;
-  border-top: 2px solid rgba(255,255,255,.08);
-  border-bottom: 2px solid rgba(255,255,255,.08);
-}
-.photo-grid-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px; letter-spacing: 4px; text-transform: uppercase;
-  color: var(--gold); margin-bottom: 24px;
-}
-.photo-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 12px; max-width: 1000px;
-}
-.photo-wrap img {
-  width: 100%; height: 180px; object-fit: cover; display: block;
-  filter: sepia(.2) contrast(1.05);
-}
-.photo-cap {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px; color: var(--muted); padding: 7px 4px;
-  line-height: 1.5;
-}
- 
-/* ─── COMIC STRIP ─── */
-.comic-section {
-  background: var(--paper); color: var(--ink); padding: 48px 24px;
-}
-.comic-header { text-align: center; margin-bottom: 36px; }
-.comic-header h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(26px,5vw,48px); margin-bottom: 8px;
-}
-.comic-header p { font-style: italic; color: var(--muted); font-size: 16px; }
-.comic-link-note {
-  display: inline-flex; align-items: center; gap: 8px;
-  background: var(--red); color: #fff;
-  padding: 6px 16px; border-radius: 3px;
-  font-family: 'JetBrains Mono', monospace; font-size: 10px;
-  letter-spacing: 2px; text-transform: uppercase; margin-top: 12px;
-}
- 
-.comic-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3px; max-width: 980px; margin: 0 auto;
-  background: var(--ink);
-}
-@media (max-width: 640px) { .comic-grid { grid-template-columns: 1fr 1fr; } }
- 
-.comic-panel {
-  background: #fffff0; position: relative; overflow: hidden;
-}
-.comic-panel svg { display: block; width: 100%; }
-.panel-num {
-  position: absolute; top: 5px; left: 7px;
-  font-family: 'Playfair Display', serif;
-  font-size: 32px; font-weight: 900;
-  color: rgba(0,0,0,.07); line-height: 1;
-  pointer-events: none;
-}
-.comic-cap {
-  background: var(--ink); color: #e8d8c0;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px; padding: 8px 10px; line-height: 1.55;
-}
-.comic-link-btn {
-  display: flex; align-items: center; justify-content: space-between;
-  background: var(--navy2); color: var(--gold2);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 9px; letter-spacing: 1px; text-transform: uppercase;
-  padding: 6px 10px; cursor: pointer; border: none;
-  width: 100%; text-align: left;
-  transition: background .15s;
-}
-.comic-link-btn:hover { background: var(--red); color: #fff; }
- 
-/* ─── POSTER GALLERY ─── */
-.poster-section { background: var(--navy); padding: 50px 24px; }
-.poster-header { text-align: center; margin-bottom: 40px; }
-.poster-header h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(24px,5vw,44px); color: var(--white); margin-bottom: 8px;
-}
-.poster-header p { color: #8090a0; font-style: italic; font-size: 16px; }
-.poster-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px; max-width: 1020px; margin: 0 auto;
-}
-.poster-item { position: relative; }
-.poster-item svg { width: 100%; display: block; }
-.poster-lbl {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px; color: var(--muted);
-  text-align: center; margin-top: 8px; letter-spacing: 2px; text-transform: uppercase;
-}
-.poster-link-badge {
-  display: flex; align-items: center; justify-content: center; gap: 6px;
-  background: rgba(201,149,42,.15); border: 1px solid rgba(201,149,42,.3);
-  color: var(--gold2);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 9px; letter-spacing: 2px; text-transform: uppercase;
-  padding: 6px; margin-top: 6px; cursor: pointer; border-radius: 2px;
-  transition: background .15s;
-}
-.poster-link-badge:hover { background: rgba(201,149,42,.3); }
- 
-/* ─── GLOSSARY BOX ─── */
-.glossary {
-  background: #0a1a2a;
-  border-top: 3px solid var(--gold);
-  padding: 40px;
-}
-.glossary h3 {
-  font-family: 'Playfair Display', serif; font-size: 24px;
-  color: var(--gold2); margin-bottom: 20px;
-}
-.gloss-grid {
-  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 16px;
-}
-.gloss-item {
-  background: rgba(255,255,255,.04);
-  border-left: 3px solid var(--gold);
-  padding: 14px 16px;
-}
-.gloss-term {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px; letter-spacing: 1px; text-transform: uppercase;
-  color: var(--gold2); margin-bottom: 5px;
-}
-.gloss-def { font-size: 14px; color: #9ab0c8; line-height: 1.6; }
- 
-/* ─── DISCUSSION QUESTIONS ─── */
-.questions {
-  background: var(--red);
-  padding: 40px;
-}
-.questions h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 26px; color: #fff; margin-bottom: 22px;
-}
-.q-list { list-style: none; }
-.q-list li {
-  display: flex; gap: 16px; align-items: flex-start;
-  margin-bottom: 18px; padding-bottom: 18px;
-  border-bottom: 1px solid rgba(255,255,255,.15);
-}
-.q-list li:last-child { border-bottom: none; margin-bottom: 0; }
-.q-num {
-  flex-shrink: 0;
-  font-family: 'Playfair Display', serif;
-  font-size: 32px; font-weight: 900; color: rgba(255,255,255,.3); line-height: 1;
-}
-.q-text { font-size: 16px; color: rgba(255,255,255,.9); line-height: 1.7; padding-top: 6px; }
- 
-/* ─── SOURCES ─── */
-.sources {
-  background: var(--paper); color: var(--ink);
-  padding: 28px 40px;
-  border-top: 3px double var(--ink);
-}
-.sources h4 {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--muted); margin-bottom: 12px;
-}
-.sources ul {
-  list-style: none; display: flex; flex-wrap: wrap; gap: 4px 24px;
-  font-size: 13px; color: #5a4a30;
-  font-family: 'JetBrains Mono', monospace;
-}
-.sources li::before { content: '— '; color: var(--red); }
- 
-/* ─── FOOTER ─── */
-footer {
-  background: var(--ink); color: #3a4050;
-  text-align: center; padding: 20px;
-  font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 2px;
-}
- 
-/* ─── MODAL ─── */
-.modal-overlay {
-  display: none; position: fixed; inset: 0;
-  background: rgba(0,0,0,.85); z-index: 9999;
-  justify-content: center; align-items: center; padding: 20px;
-}
-.modal-overlay.open { display: flex; }
-.modal-box {
-  background: var(--paper); max-width: 680px; width: 100%;
-  max-height: 90vh; overflow-y: auto;
-  border: 3px solid var(--ink); position: relative;
-}
-.modal-close {
-  position: absolute; top: 12px; right: 14px;
-  background: var(--red); color: #fff; border: none;
-  font-size: 18px; cursor: pointer; width: 30px; height: 30px;
-  display: flex; align-items: center; justify-content: center;
-  font-family: monospace;
-}
-.modal-content { padding: 36px 32px; color: var(--ink); }
-.modal-content h3 {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px; margin-bottom: 6px;
-}
-.modal-content .modal-type {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 10px; letter-spacing: 3px; text-transform: uppercase;
-  color: var(--red); margin-bottom: 16px;
-}
-.modal-content svg { width: 100%; display: block; margin: 20px 0; }
-.modal-content p { font-size: 15px; line-height: 1.75; margin-bottom: 12px; color: #3a2a10; }
-.modal-content .quote-link {
-  background: var(--navy2); color: var(--gold2);
-  padding: 12px 16px; font-size: 14px; font-style: italic;
-  border-left: 3px solid var(--gold);
-  margin: 16px 0;
-}
-.modal-back-btn {
-  display: inline-flex; align-items: center; gap: 6px;
-  background: var(--navy); color: var(--gold2);
-  border: none; padding: 10px 18px; cursor: pointer;
-  font-family: 'JetBrains Mono', monospace; font-size: 10px;
-  letter-spacing: 2px; text-transform: uppercase; margin-top: 8px;
-}
-.modal-back-btn:hover { background: var(--red); color: #fff; }
- 
-@media (max-width: 700px) {
-  .masthead-inner { grid-template-columns: 1fr; text-align: center; }
-  .masthead-left, .masthead-right { display: none; }
-  .exchange { flex-direction: column; }
-  .ex-av-col { width: 100%; display: flex; align-items: center; gap: 10px; }
-  .ex-av { margin: 0; }
-  nav { justify-content: flex-start; overflow-x: auto; }
-  .panel-banner, .cast-card, .photo-grid-section, .glossary, .questions, .sources { padding-left: 20px; padding-right: 20px; }
-}
+  :root {
+    --gold: #D4A853;
+    --gold-light: #F0D48A;
+    --dark: #0F0F0F;
+    --dark-card: #1A1A1A;
+    --red-accent: #C0392B;
+    --blue-accent: #2471A3;
+    --teal: #1ABC9C;
+    --warm-white: #FAF3E0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #000;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .slide {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+  }
+
+  .slide.active {
+    display: flex;
+    opacity: 1;
+  }
+
+  .font-display { font-family: 'Playfair Display', serif; }
+  .font-mono { font-family: 'JetBrains Mono', monospace; }
+
+  /* Slide 1 - Title */
+  .slide-1 {
+    background: linear-gradient(135deg, #0a0a0a 0%, #1a0a00 30%, #0a1628 70%, #000 100%);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .slide-1::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: radial-gradient(ellipse at 30% 50%, rgba(212,168,83,0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 70% 30%, rgba(36,113,163,0.06) 0%, transparent 50%);
+    animation: floatBg 20s ease-in-out infinite;
+  }
+
+  @keyframes floatBg {
+    0%, 100% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(-2%, 2%) rotate(1deg); }
+  }
+
+  .slide-1 .title-line {
+    width: 120px; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 20px auto;
+  }
+
+  .gold-text { color: var(--gold); }
+  .gold-text-light { color: var(--gold-light); }
+
+  /* Slide 2 - Causes */
+  .slide-2 {
+    background: linear-gradient(160deg, #0a0a0a, #1a1005, #0a0a0a);
+    flex-direction: row;
+    padding: 40px 60px;
+    gap: 40px;
+  }
+
+  .cause-card {
+    background: linear-gradient(145deg, rgba(26,26,26,0.9), rgba(15,15,15,0.95));
+    border: 1px solid rgba(212,168,83,0.15);
+    border-radius: 16px;
+    padding: 28px;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cause-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--blue-accent));
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .cause-card:hover::before { opacity: 1; }
+
+  /* Dialogue boxes */
+  .dialogue {
+    background: rgba(26,26,26,0.8);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 12px 12px 0;
+    padding: 16px 20px;
+    margin: 12px 0;
+    font-style: italic;
+    position: relative;
+  }
+
+  .dialogue .speaker {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+
+  /* Slide backgrounds */
+  .slide-dark {
+    background: linear-gradient(160deg, #0a0a0a 0%, #0d1117 50%, #0a0a0a 100%);
+  }
+
+  .slide-warm {
+    background: linear-gradient(160deg, #0a0a0a, #140e05, #0a0a0a);
+  }
+
+  /* Stat box */
+  .stat-box {
+    background: linear-gradient(145deg, rgba(212,168,83,0.1), rgba(212,168,83,0.02));
+    border: 1px solid rgba(212,168,83,0.2);
+    border-radius: 16px;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  /* Timeline */
+  .timeline-item {
+    position: relative;
+    padding-left: 32px;
+    padding-bottom: 24px;
+    border-left: 2px solid rgba(212,168,83,0.3);
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -6px; top: 4px;
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow: 0 0 12px rgba(212,168,83,0.5);
+  }
+
+  /* Perspective cards */
+  .perspective-card {
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+
+  .perspective-card:hover { transform: translateY(-4px); }
+
+  /* Accomplishment card */
+  .accomplishment-card {
+    background: linear-gradient(145deg, rgba(26,26,26,0.95), rgba(15,15,15,0.9));
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.3s;
+  }
+
+  .accomplishment-card:hover {
+    border-color: rgba(212,168,83,0.3);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+
+  /* Navigation */
+  .nav-controls {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 100;
+    background: rgba(10,10,10,0.8);
+    backdrop-filter: blur(12px);
+    padding: 10px 20px;
+    border-radius: 50px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .nav-btn {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.05);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-size: 14px;
+  }
+
+  .nav-btn:hover {
+    background: var(--gold);
+    color: #000;
+    border-color: var(--gold);
+  }
+
+  .slide-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .dot.active {
+    background: var(--gold);
+    width: 24px;
+    border-radius: 4px;
+  }
+
+  .slide-counter {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    min-width: 40px;
+    text-align: center;
+  }
+
+  /* Progress bar */
+  .progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--gold), var(--blue-accent));
+    z-index: 100;
+    transition: width 0.4s ease;
+  }
+
+  /* Image overlays */
+  .img-overlay {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .img-overlay img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7) contrast(1.1);
+    transition: all 0.5s;
+  }
+
+  .img-overlay:hover img {
+    filter: brightness(0.85) contrast(1.05);
+    transform: scale(1.03);
+  }
+
+  .img-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 12px 16px;
+    background: linear-gradient(transparent, rgba(0,0,0,0.85));
+    font-size: 11px;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* Chart container */
+  .chart-container {
+    background: rgba(20,20,20,0.8);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 16px;
+    padding: 20px;
+  }
+
+  /* Scrollable content */
+  .slide-content {
+    overflow-y: auto;
+    max-height: calc(100vh - 80px);
+    padding-right: 8px;
+  }
+
+  .slide-content::-webkit-scrollbar { width: 3px; }
+  .slide-content::-webkit-scrollbar-track { background: transparent; }
+  .slide-content::-webkit-scrollbar-thumb { background: rgba(212,168,83,0.3); border-radius: 3px; }
+
+  /* Animations */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInLeft {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(212,168,83,0.1); }
+    50% { box-shadow: 0 0 40px rgba(212,168,83,0.2); }
+  }
+
+  .animate-in { animation: fadeInUp 0.7s ease forwards; }
+  .animate-left { animation: fadeInLeft 0.7s ease forwards; }
+  .animate-right { animation: fadeInRight 0.7s ease forwards; }
+
+  .delay-1 { animation-delay: 0.15s; opacity: 0; }
+  .delay-2 { animation-delay: 0.3s; opacity: 0; }
+  .delay-3 { animation-delay: 0.45s; opacity: 0; }
+  .delay-4 { animation-delay: 0.6s; opacity: 0; }
+  .delay-5 { animation-delay: 0.75s; opacity: 0; }
+
+  /* Comparison table */
+  .compare-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .compare-table th {
+    background: rgba(212,168,83,0.15);
+    padding: 12px 16px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    text-align: left;
+    border-bottom: 1px solid rgba(212,168,83,0.2);
+  }
+
+  .compare-table td {
+    padding: 10px 16px;
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .compare-table tr:hover td {
+    background: rgba(255,255,255,0.02);
+  }
+
+  /* Badge */
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .badge-gold { background: rgba(212,168,83,0.15); color: var(--gold); }
+  .badge-blue { background: rgba(36,113,163,0.15); color: #5DADE2; }
+  .badge-red { background: rgba(192,57,43,0.15); color: #E74C3C; }
+  .badge-green { background: rgba(26,188,156,0.15); color: var(--teal); }
+
+  /* RQ highlight */
+  .rq-box {
+    background: linear-gradient(135deg, rgba(212,168,83,0.08), rgba(36,113,163,0.05));
+    border: 1px solid rgba(212,168,83,0.2);
+    border-radius: 12px;
+    padding: 20px 24px;
+    position: relative;
+  }
+
+  .rq-box::before {
+    content: 'RQ';
+    position: absolute;
+    top: -10px; left: 16px;
+    background: var(--gold);
+    color: #000;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 10px;
+    border-radius: 4px;
+    letter-spacing: 0.1em;
+  }
+
+  /* Particle effect for title */
+  .particle {
+    position: absolute;
+    width: 2px; height: 2px;
+    background: var(--gold);
+    border-radius: 50%;
+    opacity: 0;
+    animation: particleFloat 8s infinite;
+  }
+
+  @keyframes particleFloat {
+    0% { opacity: 0; transform: translateY(0) scale(0); }
+    10% { opacity: 0.6; }
+    90% { opacity: 0; }
+    100% { opacity: 0; transform: translateY(-200px) scale(1); }
+  }
+
+  /* Effect tag */
+  .effect-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 500;
+  }
+
+  .effect-negative {
+    background: rgba(192,57,43,0.1);
+    border: 1px solid rgba(192,57,43,0.2);
+    color: #E74C3C;
+  }
+
+  .effect-positive {
+    background: rgba(26,188,156,0.1);
+    border: 1px solid rgba(26,188,156,0.2);
+    color: var(--teal);
+  }
+
+  /* Floating images decoration */
+  .float-img {
+    position: absolute;
+    border-radius: 12px;
+    overflow: hidden;
+    opacity: 0.25;
+    filter: grayscale(80%);
+  }
+
+  .slide-label {
+    position: absolute;
+    top: 20px; left: 24px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: rgba(255,255,255,0.2);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .subsection-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
 </style>
 </head>
 <body>
- 
-<!-- ═══════════════ MASTHEAD ═══════════════ -->
-<header class="masthead">
-  <div class="masthead-stars"></div>
-  <div class="masthead-inner">
-    <!-- US Flag SVG -->
-    <div class="masthead-left">
-      <svg class="masthead-flag" viewBox="0 0 70 46" xmlns="http://www.w3.org/2000/svg">
-        <rect width="70" height="46" fill="#B22234"/>
-        <rect y="3.5" width="70" height="3.5" fill="#fff"/>
-        <rect y="10.5" width="70" height="3.5" fill="#fff"/>
-        <rect y="17.5" width="70" height="3.5" fill="#fff"/>
-        <rect y="24.5" width="70" height="3.5" fill="#fff"/>
-        <rect y="31.5" width="70" height="3.5" fill="#fff"/>
-        <rect y="38.5" width="70" height="3.5" fill="#fff"/>
-        <rect width="28" height="24.5" fill="#3C3B6E"/>
-        <g fill="#fff" font-size="3.5" font-family="serif" text-anchor="middle">
-          <text x="4" y="5">★</text><text x="10" y="5">★</text><text x="16" y="5">★</text><text x="22" y="5">★</text>
-          <text x="7" y="9">★</text><text x="13" y="9">★</text><text x="19" y="9">★</text>
-          <text x="4" y="13">★</text><text x="10" y="13">★</text><text x="16" y="13">★</text><text x="22" y="13">★</text>
-          <text x="7" y="17">★</text><text x="13" y="17">★</text><text x="19" y="17">★</text>
-          <text x="4" y="21">★</text><text x="10" y="21">★</text><text x="16" y="21">★</text><text x="22" y="21">★</text>
-        </g>
-      </svg>
-      <div class="masthead-grade">Grade 10 History &amp; Social Studies</div>
+
+<!-- Progress Bar -->
+<div class="progress-bar" id="progressBar" style="width: 10%"></div>
+
+<!-- ===================== SLIDE 1: TITLE ===================== -->
+<div class="slide slide-1 active" id="slide-1">
+  <!-- Particles -->
+  <div id="particles"></div>
+
+  <div style="position: relative; z-index: 2; max-width: 900px; padding: 0 40px;">
+    <div class="animate-in" style="margin-bottom: 16px;">
+      <span class="badge badge-gold" style="font-size: 11px;">Research Presentation</span>
     </div>
- 
-    <div class="masthead-center">
-      <h1>AMERICA &amp; THE<br><em>VIETNAMESE</em> <span>REFUGEES</span></h1>
-      <div class="masthead-sub">A Full Panel Discussion — 1975 to the Present</div>
-    </div>
- 
-    <div class="masthead-right">
-      <p>Topic</p>
-      <big>Vietnam War · Refugees · US Policy</big>
-      <p style="margin-top:12px">Key Year</p>
-      <big>1975 – Today</big>
-    </div>
-  </div>
-  <div class="masthead-bar">
-    April 30, 1975 · Fall of Saigon · 130,000 Evacuated · 800,000 Boat People · America's Biggest Refugee Bet Ever
-  </div>
-</header>
- 
-<!-- ═══════════════ NAV ═══════════════ -->
-<nav>
-  <button class="nav-btn active" onclick="show('panel')"><span class="nav-num">1</span> The Panel</button>
-  <button class="nav-btn" onclick="show('photos')"><span class="nav-num">2</span> Photo Evidence</button>
-  <button class="nav-btn" onclick="show('comic')"><span class="nav-num">3</span> Comic Strip</button>
-  <button class="nav-btn" onclick="show('posters')"><span class="nav-num">4</span> Poster Gallery</button>
-  <button class="nav-btn" onclick="show('learn')"><span class="nav-num">5</span> Learn More</button>
-</nav>
- 
-<!-- ══════════════════════════════════════════════
-     SECTION 1: THE PANEL DISCUSSION
-══════════════════════════════════════════════ -->
-<div id="panel" class="section active">
- 
-  <!-- Banner -->
-  <div class="panel-banner">
-    <div class="panel-label">Panel Discussion — USA as Host Country</div>
-    <h2>Did America Do the Right Thing?<br>The Debate Over Vietnamese Refugees</h2>
-    <p>
-      It is 1979. A journalist hosts a panel bringing together four very different Americans — a refugee herself, a U.S. government official, a Congressman who opposed the programme, and a Vietnamese communist diplomat. They debate whether America made the right call letting in thousands of strangers from a war America helped start — and what it means for the world today.
+
+    <h1 class="font-display animate-in delay-1" style="font-size: clamp(32px, 5vw, 60px); font-weight: 900; line-height: 1.1; color: #fff; margin-bottom: 8px;">
+      From Boat People<br>to <span class="gold-text">Border Crossings</span>
+    </h1>
+
+    <div class="title-line animate-in delay-2"></div>
+
+    <p class="animate-in delay-2" style="font-size: clamp(14px, 1.8vw, 18px); color: rgba(255,255,255,0.5); max-width: 650px; margin: 0 auto 32px; line-height: 1.7;">
+      A comparative study of Vietnamese War refugees and today's global refugee crisis
     </p>
-  </div>
- 
-  <!-- Stats -->
-  <div class="stat-strip">
-    <div class="stat-tile">
-      <div class="stat-num">130,000</div>
-      <div class="stat-lbl">Vietnamese evacuated to USA — 1975</div>
+
+    <div class="rq-box animate-in delay-3" style="text-align: left; margin-bottom: 24px;">
+      <p style="font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.7; font-weight: 500;">
+        <i class="fas fa-quote-left gold-text" style="font-size: 12px; margin-right: 6px;"></i>
+        How do the refugee experiences of the Vietnamese War compare with today's global refugee crisis, and what can we learn from their journeys of resilience and contribution?
+      </p>
     </div>
-    <div class="stat-tile">
-      <div class="stat-num">$455M</div>
-      <div class="stat-lbl">Congress approved for resettlement</div>
+
+    <div class="animate-in delay-4" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 32px;">
+      <span class="badge badge-blue"><i class="fas fa-ship" style="margin-right: 4px;"></i> Vietnamese Exodus</span>
+      <span class="badge badge-red"><i class="fas fa-globe" style="margin-right: 4px;"></i> Modern Crisis</span>
+      <span class="badge badge-green"><i class="fas fa-chart-line" style="margin-right: 4px;"></i> Data Comparison</span>
+      <span class="badge badge-gold"><i class="fas fa-trophy" style="margin-right: 4px;"></i> Accomplishments</span>
     </div>
-    <div class="stat-tile">
-      <div class="stat-num">54%</div>
-      <div class="stat-lbl">Americans OPPOSED taking refugees (1975 Gallup)</div>
-    </div>
-    <div class="stat-tile">
-      <div class="stat-num">1M+</div>
-      <div class="stat-lbl">Vietnamese-Americans by 1992</div>
-    </div>
-    <div class="stat-tile">
-      <div class="stat-num">2M</div>
-      <div class="stat-lbl">Fled Vietnam in total 1975–1995</div>
-    </div>
-  </div>
- 
-  <!-- Cast Cards -->
-  <div class="cast-section">
-    <div class="cast-header">— Meet the Panellists —</div>
-    <div class="cast-grid">
- 
-      <!-- Journalist -->
-      <div class="cast-card">
-        <div class="cast-tag t-jour">Moderator / Journalist</div>
-        <div class="av-wrap">
-          <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-            <rect width="72" height="72" fill="#1a2030"/>
-            <circle cx="36" cy="28" r="15" fill="#d4a878"/>
-            <ellipse cx="36" cy="22" rx="13" ry="9" fill="#5a3a1a"/>
-            <circle cx="31" cy="28" r="2" fill="#2a1a08"/>
-            <circle cx="41" cy="28" r="2" fill="#2a1a08"/>
-            <path d="M33 33 Q36 36 39 33" stroke="#9a6040" stroke-width="1.3" fill="none"/>
-            <rect x="18" y="48" width="36" height="24" rx="3" fill="#2a3040"/>
-            <rect x="22" y="48" width="28" height="9" fill="#3a4050"/>
-            <rect x="30" y="55" width="12" height="2" fill="#c49a2a" opacity=".5"/>
-            <text x="36" y="70" font-family="sans-serif" font-size="7" fill="#8090a0" text-anchor="middle">PRESS</text>
-          </svg>
-        </div>
-        <div class="cast-name">Margaret Chen</div>
-        <div class="cast-role">Anchor, National Public Broadcasting — 1979</div>
-        <div class="cast-bio">A seasoned journalist born to Chinese-American parents, Margaret has covered refugee stories from Cuba to Indochina. She is known for asking tough questions of both politicians and survivors.</div>
+
+    <div class="animate-in delay-5" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; font-size: 12px; color: rgba(255,255,255,0.35);">
+      <div>
+        <span style="color: var(--gold); font-weight: 600;">SQ1:</span> What caused each refugee crisis?
       </div>
- 
-      <!-- Refugee -->
-      <div class="cast-card">
-        <div class="cast-tag t-ref">The Refugee</div>
-        <div class="av-wrap">
-          <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-            <rect width="72" height="72" fill="#1a1005"/>
-            <circle cx="36" cy="28" r="14" fill="#d4a070"/>
-            <ellipse cx="36" cy="21" rx="12" ry="8" fill="#0a0800"/>
-            <circle cx="31" cy="28" r="1.8" fill="#1a0800"/>
-            <circle cx="41" cy="28" r="1.8" fill="#1a0800"/>
-            <path d="M33 33 Q36 36 39 33" stroke="#906040" stroke-width="1.2" fill="none"/>
-            <rect x="19" y="48" width="34" height="24" rx="3" fill="#6b4020"/>
-            <rect x="23" y="48" width="26" height="9" fill="#8a5028"/>
-          </svg>
-        </div>
-        <div class="cast-name">Linh Thi Nguyen</div>
-        <div class="cast-role">Vietnamese Refugee · arrived Fort Chaffee, Arkansas, 1975</div>
-        <div class="cast-bio">Linh fled Saigon at age 9 during Operation Frequent Wind — the chaotic US helicopter evacuation from the embassy roof. She and her mother were among 130,000 Vietnamese given "parolee" status by President Ford. Now 13, she speaks through a translator.</div>
+      <div>
+        <span style="color: var(--gold); font-weight: 600;">SQ2:</span> What were the short & long-term effects?
       </div>
- 
-      <!-- US Official -->
-      <div class="cast-card">
-        <div class="cast-tag t-us">U.S. Government Official</div>
-        <div class="av-wrap">
-          <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-            <rect width="72" height="72" fill="#0a1428"/>
-            <circle cx="36" cy="28" r="14" fill="#e0b888"/>
-            <ellipse cx="36" cy="21" rx="12" ry="7" fill="#2a1808"/>
-            <circle cx="31" cy="28" r="1.8" fill="#1a0808"/>
-            <circle cx="41" cy="28" r="1.8" fill="#1a0808"/>
-            <path d="M33 33 Q36 36 39 33" stroke="#9a6848" stroke-width="1.2" fill="none"/>
-            <rect x="19" y="48" width="34" height="24" rx="3" fill="#1a3060"/>
-            <rect x="23" y="48" width="26" height="10" fill="#2a4070"/>
-            <polygon points="36,54 37.5,58.5 42,58.5 38.5,61 40,65.5 36,63 32,65.5 33.5,61 30,58.5 34.5,58.5" fill="#f8d000" transform="scale(.55) translate(30 44)"/>
-          </svg>
-        </div>
-        <div class="cast-name">Julia Taft</div>
-        <div class="cast-role">Director, Inter-Agency Task Force on Indochinese Refugee Resettlement (real historical figure)</div>
-        <div class="cast-bio">President Ford appointed Julia Taft to lead America's refugee response. She coordinated the four military bases — Camp Pendleton, Fort Chaffee, Fort Indiantown Gap, and Eglin Air Force Base — that processed 130,000 refugees in 1975. She believed America had a moral duty.</div>
-      </div>
- 
-      <!-- Congressman opponent -->
-      <div class="cast-card">
-        <div class="cast-tag t-cong">U.S. Congressman — Opposing View</div>
-        <div class="av-wrap">
-          <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-            <rect width="72" height="72" fill="#0a1808"/>
-            <circle cx="36" cy="28" r="14" fill="#d8b890"/>
-            <ellipse cx="36" cy="21" rx="12" ry="7" fill="#3a2a18"/>
-            <circle cx="31" cy="28" r="1.8" fill="#1a1008"/>
-            <circle cx="41" cy="28" r="1.8" fill="#1a1008"/>
-            <path d="M32 32 Q36 35 40 32" stroke="#806040" stroke-width="1.2" fill="none"/>
-            <rect x="19" y="48" width="34" height="24" rx="3" fill="#283018"/>
-            <rect x="23" y="48" width="26" height="10" fill="#384028"/>
-            <!-- glasses -->
-            <rect x="27" y="25" width="8" height="5" rx="2" fill="none" stroke="#8aa890" stroke-width="1.2"/>
-            <rect x="37" y="25" width="8" height="5" rx="2" fill="none" stroke="#8aa890" stroke-width="1.2"/>
-            <line x1="35" y1="27" x2="37" y2="27" stroke="#8aa890" stroke-width="1.2"/>
-          </svg>
-        </div>
-        <div class="cast-name">Rep. John Marsh (fictional composite)</div>
-        <div class="cast-role">U.S. Congressman — Opponent of Refugee Programme, 1975</div>
-        <div class="cast-bio">Based on real objections raised in Congress in 1975. Represents constituents concerned about unemployment (nearly 9%), welfare costs, and cultural change. He is not a villain — he genuinely believes he is protecting American workers.</div>
-      </div>
- 
-      <!-- Vietnamese Diplomat -->
-      <div class="cast-card">
-        <div class="cast-tag t-viet">Vietnamese Government Diplomat</div>
-        <div class="av-wrap">
-          <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg">
-            <rect width="72" height="72" fill="#180808"/>
-            <circle cx="36" cy="28" r="14" fill="#c8a060"/>
-            <ellipse cx="36" cy="21" rx="11" ry="7" fill="#1a0808"/>
-            <circle cx="31" cy="28" r="1.8" fill="#1a0808"/>
-            <circle cx="41" cy="28" r="1.8" fill="#1a0808"/>
-            <path d="M33 31 Q36 33 39 31" stroke="#7a4020" stroke-width="1.2" fill="none"/>
-            <rect x="19" y="48" width="34" height="24" rx="3" fill="#8b1a1a"/>
-            <rect x="23" y="48" width="26" height="10" fill="#aa2222"/>
-            <polygon points="36,53 37.5,57.5 42,57.5 38.5,60 40,64.5 36,62 32,64.5 33.5,60 30,57.5 34.5,57.5" fill="#f8d000" transform="scale(.55) translate(30 42)"/>
-          </svg>
-        </div>
-        <div class="cast-name">Nguyễn Văn Long</div>
-        <div class="cast-role">Vietnamese Government Representative — UN, Geneva, 1979</div>
-        <div class="cast-bio">Represents Hanoi's official view: that the refugees were not fleeing persecution but spreading "anti-revolutionary propaganda." He argues that the United States is using the refugee crisis for Cold War political purposes.</div>
-      </div>
- 
-    </div><!-- /cast-grid -->
-  </div><!-- /cast-section -->
- 
-  <!-- ── DIALOGUE ── -->
-  <div class="stage">
-    <div class="stage-title">— Full Panel Transcript · Washington D.C., 1979 —</div>
- 
-    <!-- Q1 Opening -->
-    <div class="exchange center-j">
-      <div class="ex-av-col">
-        <svg class="ex-av j" viewBox="0 0 50 50"><rect width="50" height="50" fill="#1a2030"/><circle cx="25" cy="20" r="9" fill="#d4a878"/><rect x="12" y="33" width="26" height="17" rx="3" fill="#2a3040"/></svg>
-        <div class="ex-tag">Chen</div>
-      </div>
-      <div class="bubble j-bub">
-        <strong>Margaret Chen — Moderator <span class="emotion em-quest">Opening</span></strong>
-        Good evening. It is 1979, four years after the Fall of Saigon. Over 130,000 Vietnamese have already been resettled in the United States <span class="cite">Wikipedia</span>, and thousands more arrive every month. President Carter has just <em>doubled</em> the monthly intake from 7,000 to 14,000 — despite 62% of Americans disapproving <span class="cite">CBS/NYT Poll</span>. Tonight we ask: Was taking in the Vietnamese refugees the right thing to do — and what does America owe people fleeing a war it helped start?
-        <br><br>
-        <span class="link-badge" onclick="openModal('poster1')"><span class="arrow">🖼</span> See Poster: The Numbers</span>
-      </div>
-    </div>
- 
-    <!-- Q2 - Linh opens -->
-    <div class="exchange">
-      <div class="ex-av-col">
-        <svg class="ex-av r" viewBox="0 0 50 50"><rect width="50" height="50" fill="#1a1005"/><circle cx="25" cy="20" r="9" fill="#d4a070"/><rect x="12" y="33" width="26" height="17" rx="3" fill="#6b4020"/></svg>
-        <div class="ex-tag">Linh</div>
-      </div>
-      <div class="bubble r-bub">
-        <strong>Linh Thi Nguyen — Refugee <span class="emotion em-sad">Personal</span></strong>
-        <em>[speaking through a translator, voice steady but quiet]</em> I was nine years old. We heard the helicopters before we saw them. My mother held my hand so tightly I thought my fingers would break. We ran toward the US Embassy — thousands of us were in the street. The Americans had promised to take their South Vietnamese allies. We had to climb a wall. A US Marine helped pull me over. I can still feel his hands.
-        <br><br>
-        We were on a ship for two days. Then a military plane. Then Fort Chaffee, Arkansas. I did not know the word "refugee." I only knew we were safe.
-        <br><br>
-        <span class="link-badge" onclick="openModal('comic1')"><span class="arrow">📖</span> See Comic Panel 1: The Evacuation</span>
-      </div>
-    </div>
- 
-    <!-- Julia Taft -->
-    <div class="exchange">
-      <div class="ex-av-col">
-        <svg class="ex-av us" viewBox="0 0 50 50"><rect width="50" height="50" fill="#0a1428"/><circle cx="25" cy="20" r="9" fill="#e0b888"/><rect x="12" y="33" width="26" height="17" rx="3" fill="#1a3060"/></svg>
-        <div class="ex-tag">Taft</div>
-      </div>
-      <div class="bubble us-bub">
-        <strong>Julia Taft — U.S. Resettlement Director <span class="emotion em-firm">Defending Policy</span></strong>
-        What Linh described is Operation Frequent Wind — the largest helicopter evacuation in history. In those final hours, U.S. aircraft made over 630 helicopter sorties and brought more than 1,500 South Vietnamese allies to safety <span class="cite">Wikipedia / Op. Frequent Wind</span>. But we knew that wasn't enough.
-        <br><br>
-        President Ford signed the <em>Indochina Migration and Refugee Assistance Act</em> on May 23, 1975 — just weeks after Saigon fell <span class="cite">Wikipedia</span>. Congress approved $455 million. We set up four military bases as processing centres: Camp Pendleton in California, Fort Chaffee in Arkansas, Eglin Air Force Base in Florida, and Fort Indiantown Gap in Pennsylvania <span class="cite">IRC/Wikipedia</span>. Thirty full-time IRC resettlement staff joined us on Day 1, along with hundreds of volunteers.
-        <br><br>
-        <span class="link-badge" onclick="openModal('comic2')"><span class="arrow">📖</span> See Comic Panel 2: The Camps</span>
-        <span class="link-badge" onclick="openModal('poster2')"><span class="arrow">🖼</span> See Poster: Ford's Decision</span>
-      </div>
-    </div>
- 
-    <!-- Congressman opposing -->
-    <div class="exchange">
-      <div class="ex-av-col">
-        <svg class="ex-av cg" viewBox="0 0 50 50"><rect width="50" height="50" fill="#0a1808"/><circle cx="25" cy="20" r="9" fill="#d8b890"/><rect x="12" y="33" width="26" height="17" rx="3" fill="#283018"/></svg>
-        <div class="ex-tag">Marsh</div>
-      </div>
-      <div class="bubble cg-bub">
-        <strong>Rep. John Marsh — U.S. Congressman <span class="emotion em-ang">Opposition</span></strong>
-        Nobody in this room wants to be called heartless. I am not heartless. But I represent a district in Ohio where unemployment is nearly nine percent <span class="cite">CBS News 2025</span>. My constituents are worried about their own jobs. And now we're being asked to spend $455 million on — as Senator Robert Byrd put it in the New York Times — a group that includes, quote, "undesirables" that haven't been properly screened <span class="cite">Mercury News</span>.
-        <br><br>
-        The Governor of California, Jerry Brown, said he did not want refugees settling in his state <span class="cite">Mercury News</span>. The Governor of Arkansas threatened to use the National Guard to keep them out of Fort Chaffee. I'm not saying these reactions are admirable. I am saying they are real — and they represent real Americans who feel their government is ignoring them.
-        <br><br>
-        <span class="link-badge" onclick="openModal('comic3')"><span class="arrow">📖</span> See Comic Panel 3: Public Opposition</span>
-      </div>
-    </div>
- 
-    <!-- Chen presses Taft -->
-    <div class="exchange center-j">
-      <div class="ex-av-col">
-        <svg class="ex-av j" viewBox="0 0 50 50"><rect width="50" height="50" fill="#1a2030"/><circle cx="25" cy="20" r="9" fill="#d4a878"/><rect x="12" y="33" width="26" height="17" rx="3" fill="#2a3040"/></svg>
-        <div class="ex-tag">Chen</div>
-      </div>
-      <div class="bubble j-bub">
-        <strong>Margaret Chen <span class="emotion em-quest">Follow-up</span></strong>
-        Ms. Taft — the congressman raises a real tension. The unemployment rate in 1975 was near 9%, a post-World War II high <span class="cite">CBS News</span>. And a Gallup poll showed 54% of Americans opposed taking in Vietnamese refugees <span class="cite">Wikipedia / Vietnamese Americans</span>. President Ford ignored public opinion. Was that the right call for a democracy?
-      </div>
-    </div>
- 
-    <!-- Taft replies -->
-    <div class="exchange">
-      <div class="ex-av-col">
-        <svg class="ex-av us" viewBox="0 0 50 50"><rect width="50" height="50" fill="#0a1428"/><circle cx="25" cy="20" r="9" fill="#e0b888"/><rect x="12" y="33" width="26" height="17" rx="3" fill="#1a3060"/></svg>
-        <div class="ex-tag">Taft</div>
-      </div>
-      <div class="bubble us-bub">
-        <strong>Julia Taft <span class="emotion em-firm">Moral Argument</span></strong>
-        With respect to the Congressman — there was always public opposition to refugees. When Jewish refugees tried to flee Nazi Germany in 1939, a Gallup poll showed 67% of Americans opposed letting them in <span class="cite">Boston Globe / IRC</span>. We turned those ships away. We called it protecting American jobs. Hundreds of those people died in the Holocaust. That is a stain on this nation's history that we have never fully reckoned with.
-        <br><br>
-        President Ford knew that. He said — and I was in the room — "It just burns me up. We didn't do it to the Hungarians, we didn't do it to the Cubans, and damn it, we're not going to do it now." <span class="cite">IRC / Boston Globe</span> Leadership sometimes means doing the right thing before the polls catch up. That's what Ford did.
-        <br><br>
-        <span class="link-badge" onclick="openModal('poster1')"><span class="arrow">🖼</span> See Poster: Then and Now</span>
-      </div>
-    </div>
- 
-    <!-- Vietnamese diplomat speaks -->
-    <div class="exchange">
-      <div class="ex-av-col">
-        <svg class="ex-av v" viewBox="0 0 50 50"><rect width="50" height="50" fill="#180808"/><circle cx="25" cy="20" r="9" fill="#c8a060"/><rect x="12" y="33" width="26" height="17" rx="3" fill="#8b1a1a"/></svg>
-        <div class="ex-tag">Nguyễn V.L.</div>
-      </div>
-      <div class="bubble v-bub">
-        <strong>Nguyễn Văn Long — Vietnamese Government <span class="emotion em-ang">Counter-Argument</span></strong>
-        Let us be clear about what is really happening here. The United States spent thirty years in our country. Your bombers dropped more explosives on Vietnam than all of World War II combined. You killed — by your own estimates — over three million Vietnamese <span class="cite">History.com</span>. Now you claim to be the rescuers?
-        <br><br>
-        These so-called "refugees" — many of them are members of the previous puppet regime, intelligence officers, people who collaborated with foreign military occupation. The so-called "re-education" was a necessary process of national reconciliation. Vietnam is rebuilding. If people fled, it is because foreign propaganda told them to fear their own government.
-        <br><br>
-        America does not take in these people out of kindness. It takes them in to embarrass Vietnam on the world stage. This is Cold War politics, not humanitarian aid.
-      </div>
-    </div>
- 
-    <!-- Linh responds powerfully -->
-    <div class="exchange">
-      <div class="ex-av-col">
-        <svg class="ex-av r" viewBox="0 0 50 50"><rect width="50" height="50" fill="#1a1005"/><circle cx="25" cy="20" r="9" fill="#d4a070"/><rect x="12" y="33" width="26" height="17" rx="3" fill="#6b4020"/></svg>
-        <div class="ex-tag">Linh</div>
-      </div>
-      <div class="bubble r-bub">
-        <strong>Linh Thi Nguyen <span class="emotion em-ang">Direct Response</span></strong>
-        <em>[quietly, without translator]</em> I learned this English sentence at Fort Chaffee. I practised it: "My father was a teacher."
-        <br><br>
-        Not a soldier. Not a spy. A teacher. He spent two years in a re-education camp — Camp Z30D — near the Cambodian border. When he came out, he shook all the time. He could not sleep. That is why we ran. Not because of propaganda. Because of what happened to him.
-        <br><br>
-        Over one million people were sent to those camps <span class="cite">Wikipedia / Indochina Refugee Crisis</span>. Were they all soldiers? Were they all collaborators? Or were some of them just teachers?
-        <br><br>
-        <span class="link-badge" onclick="openModal('comic4')"><span class="arrow">📖</span> See Comic Panel 4: Father's Story</span>
-      </div>
-    </div>
- 
-    <div class="pause-bar">— a long silence in the studio —</div>
- 
-    <!-- Chen presses Congressman -->
-    <div class="exchange center-j">
-      <div class="ex-av-col">
-        <svg class="ex-av j" viewBox="0 0 50 50"><rect width="50" height="50" fill="#1a2030"/><circle cx="25" cy="20" r="9" fill="#d4a878"/><rect x="12" y="33" width="26" height="17" rx="3" fill="#2a3040"/></svg>
-        <div class="ex-tag">Chen</div>
-      </div>
-      <div class="bubble j-bub">
-        <strong>Margaret Chen <span class="emotion em-quest">Hard Question</span></strong>
-        Congressman Marsh — you heard Linh. Her father was a schoolteacher. The refugees who were screened and processed at those four military bases — did any of them actually take American jobs? What does the evidence say?
-      </div>
-    </div>
- 
-    <!-- Congressman — shifts -->
-    <div class="exchange">
-      <div class="ex-av-col">
-        <svg class="ex-av cg" viewBox="0 0 50 50"><rect width="50" height="50" fill="#0a1808"/><circle cx="25" cy="20" r="9" fill="#d8b890"/><rect x="12" y="33" width="26" height="17" rx="3" fill="#283018"/></svg>
-        <div class="ex-tag">Marsh</div>
-      </div>
-      <div class="bubble cg-bub">
-        <strong>Rep. John Marsh <span class="emotion em-firm">Honest Reflection</span></strong>
-        [long pause] In my district... no. Actually no. They mostly took jobs nobody else wanted. Some of them started small businesses that employed Americans. I'll admit — the refugees were dispersed across all 50 states intentionally, so no single area bore the full weight <span class="cite">Wikipedia / Vietnamese Americans</span>.
-        <br><br>
-        I still think we should have had a bigger public debate. I still think Congress acted too fast. But I will not look that girl in the eye and tell her father deserved to suffer. My objections are political. Her experience is human. And there is a difference.
-        <br><br>
-        <span class="link-badge" onclick="openModal('comic5')"><span class="arrow">📖</span> See Comic Panel 5: New Roots</span>
-      </div>
-    </div>
- 
-    <!-- Chen — Carter doubling -->
-    <div class="exchange center-j">
-      <div class="ex-av-col">
-        <svg class="ex-av j" viewBox="0 0 50 50"><rect width="50" height="50" fill="#1a2030"/><circle cx="25" cy="20" r="9" fill="#d4a878"/><rect x="12" y="33" width="26" height="17" rx="3" fill="#2a3040"/></svg>
-        <div class="ex-tag">Chen</div>
-      </div>
-      <div class="bubble j-bub">
-        <strong>Margaret Chen <span class="emotion em-quest">Present Day Question</span></strong>
-        Ms. Taft — we're here because President Carter just doubled the monthly intake to 14,000 people, even with 62% public disapproval. He did it anyway. In your view, what lesson should the world take from how America has handled this crisis?
-      </div>
-    </div>
- 
-    <!-- Taft — closing -->
-    <div class="exchange">
-      <div class="ex-av-col">
-        <svg class="ex-av us" viewBox="0 0 50 50"><rect width="50" height="50" fill="#0a1428"/><circle cx="25" cy="20" r="9" fill="#e0b888"/><rect x="12" y="33" width="26" height="17" rx="3" fill="#1a3060"/></svg>
-        <div class="ex-tag">Taft</div>
-      </div>
-      <div class="bubble us-bub">
-        <strong>Julia Taft — Closing Statement <span class="emotion em-firm">Lesson</span></strong>
-        The lesson is that fear and generosity can coexist — but you have to choose which one leads. By 1975, even some Members of Congress who had opposed the programme were quietly visiting the camps and coming away changed.
-        <br><br>
-        The Refugee Act of 1980 came directly from what we learned — it created the first permanent, systematic process for vetting and admitting refugees in American history <span class="cite">IRC</span>. Jimmy Carter signed it and called America "a country of refugees" <span class="cite">IRC</span>.
-        <br><br>
-        By 1992, more than one million Indochinese refugees had been admitted to the United States <span class="cite">IRC</span>. Today, Vietnamese-Americans have a median household income above the national average <span class="cite">Quartz / Migration Policy</span>. They are doctors, engineers, judges, Oscar-winning actors, restaurant owners who revived entire urban neighbourhoods. Boston's Fields Corner. Houston's Bellaire. Little Saigon in Orange County.
-        <br><br>
-        The refugees that 54% of Americans feared in 1975? They became, as they so often do, a blessing.
-        <br><br>
-        <span class="link-badge" onclick="openModal('comic6')"><span class="arrow">📖</span> See Comic Panel 6: The American Dream Arrived</span>
-        <span class="link-badge" onclick="openModal('poster3')"><span class="arrow">🖼</span> See Poster: The Bet That Paid Off</span>
-      </div>
-    </div>
- 
-    <!-- Linh — final -->
-    <div class="exchange">
-      <div class="ex-av-col">
-        <svg class="ex-av r" viewBox="0 0 50 50"><rect width="50" height="50" fill="#1a1005"/><circle cx="25" cy="20" r="9" fill="#d4a070"/><rect x="12" y="33" width="26" height="17" rx="3" fill="#6b4020"/></svg>
-        <div class="ex-tag">Linh</div>
-      </div>
-      <div class="bubble r-bub">
-        <strong>Linh Thi Nguyen — Final Word <span class="emotion em-sad">Hopeful</span></strong>
-        I am thirteen years old. I go to school in Arkansas. My teacher's name is Mrs. Patterson. She brought us cookies on the first day. She pointed at the American flag and said, "That flag is yours too now."
-        <br><br>
-        I did not know if I believed her. But I am starting to.
-        <br><br>
-        My father — still in Vietnam — cannot know I am safe. That is the part that hurts. But I will work hard enough for both of us. Because that is the deal — the deal America offered. And I intend to keep my side of it.
-        <br><br>
-        <span class="link-badge" onclick="openModal('poster3')"><span class="arrow">🖼</span> See Poster: The Promise</span>
-      </div>
-    </div>
- 
-  </div><!-- /stage -->
- 
-  <!-- Glossary -->
-  <div class="glossary">
-    <h3>📚 Key Terms (Grade 10 Vocabulary)</h3>
-    <div class="gloss-grid">
-      <div class="gloss-item">
-        <div class="gloss-term">Refugee</div>
-        <div class="gloss-def">A person forced to flee their home country due to war, persecution, or natural disaster. Protected under international law (1951 UN Refugee Convention).</div>
-      </div>
-      <div class="gloss-item">
-        <div class="gloss-term">Parolee</div>
-        <div class="gloss-def">A legal loophole used by the US to quickly admit Vietnamese refugees without going through the slow normal immigration process. It gave them temporary legal status.</div>
-      </div>
-      <div class="gloss-item">
-        <div class="gloss-term">Re-education Camps</div>
-        <div class="gloss-def">Prisons run by the communist Vietnamese government after 1975. Over 1 million South Vietnamese — soldiers, officials, teachers — were sent there for "political re-education."</div>
-      </div>
-      <div class="gloss-item">
-        <div class="gloss-term">Fall of Saigon</div>
-        <div class="gloss-def">April 30, 1975 — the day North Vietnamese Army tanks entered Saigon (now Ho Chi Minh City). It marked the end of the Vietnam War and triggered the refugee crisis.</div>
-      </div>
-      <div class="gloss-item">
-        <div class="gloss-term">Operation Frequent Wind</div>
-        <div class="gloss-def">The US military's emergency helicopter evacuation from Saigon on April 29–30, 1975 — the largest helicopter evacuation in history, rescuing over 1,300 Americans and 5,500 Vietnamese.</div>
-      </div>
-      <div class="gloss-item">
-        <div class="gloss-term">Boat People</div>
-        <div class="gloss-def">Vietnamese refugees who escaped by sea from 1978–1995. About 800,000 arrived safely; an estimated 200,000–250,000 died at sea from storms, piracy, and overcrowding.</div>
-      </div>
-      <div class="gloss-item">
-        <div class="gloss-term">Indochina Migration Act 1975</div>
-        <div class="gloss-def">US law signed by President Ford on May 23, 1975. It approved $455 million for refugee resettlement and allowed 130,000 Southeast Asians to enter the United States.</div>
-      </div>
-      <div class="gloss-item">
-        <div class="gloss-term">Burden Sharing</div>
-        <div class="gloss-def">The idea that multiple countries should share the responsibility of taking in refugees — rather than leaving it all to one country.</div>
+      <div>
+        <span style="color: var(--gold); font-weight: 600;">SQ3:</span> How have refugees contributed to host nations?
       </div>
     </div>
   </div>
- 
-  <!-- Sources -->
-  <div class="sources">
-    <h4>Panel Discussion Sources</h4>
-    <ul>
-      <li>US House of Representatives History Archives — Refugee Crisis</li>
-      <li>Wikipedia — Indochina Migration and Refugee Assistance Act; Vietnamese Americans; Boat People</li>
-      <li>IRC (International Rescue Committee) — Largest Refugee Resettlement in US History</li>
-      <li>Quartz — "Forty-one Years Ago, the US Took a Big Gamble on Vietnamese Refugees"</li>
-      <li>CBS News — "Gerald Ford and America's Moral Obligation to Refugees" (2025)</li>
-      <li>Boston Globe — "Nativism is a Bipartisan American Temptation" (2026)</li>
-      <li>Mercury News — "Ford Was a Friend in Need to Vietnamese Refugees"</li>
-      <li>Migration Policy Institute — Vietnamese Immigrants in the US (2018)</li>
-    </ul>
+
+  <!-- Decorative images -->
+  <div class="float-img" style="bottom: 40px; left: 40px; width: 180px; height: 120px;">
+    <img src="https://picsum.photos/seed/boatpeople1/360/240.jpg" alt="Boat people" style="width: 100%; height: 100%; object-fit: cover;">
   </div>
- 
-</div><!-- /panel -->
- 
- 
-<!-- ══════════════════════════════════════════════
-     SECTION 2: PHOTO EVIDENCE
-══════════════════════════════════════════════ -->
-<div id="photos" class="section">
-  <div class="panel-banner">
-    <div class="panel-label">Section 2 — Photo Evidence</div>
-    <h2>Eyewitness to History:<br>What the Cameras Captured</h2>
-    <p>These photographs document the real events that the panel discusses. Each image connects to a specific part of the dialogue. Study them carefully — a photograph is primary evidence.</p>
-  </div>
- 
-  <div class="photo-grid-section">
-    <div class="photo-grid-label">▸ Historical Photographs — Vietnamese Refugee Crisis 1975–1979</div>
-    <div class="photo-grid">
- 
-      <!-- Photo 1: Boat People -->
-      <div class="photo-wrap">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Vietnamese_Refugees_on_boat.jpg/640px-Vietnamese_Refugees_on_boat.jpg"
-          alt="Vietnamese refugees on a boat in the South China Sea, 1979"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-        <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" style="display:none;width:100%;height:180px">
-          <rect width="320" height="180" fill="#0c1828"/>
-          <ellipse cx="160" cy="130" rx="130" ry="18" fill="#2a1808"/>
-          <path d="M30 130 Q40 115 50 112 L270 112 Q280 115 290 130 Z" fill="#3a2010"/>
-          <g fill="#111">
-            <circle cx="70" cy="114" r="6"/><circle cx="90" cy="112" r="5"/>
-            <circle cx="115" cy="111" r="7"/><circle cx="140" cy="110" r="6"/>
-            <circle cx="165" cy="111" r="6"/><circle cx="190" cy="112" r="5"/>
-            <circle cx="210" cy="113" r="6"/><circle cx="235" cy="114" r="5"/>
-          </g>
-          <rect x="0" y="140" width="320" height="40" fill="#0a1020"/>
-          <text x="160" y="90" font-family="serif" font-size="13" fill="#8090a0" text-anchor="middle">[ Photograph Unavailable ]</text>
-          <text x="160" y="108" font-family="serif" font-size="11" fill="#506070" text-anchor="middle">Vietnamese Boat People, South China Sea, 1979</text>
-        </svg>
-        <div class="photo-cap">▸ SOUTH CHINA SEA, 1979 — Vietnamese refugees crowded onto a fishing boat. An estimated 800,000 boat people survived the crossing; between 200,000–250,000 did not. Connects to Linh's testimony in the panel.</div>
-        <div class="link-badge" style="margin:6px 0 6px 0; cursor:default" onclick="show('panel'); setTimeout(()=>document.querySelector('.r-bub').scrollIntoView({behavior:'smooth'}),300)">↩ Linked to Linh's opening dialogue</div>
-      </div>
- 
-      <!-- Photo 2: Camp scene (fallback SVG illustration) -->
-      <div class="photo-wrap">
-        <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:180px;display:block">
-          <!-- Army base scene illustrated -->
-          <rect width="320" height="180" fill="#c8c0a0"/>
-          <rect x="0" y="110" width="320" height="70" fill="#8a7a5a"/>
-          <!-- Barracks -->
-          <rect x="20" y="65" width="80" height="50" fill="#9a8a6a"/>
-          <rect x="20" y="60" width="80" height="10" fill="#aa9a7a"/>
-          <rect x="120" y="70" width="80" height="45" fill="#9a8a6a"/>
-          <rect x="120" y="65" width="80" height="10" fill="#aa9a7a"/>
-          <rect x="215" y="68" width="85" height="47" fill="#9a8a6a"/>
-          <!-- US Flag -->
-          <rect x="155" y="20" width="3" height="48" fill="#888"/>
-          <rect x="158" y="20" width="22" height="14" fill="#B22234"/>
-          <rect x="158" y="23" width="22" height="2" fill="#fff"/>
-          <rect x="158" y="26" width="22" height="2" fill="#fff"/>
-          <rect x="158" y="29" width="22" height="2" fill="#fff"/>
-          <rect x="158" y="20" width="9" height="8" fill="#3C3B6E"/>
-          <!-- People queueing (silhouettes) -->
-          <g fill="#4a3a28">
-            <circle cx="50" cy="108" r="5"/><rect x="45" y="112" width="10" height="14"/>
-            <circle cx="68" cy="106" r="5"/><rect x="63" y="110" width="10" height="14"/>
-            <circle cx="86" cy="108" r="4"/><rect x="82" y="112" width="8" height="13"/>
-            <circle cx="102" cy="107" r="5"/><rect x="97" y="111" width="10" height="14"/>
-            <circle cx="120" cy="108" r="4"/><rect x="116" y="112" width="8" height="13"/>
-          </g>
-          <!-- Aid sign -->
-          <rect x="175" y="95" width="50" height="22" fill="#fff" stroke="#333" stroke-width="1"/>
-          <text x="200" y="109" font-family="sans-serif" font-size="8" fill="#cc2222" text-anchor="middle" font-weight="bold">REFUGEE AID</text>
-          <text x="160" y="160" font-family="monospace" font-size="9" fill="#5a4a2a" text-anchor="middle">U.S. Military Processing Base, Fort Chaffee, Arkansas, 1975</text>
-        </svg>
-        <div class="photo-cap">▸ FORT CHAFFEE, ARKANSAS, 1975 — One of four US military bases converted into refugee processing centres. More than 18,000 Vietnamese passed through in the first months alone. Connects to Julia Taft's testimony.</div>
-        <div class="link-badge" style="margin:6px 0 6px 0; cursor:default">↩ Linked to Julia Taft's government response dialogue</div>
-      </div>
- 
-      <!-- Photo 3: Little Saigon -->
-      <div class="photo-wrap">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Asian_Garden_Mall%2C_Westminster.jpg/640px-Asian_Garden_Mall%2C_Westminster.jpg"
-          alt="Little Saigon, Orange County California"
-          onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-        <svg viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" style="display:none;width:100%;height:180px">
-          <rect width="320" height="180" fill="#c8dff0"/>
-          <rect x="0" y="110" width="320" height="70" fill="#6a7a5a"/>
-          <rect x="10" y="65" width="70" height="50" fill="#d4c090"/>
-          <rect x="90" y="55" width="90" height="60" fill="#c8b080"/>
-          <rect x="190" y="70" width="70" height="45" fill="#d0b888"/>
-          <rect x="100" y="45" width="70" height="15" fill="#c49a2a"/>
-          <text x="135" y="58" font-family="serif" font-size="8" fill="#8a1a1a" text-anchor="middle" font-weight="bold">PHỞ · BÚN BÒ · CÀ PHÊ</text>
-          <text x="160" y="40" font-family="serif" font-size="11" fill="#8a1a1a" text-anchor="middle" font-weight="bold">LITTLE SAIGON</text>
-          <text x="160" y="170" font-family="monospace" font-size="9" fill="#3a5020" text-anchor="middle">Little Saigon, Orange County, California — Today</text>
-        </svg>
-        <div class="photo-cap">▸ LITTLE SAIGON, ORANGE COUNTY, CALIFORNIA — The largest Vietnamese-American community in the world. Built almost entirely by refugees and their descendants. Connects to Julia Taft's closing statement.</div>
-        <div class="link-badge" style="margin:6px 0 6px 0; cursor:default">↩ Linked to Taft's closing: "They became a blessing"</div>
-      </div>
- 
-    </div>
- 
-    <!-- Historical context boxes -->
-    <div style="margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;max-width:1000px">
-      <div style="background:rgba(185,28,28,.15);border-left:3px solid var(--red2);padding:18px 20px">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--red2);margin-bottom:8px">Why people fled</div>
-        <p style="font-size:14px;color:#b0c8d8;line-height:1.65">After 1975, the communist government ran "re-education camps" holding over 1 million people. Businesses were seized. Ethnic Chinese were persecuted. Hundreds of thousands were sent to "New Economic Zones" — forced labour in undeveloped land. <span class="cite">Wikipedia</span></p>
-      </div>
-      <div style="background:rgba(106,191,255,.08);border-left:3px solid #6abfff;padding:18px 20px">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:#6abfff;margin-bottom:8px">How the USA responded</div>
-        <p style="font-size:14px;color:#b0c8d8;line-height:1.65">Congress approved $455M within weeks. Four military bases became refugee camps. A team of NGOs — IRC, Church World Service, Lutheran Immigration — provided resettlement caseworkers. By 1992, 1 million+ resettled. <span class="cite">IRC, Wikipedia</span></p>
-      </div>
-      <div style="background:rgba(201,149,42,.08);border-left:3px solid var(--gold);padding:18px 20px">
-        <div style="font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px">The outcome 50 years later</div>
-        <p style="font-size:14px;color:#b0c8d8;line-height:1.65">Vietnamese-Americans today number 2+ million. Median household income above national average. They include federal judges, Pulitzer Prize winners, Oscar winners ("My journey started on a boat" — Ke Huy Quan, 2023). <span class="cite">CBS News 2025</span></p>
-      </div>
-    </div>
-  </div>
- 
-  <div class="sources">
-    <h4>Photo Evidence Sources</h4>
-    <ul>
-      <li>Wikimedia Commons — Vietnamese Boat People photographs</li>
-      <li>IRC Archive — Fort Chaffee processing centre documentation</li>
-      <li>Migration Policy Institute — Vietnamese-American community data</li>
-      <li>CBS News 2025 — Gerald Ford and America's Moral Obligation</li>
-    </ul>
+  <div class="float-img" style="top: 40px; right: 40px; width: 160px; height: 110px;">
+    <img src="https://picsum.photos/seed/refugeecamp2/320/220.jpg" alt="Refugee camp" style="width: 100%; height: 100%; object-fit: cover;">
   </div>
 </div>
- 
- 
-<!-- ══════════════════════════════════════════════
-     SECTION 3: COMIC STRIP
-══════════════════════════════════════════════ -->
-<div id="comic" class="section">
-  <div class="comic-section">
-    <div class="comic-header">
-      <h2>📰 "The Long Way Home"</h2>
-      <p>A six-panel comic strip — the Vietnamese refugee journey through American eyes</p>
-      <div class="comic-link-note">↩ Each panel links back to a specific dialogue in the panel discussion</div>
+
+<!-- ===================== SLIDE 2: CAUSES ===================== -->
+<div class="slide slide-2" id="slide-2">
+  <span class="slide-label">02 / 10</span>
+
+  <div style="flex: 1; display: flex; flex-direction: column;" class="slide-content">
+    <div class="subsection-label animate-in">Causes & Origins</div>
+    <h2 class="font-display animate-in delay-1" style="font-size: 28px; font-weight: 900; color: #fff; margin-bottom: 6px;">Why Did They Flee?</h2>
+    <p class="animate-in delay-1" style="font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 24px;">Understanding the root causes behind two of history's largest displacement events</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+      <!-- Vietnamese Causes -->
+      <div class="cause-card animate-left delay-2">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(192,57,43,0.15); display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-helicopter" style="color: #E74C3C; font-size: 14px;"></i>
+          </div>
+          <div>
+            <h3 style="font-size: 15px; font-weight: 700; color: #fff;">Vietnamese War Refugees</h3>
+            <span style="font-size: 10px; color: rgba(255,255,255,0.35);">1975 – 1995</span>
+          </div>
+        </div>
+        <ul style="list-style: none; font-size: 12px; color: rgba(255,255,255,0.65); line-height: 2;">
+          <li><i class="fas fa-circle" style="font-size: 4px; color: var(--gold); margin-right: 8px; vertical-align: middle;"></i>Fall of Saigon (April 30, 1975)</li>
+          <li><i class="fas fa-circle" style="font-size: 4px; color: var(--gold); margin-right: 8px; vertical-align: middle;"></i>Communist reunification & persecution</li>
+          <li><i class="fas fa-circle" style="font-size: 4px; color: var(--gold); margin-right: 8px; vertical-align: middle;"></i>"Re-education" camps for S. Vietnamese</li>
+          <li><i class="fas fa-circle" style="font-size: 4px; color: var(--gold); margin-right: 8px; vertical-align: middle;"></i>Confiscation of property & businesses</li>
+          <li><i class="fas fa-circle" style="font-size: 4px; color: var(--gold); margin-right: 8px; vertical-align: middle;"></i>Economic collapse & food shortages</li>
+          <li><i class="fas fa-circle" style="font-size: 4px; color: var(--gold); margin-right: 8px; vertical-align: middle;"></i>Ethnic Chinese (Hoa) persecution</li>
+        </ul>
+      </div>
+
+      <!-- Today's Causes -->
+      <div class="cause-card animate-right delay-2">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 14px;">
+          <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(36,113,163,0.15); display: flex; align-items: center; justify-content: center;">
+            <i class="fas fa-earth-americas" style="color: #5DADE2; font-size: 14px;"></i>
+          </div>
+          <div>
+            <h3 style="font-size: 15px; font-weight: 700; color: #fff;">Today's Refugees</h3>
+            <span style="font-size: 10px; color: rgba(255,255,255,0.35);">2015 – Present</span>
+          </div>
+        </div>
+        <ul style="list-style: none; font-size: 12px; color: rgba(255,255,255,0.65); line-height: 2;">
+          <li><i class="fas fa-circle" style="font-size: 4px; color: #5DADE2; margin-right: 8px; vertical-align: middle;"></i>Syrian Civil War (since 2011)</li>
+          <li><i class="fas fa-circle" style="font-size: 4px; color: #5DADE2; margin-right: 8px; vertical-align: middle;"></i>Afghanistan Taliban takeover (2021)</li>
+          <li><i class="fas fa-circle" style="font-size: 4px; color: #5DADE2; margin-right: 8px; vertical-align: middle;"></i>Ukraine-Russia War (since 2022)</li>
+          <li><i class="fas fa-circle" style="font-size: 4px; color: #5DADE2; margin-right: 8px; vertical-align: middle;"></i>Climate displacement (S. Asia, Africa)</li>
+          <li><i class="fas fa-circle" style="font-size: 4px; color: #5DADE2; margin-right: 8px; vertical-align: middle;"></i>Rohingya genocide (Myanmar, 2017)</li>
+          <li><i class="fas fa-circle" style="font-size: 4px; color: #5DADE2; margin-right: 8px; vertical-align: middle;"></i>Sudan, South Sudan conflicts</li>
+        </ul>
+      </div>
     </div>
- 
-    <div class="comic-grid">
- 
-      <!-- PANEL 1: The Evacuation -->
-      <div class="comic-panel" id="cpanel1">
-        <span class="panel-num">1</span>
-        <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
-          <!-- Chaotic sky, smoke -->
-          <rect width="320" height="220" fill="#c09870"/>
-          <rect width="320" height="100" fill="#a07850"/>
-          <!-- Smoke clouds -->
-          <ellipse cx="80" cy="40" rx="60" ry="30" fill="#5a4030" opacity=".7"/>
-          <ellipse cx="200" cy="30" rx="70" ry="25" fill="#4a3828" opacity=".6"/>
-          <ellipse cx="290" cy="55" rx="40" ry="20" fill="#5a4030" opacity=".5"/>
-          <!-- US Embassy building -->
-          <rect x="100" y="60" width="120" height="100" fill="#d4c090"/>
-          <rect x="110" y="65" width="100" height="10" fill="#c4b080"/>
-          <!-- Windows lit -->
-          <g fill="#f8d890" opacity=".6">
-            <rect x="115" y="80" width="12" height="10"/><rect x="133" y="80" width="12" height="10"/>
-            <rect x="151" y="80" width="12" height="10"/><rect x="169" y="80" width="12" height="10"/>
-          </g>
-          <!-- US Flag on building -->
-          <rect x="155" y="40" width="3" height="25" fill="#888"/>
-          <rect x="158" y="40" width="18" height="11" fill="#B22234"/>
-          <rect x="158" y="42.5" width="18" height="2" fill="#fff"/>
-          <rect x="158" y="45.5" width="18" height="2" fill="#fff"/>
-          <rect x="158" y="40" width="7" height="6" fill="#3C3B6E"/>
-          <!-- Helicopter above -->
-          <ellipse cx="230" cy="45" rx="30" ry="10" fill="#5a6050"/>
-          <rect x="200" y="42" width="60" height="8" rx="4" fill="#4a5040"/>
-          <line x1="230" y1="38" x2="230" y2="30" stroke="#888" stroke-width="2"/>
-          <ellipse cx="230" cy="29" rx="20" ry="4" fill="none" stroke="#aaa" stroke-width="1.5"/>
-          <line x1="230" y1="50" x2="230" y2="75" stroke="#c8a870" stroke-width="1.5" stroke-dasharray="4,3"/>
-          <!-- Crowd of silhouettes at gate -->
-          <g fill="#2a1808">
-            <circle cx="115" cy="148" r="5"/><rect x="110" y="152" width="10" height="12"/>
-            <circle cx="130" cy="146" r="5"/><rect x="125" y="150" width="10" height="12"/>
-            <circle cx="146" cy="145" r="6"/><rect x="140" y="150" width="12" height="13"/>
-            <circle cx="162" cy="147" r="5"/><rect x="157" y="151" width="10" height="12"/>
-            <circle cx="178" cy="146" r="5"/><rect x="173" y="150" width="10" height="12"/>
-            <circle cx="194" cy="148" r="4"/><rect x="190" y="152" width="8" height="12"/>
-            <circle cx="208" cy="146" r="5"/><rect x="203" y="150" width="10" height="12"/>
-          </g>
-          <!-- Arms raised -->
-          <line x1="146" y1="146" x2="140" y2="133" stroke="#c8a070" stroke-width="2"/>
-          <line x1="146" y1="146" x2="152" y2="133" stroke="#c8a070" stroke-width="2"/>
-          <!-- Caption bubble on image -->
-          <rect x="5" y="5" width="200" height="28" rx="3" fill="rgba(0,0,0,.7)"/>
-          <text x="105" y="22" font-family="serif" font-style="italic" font-size="10" fill="#f8e8c8" text-anchor="middle">April 30, 1975 — Saigon</text>
-          <!-- Speech bubble from child -->
-          <rect x="30" y="130" width="70" height="22" rx="10" fill="#fff" stroke="#333" stroke-width="1"/>
-          <polygon points="65,152 60,160 72,152" fill="#fff" stroke="#333" stroke-width="1"/>
-          <text x="65" y="144" font-family="serif" font-size="9" fill="#333" text-anchor="middle">"Where are we going?"</text>
-        </svg>
-        <div class="comic-cap">U.S. Embassy, Saigon. April 30, 1975. Over 630 helicopter flights. Marines pulled Vietnamese allies over the embassy wall. Linh was nine years old.</div>
-        <button class="comic-link-btn" onclick="linkToDialogue('panel', '.r-bub')">↩ Back to Panel: Linh's Opening Testimony ▶</button>
-      </div>
- 
-      <!-- PANEL 2: The Military Bases -->
-      <div class="comic-panel" id="cpanel2">
-        <span class="panel-num">2</span>
-        <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
-          <!-- Sunny Arkansas landscape -->
-          <rect width="320" height="220" fill="#d4e8f0"/>
-          <rect x="0" y="150" width="320" height="70" fill="#7a9a60"/>
-          <!-- Clouds -->
-          <ellipse cx="70" cy="35" rx="45" ry="20" fill="#fff" opacity=".8"/>
-          <ellipse cx="240" cy="25" rx="55" ry="18" fill="#fff" opacity=".7"/>
-          <!-- Barracks buildings -->
-          <rect x="15" y="90" width="80" height="65" fill="#c8b880" rx="2"/>
-          <rect x="15" y="85" width="80" height="10" fill="#b8a870" rx="1"/>
-          <rect x="110" y="80" width="100" height="75" fill="#d0c090" rx="2"/>
-          <rect x="110" y="75" width="100" height="12" fill="#c0b080" rx="1"/>
-          <rect x="225" y="95" width="80" height="60" fill="#c8b880" rx="2"/>
-          <!-- FORT CHAFFEE sign -->
-          <rect x="125" y="55" width="70" height="20" fill="#fff" stroke="#333" stroke-width="2"/>
-          <text x="160" y="68" font-family="sans-serif" font-weight="bold" font-size="9" fill="#1a3060" text-anchor="middle">FORT CHAFFEE, AR</text>
-          <!-- American flag -->
-          <rect x="155" y="20" width="3" height="38" fill="#888"/>
-          <rect x="158" y="20" width="22" height="13" fill="#B22234"/>
-          <rect x="158" y="23" width="22" height="2" fill="#fff"/>
-          <rect x="158" y="26.5" width="22" height="2" fill="#fff"/>
-          <rect x="158" y="30" width="22" height="2" fill="#fff"/>
-          <rect x="158" y="20" width="9" height="8" fill="#3C3B6E"/>
-          <!-- Refugees queuing with aid worker -->
-          <g fill="#5a4028">
-            <circle cx="50" cy="148" r="6"/><rect x="44" y="153" width="12" height="16"/>
-            <circle cx="70" cy="146" r="6"/><rect x="64" y="151" width="12" height="16"/>
-            <circle cx="90" cy="148" r="5"/><rect x="85" y="153" width="10" height="15"/>
-          </g>
-          <!-- Aid worker (lighter) -->
-          <circle cx="110" cy="145" r="7" fill="#e0b888"/>
-          <rect x="103" y="151" width="14" height="18" fill="#1a3060"/>
-          <!-- Clipboard -->
-          <rect x="115" y="148" width="10" height="13" fill="#f8f0d0" stroke="#888" stroke-width="1"/>
-          <!-- IRC badge -->
-          <rect x="104" y="153" width="12" height="6" rx="1" fill="#cc2222"/>
-          <text x="110" y="158" font-family="sans-serif" font-size="4" fill="#fff" text-anchor="middle">IRC</text>
-          <!-- Thought bubble from refugee child -->
-          <circle cx="78" cy="130" r="3" fill="#fff" opacity=".8"/>
-          <circle cx="84" cy="122" r="4" fill="#fff" opacity=".8"/>
-          <rect x="88" y="108" width="65" height="20" rx="8" fill="#fff" opacity=".9"/>
-          <text x="120" y="121" font-family="serif" font-style="italic" font-size="9" fill="#333" text-anchor="middle">"Is this America?"</text>
-          <!-- Red cross symbol -->
-          <rect x="248" y="100" width="20" height="6" fill="#cc2222"/>
-          <rect x="254" y="94" width="8" height="18" fill="#cc2222"/>
-        </svg>
-        <div class="comic-cap">Fort Chaffee, Arkansas, 1975. 25,000 Vietnamese passed through. IRC caseworkers found housing and jobs. Congress approved $455 million for resettlement.</div>
-        <button class="comic-link-btn" onclick="linkToDialogue('panel', '.us-bub')">↩ Back to Panel: Julia Taft on the Military Bases ▶</button>
-      </div>
- 
-      <!-- PANEL 3: Public Opposition -->
-      <div class="comic-panel" id="cpanel3">
-        <span class="panel-num">3</span>
-        <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
-          <!-- Newspaper front page style -->
-          <rect width="320" height="220" fill="#f5ead0"/>
-          <!-- Newspaper header -->
-          <rect x="0" y="0" width="320" height="30" fill="#1a2a3a"/>
-          <text x="160" y="20" font-family="serif" font-weight="bold" font-size="12" fill="#f8d890" text-anchor="middle" letter-spacing="3">THE DAILY AMERICAN · 1975</text>
-          <!-- Protest crowd illustration -->
-          <rect x="0" y="30" width="320" height="100" fill="#e0d0b0"/>
-          <!-- Protestors -->
-          <g fill="#3a2a18">
-            <circle cx="40" cy="100" r="8"/><rect x="32" y="107" width="16" height="20"/>
-            <circle cx="70" cy="98" r="8"/><rect x="62" y="105" width="16" height="20"/>
-            <circle cx="100" cy="100" r="7"/><rect x="93" y="107" width="14" height="18"/>
-            <circle cx="128" cy="97" r="8"/><rect x="120" y="105" width="16" height="20"/>
-            <circle cx="158" cy="99" r="8"/><rect x="150" y="107" width="16" height="20"/>
-            <circle cx="190" cy="100" r="7"/><rect x="183" y="107" width="14" height="18"/>
-            <circle cx="218" cy="98" r="8"/><rect x="210" y="105" width="16" height="20"/>
-            <circle cx="248" cy="100" r="7"/><rect x="241" y="107" width="14" height="18"/>
-            <circle cx="278" cy="99" r="8"/><rect x="270" y="106" width="16" height="20"/>
-          </g>
-          <!-- Protest signs -->
-          <rect x="35" y="75" width="35" height="20" fill="#fff" stroke="#888" stroke-width="1"/>
-          <text x="52" y="88" font-family="sans-serif" font-size="6" fill="#cc2222" text-anchor="middle" font-weight="bold">JOBS FOR US FIRST</text>
-          <rect x="65" y="72" width="42" height="20" fill="#fff" stroke="#888" stroke-width="1"/>
-          <text x="86" y="85" font-family="sans-serif" font-size="5.5" fill="#cc2222" text-anchor="middle" font-weight="bold">54% SAY NO TO REFUGEES</text>
-          <rect x="148" y="74" width="38" height="20" fill="#fff" stroke="#888" stroke-width="1"/>
-          <text x="167" y="84" font-family="sans-serif" font-size="5.5" fill="#333" text-anchor="middle">They bring disease</text>
-          <text x="167" y="91" font-family="sans-serif" font-size="5.5" fill="#333" text-anchor="middle">— NE constituent</text>
-          <rect x="210" y="72" width="48" height="20" fill="#fff" stroke="#888" stroke-width="1"/>
-          <text x="234" y="82" font-family="sans-serif" font-size="5.5" fill="#cc2222" text-anchor="middle">US unemployment</text>
-          <text x="234" y="89" font-family="sans-serif" font-size="6.5" fill="#cc2222" text-anchor="middle" font-weight="bold">= 9%</text>
-          <!-- News articles -->
-          <rect x="10" y="138" width="140" height="70" fill="#f0e0c0"/>
-          <text x="80" y="153" font-family="serif" font-weight="bold" font-size="9" fill="#1a1408" text-anchor="middle">"Byrd: Screen Out Undesirables"</text>
-          <rect x="10" y="157" width="140" height="1" fill="#888"/>
-          <text x="80" y="169" font-family="serif" font-size="8" fill="#3a2a18" text-anchor="middle">Senator warns of risks</text>
-          <text x="80" y="179" font-family="serif" font-size="8" fill="#3a2a18" text-anchor="middle">as 130,000 await entry</text>
-          <text x="80" y="189" font-family="serif" font-size="8" fill="#3a2a18" text-anchor="middle">— NYT, May 1975</text>
-          <rect x="165" y="138" width="145" height="70" fill="#f0e0c0"/>
-          <text x="237" y="153" font-family="serif" font-weight="bold" font-size="9" fill="#1a1408" text-anchor="middle">"Ford: 'It Burns Me Up'"</text>
-          <rect x="165" y="157" width="145" height="1" fill="#888"/>
-          <text x="237" y="169" font-family="serif" font-size="8" fill="#3a2a18" text-anchor="middle">President defies Congress,</text>
-          <text x="237" y="179" font-family="serif" font-size="8" fill="#3a2a18" text-anchor="middle">signs $455M refugee act</text>
-          <text x="237" y="189" font-family="serif" font-size="8" fill="#3a2a18" text-anchor="middle">— May 23, 1975</text>
-        </svg>
-        <div class="comic-cap">1975 headlines: 54% of Americans opposed the refugee programme. Senate Majority Whip Byrd wanted "undesirables" screened out. Governor Jerry Brown tried to block refugees from California.</div>
-        <button class="comic-link-btn" onclick="linkToDialogue('panel', '.cg-bub')">↩ Back to Panel: Congressman Marsh's Opposition ▶</button>
-      </div>
- 
-      <!-- PANEL 4: Father's Story (Re-education) -->
-      <div class="comic-panel" id="cpanel4">
-        <span class="panel-num">4</span>
-        <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
-          <!-- Split panel: left = camp, right = daughter testifying -->
-          <!-- Left half: Vietnam -->
-          <rect x="0" y="0" width="158" height="220" fill="#1a1408"/>
-          <!-- Barbed wire fence -->
-          <line x1="0" y1="120" x2="158" y2="120" stroke="#666" stroke-width="2"/>
-          <g stroke="#666" stroke-width="1">
-            <line x1="20" y1="116" x2="15" y2="124"/><line x1="20" y1="116" x2="25" y2="124"/>
-            <line x1="50" y1="116" x2="45" y2="124"/><line x1="50" y1="116" x2="55" y2="124"/>
-            <line x1="80" y1="116" x2="75" y2="124"/><line x1="80" y1="116" x2="85" y2="124"/>
-            <line x1="110" y1="116" x2="105" y2="124"/><line x1="110" y1="116" x2="115" y2="124"/>
-            <line x1="140" y1="116" x2="135" y2="124"/><line x1="140" y1="116" x2="145" y2="124"/>
-          </g>
-          <!-- Father behind wire -->
-          <circle cx="79" cy="95" r="13" fill="#c8a060"/>
-          <ellipse cx="79" cy="88" rx="11" ry="7" fill="#1a0808"/>
-          <ellipse cx="79" cy="155" rx="18" ry="25" fill="#4a3a28"/>
-          <!-- Prisoner badge -->
-          <rect x="69" y="143" width="20" height="12" rx="1" fill="#8a6a40"/>
-          <text x="79" y="152" font-family="monospace" font-size="6" fill="#fff" text-anchor="middle">A-247</text>
-          <!-- Label -->
-          <text x="79" y="25" font-family="serif" font-style="italic" font-size="9" fill="#c8a060" text-anchor="middle">Re-education Camp</text>
-          <text x="79" y="38" font-family="serif" font-style="italic" font-size="9" fill="#c8a060" text-anchor="middle">Vietnam, 1976–1978</text>
-          <!-- over 1 million -->
-          <text x="79" y="200" font-family="monospace" font-size="7" fill="#5a4a30" text-anchor="middle">Over 1 million imprisoned</text>
-          <!-- Divider -->
-          <rect x="156" y="0" width="4" height="220" fill="#c49a2a"/>
-          <!-- Right half: USA studio -->
-          <rect x="160" y="0" width="160" height="220" fill="#1a2a3a"/>
-          <!-- Microphone -->
-          <ellipse cx="265" cy="80" rx="8" ry="12" fill="#888" stroke="#c49a2a" stroke-width="1.5"/>
-          <rect x="263" y="92" width="4" height="20" fill="#666"/>
-          <rect x="253" y="112" width="24" height="3" fill="#888"/>
-          <!-- Girl at microphone (Linh) -->
-          <circle cx="240" cy="135" r="12" fill="#d4a070"/>
-          <ellipse cx="240" cy="128" rx="10" ry="7" fill="#0a0800"/>
-          <ellipse cx="240" cy="175" rx="20" ry="28" fill="#4a6898"/>
-          <!-- Tears -->
-          <circle cx="234" cy="139" r="1.5" fill="#6a9fcc" opacity=".8"/>
-          <circle cx="246" cy="139" r="1.5" fill="#6a9fcc" opacity=".8"/>
-          <!-- Speech bubble -->
-          <rect x="165" y="30" width="150" height="60" rx="5" fill="#fff" opacity=".95"/>
-          <polygon points="240,90 234,100 246,90" fill="#fff" opacity=".95"/>
-          <text x="240" y="52" font-family="serif" font-style="italic" font-size="8.5" fill="#1a1408" text-anchor="middle">"My father was a</text>
-          <text x="240" y="63" font-family="serif" font-style="italic" font-size="8.5" fill="#1a1408" text-anchor="middle">schoolteacher."</text>
-          <text x="240" y="78" font-family="serif" font-size="8" fill="#5a4030" text-anchor="middle">— Linh Nguyen, Washington, 1979</text>
-        </svg>
-        <div class="comic-cap">Split: Linh's father in a Vietnamese re-education camp (left). Linh testifying on camera in Washington D.C. (right). She learned this English sentence at Fort Chaffee.</div>
-        <button class="comic-link-btn" onclick="linkToDialogue('panel', '.r-bub:nth-of-type(4)')">↩ Back to Panel: Linh's Powerful Response ▶</button>
-      </div>
- 
-      <!-- PANEL 5: New Roots -->
-      <div class="comic-panel" id="cpanel5">
-        <span class="panel-num">5</span>
-        <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
-          <!-- American classroom -->
-          <rect width="320" height="220" fill="#f0e8d0"/>
-          <!-- Chalkboard -->
-          <rect x="20" y="20" width="230" height="100" rx="3" fill="#2a4a2a"/>
-          <rect x="25" y="25" width="220" height="90" rx="2" fill="#2d5a2d"/>
-          <!-- Writing on board -->
-          <text x="135" y="55" font-family="serif" font-size="11" fill="#fff" text-anchor="middle">WELCOME TO AMERICA</text>
-          <text x="135" y="72" font-family="serif" font-size="9" fill="#c8f0c8" text-anchor="middle">— Mrs. Patterson's Class —</text>
-          <!-- American flag in classroom -->
-          <rect x="255" y="15" width="3" height="55" fill="#888"/>
-          <rect x="258" y="15" width="24" height="15" fill="#B22234"/>
-          <rect x="258" y="18" width="24" height="2" fill="#fff"/>
-          <rect x="258" y="21.5" width="24" height="2" fill="#fff"/>
-          <rect x="258" y="25" width="24" height="2" fill="#fff"/>
-          <rect x="258" y="15" width="10" height="9" fill="#3C3B6E"/>
-          <!-- Desks and students -->
-          <g>
-            <!-- Desk 1 - Vietnamese child (Linh) -->
-            <rect x="30" y="140" width="55" height="35" rx="2" fill="#c8b070"/>
-            <circle cx="57" cy="132" r="9" fill="#d4a070"/>
-            <ellipse cx="57" cy="127" rx="8" ry="5" fill="#0a0800"/>
-            <ellipse cx="57" cy="155" rx="14" ry="18" fill="#4a6898"/>
-            <text x="57" y="185" font-family="monospace" font-size="6" fill="#5a4030" text-anchor="middle">LINH</text>
-          </g>
-          <g>
-            <!-- Desk 2 - American student -->
-            <rect x="105" y="140" width="55" height="35" rx="2" fill="#c8b070"/>
-            <circle cx="132" cy="132" r="9" fill="#e8c090"/>
-            <ellipse cx="132" cy="127" rx="8" ry="5" fill="#3a2818"/>
-            <ellipse cx="132" cy="155" rx="14" ry="18" fill="#c04030"/>
-            <text x="132" y="185" font-family="monospace" font-size="6" fill="#5a4030" text-anchor="middle">MIKE</text>
-          </g>
-          <g>
-            <!-- Desk 3 -->
-            <rect x="180" y="140" width="55" height="35" rx="2" fill="#c8b070"/>
-            <circle cx="207" cy="132" r="9" fill="#d0a878"/>
-            <ellipse cx="207" cy="127" rx="8" ry="5" fill="#1a1008"/>
-            <ellipse cx="207" cy="155" rx="14" ry="18" fill="#2a5040"/>
-          </g>
-          <!-- Teacher silhouette -->
-          <circle cx="280" cy="130" r="12" fill="#e0b888"/>
-          <ellipse cx="280" cy="165" rx="18" ry="24" fill="#4a2a18"/>
-          <!-- Cookie plate -->
-          <ellipse cx="57" cy="145" rx="10" ry="4" fill="#f0d090"/>
-          <circle cx="53" cy="144" r="3" fill="#c87840"/>
-          <circle cx="61" cy="144" r="3" fill="#c87840"/>
-          <!-- Speech bubble from teacher -->
-          <rect x="195" y="105" width="115" height="30" rx="8" fill="#fff" stroke="#888" stroke-width="1"/>
-          <polygon points="280,135 274,143 286,135" fill="#fff" stroke="#888" stroke-width="1"/>
-          <text x="252" y="122" font-family="serif" font-style="italic" font-size="8" fill="#333" text-anchor="middle">"That flag is yours too now."</text>
-        </svg>
-        <div class="comic-cap">Mrs. Patterson's class, Arkansas, 1975. Linh's first American teacher brought cookies. She pointed to the flag. "That flag is yours too now." Linh practised her English sentence every night.</div>
-        <button class="comic-link-btn" onclick="linkToDialogue('panel', '.cg-bub:last-of-type')">↩ Back to Panel: Congressman's Change of Heart ▶</button>
-      </div>
- 
-      <!-- PANEL 6: The American Dream Arrived -->
-      <div class="comic-panel" id="cpanel6">
-        <span class="panel-num">6</span>
-        <svg viewBox="0 0 320 220" xmlns="http://www.w3.org/2000/svg">
-          <!-- Sunny California city -->
-          <defs>
-            <linearGradient id="calsky" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#87ceeb"/>
-              <stop offset="100%" stop-color="#c8e8f8"/>
-            </linearGradient>
-          </defs>
-          <rect width="320" height="220" fill="url(#calsky)"/>
-          <rect x="0" y="175" width="320" height="45" fill="#7a9a60"/>
-          <!-- City skyline -->
-          <rect x="0" y="100" width="25" height="75" fill="#8090a0"/>
-          <rect x="30" y="80" width="40" height="95" fill="#9aaaba"/>
-          <rect x="75" y="95" width="30" height="80" fill="#8090a0"/>
-          <rect x="110" y="70" width="55" height="105" fill="#aabbc8"/>
-          <rect x="170" y="88" width="35" height="87" fill="#9aaaba"/>
-          <rect x="210" y="78" width="50" height="97" fill="#b0bec8"/>
-          <rect x="265" y="100" width="55" height="75" fill="#8090a0"/>
-          <!-- Little Saigon sign on building -->
-          <rect x="115" y="60" width="45" height="15" fill="#cc2222"/>
-          <text x="137" y="71" font-family="serif" font-size="7" fill="#f8d000" text-anchor="middle" font-weight="bold">LITTLE SAIGON</text>
-          <!-- Pho restaurant -->
-          <rect x="78" y="150" width="55" height="30" fill="#f8e8c0" stroke="#c8a070" stroke-width="1"/>
-          <text x="105" y="163" font-family="serif" font-size="7.5" fill="#8a1a1a" text-anchor="middle" font-weight="bold">PHỞ LINH</text>
-          <text x="105" y="173" font-family="monospace" font-size="6" fill="#5a3a10" text-anchor="middle">Est. 1982</text>
-          <!-- Family in front — adult Linh -->
-          <circle cx="165" cy="165" r="11" fill="#d4a070"/>
-          <ellipse cx="165" cy="158" rx="9" ry="6" fill="#0a0800"/>
-          <ellipse cx="165" cy="190" rx="16" ry="20" fill="#4a6898"/>
-          <!-- Graduation gown detail -->
-          <rect x="156" y="175" width="18" height="15" rx="1" fill="#1a1a2a"/>
-          <rect x="159" y="173" width="12" height="5" rx="1" fill="#1a1a2a"/>
-          <!-- Diploma -->
-          <rect x="168" y="178" width="18" height="13" rx="1" fill="#f8f0d0" stroke="#c49a2a" stroke-width="1"/>
-          <text x="177" y="187" font-family="serif" font-size="5.5" fill="#8a6020" text-anchor="middle">PhD</text>
-          <!-- Husband -->
-          <circle cx="188" cy="168" r="10" fill="#e0b888"/>
-          <ellipse cx="188" cy="192" rx="14" ry="18" fill="#2a4060"/>
-          <!-- Child -->
-          <circle cx="147" cy="172" r="8" fill="#d4b070"/>
-          <ellipse cx="147" cy="190" rx="10" ry="14" fill="#4888b8"/>
-          <!-- Oscar / award suggestion -->
-          <path d="M147,165 L150,158 L153,165 L160,165 L155,170 L157,178 L150,174 L143,178 L145,170 L140,165 Z" fill="#f8d000" transform="scale(.5) translate(145,148)"/>
-          <!-- American flag waving -->
-          <rect x="272" y="130" width="3" height="48" fill="#888"/>
-          <rect x="275" y="130" width="22" height="13" fill="#B22234"/>
-          <rect x="275" y="132.5" width="22" height="2" fill="#fff"/>
-          <rect x="275" y="136" width="22" height="2" fill="#fff"/>
-          <rect x="275" y="139.5" width="22" height="2" fill="#fff"/>
-          <rect x="275" y="130" width="9" height="8" fill="#3C3B6E"/>
-          <!-- Quote banner -->
-          <rect x="5" y="5" width="310" height="38" rx="3" fill="rgba(0,0,0,.6)"/>
-          <text x="160" y="20" font-family="serif" font-style="italic" font-size="9" fill="#f8e8c8" text-anchor="middle">"My journey started on a boat.</text>
-          <text x="160" y="33" font-family="serif" font-style="italic" font-size="9" fill="#f8d890" text-anchor="middle">Somehow I ended up here." — Ke Huy Quan, Oscars 2023</text>
-        </svg>
-        <div class="comic-cap">Little Saigon, California, 2000s. Dr. Linh Nguyen — former refugee, now a PhD — outside her family's restaurant. Vietnamese-Americans: over 2 million, above-average income, federal judges, Oscar winners.</div>
-        <button class="comic-link-btn" onclick="linkToDialogue('panel', '.us-bub:last-of-type')">↩ Back to Panel: Taft's Closing Statement ▶</button>
-      </div>
- 
-    </div><!-- /comic-grid -->
- 
-    <div style="text-align:center;margin-top:28px;padding:0 16px">
-      <p style="font-size:15px;font-style:italic;color:var(--muted);max-width:640px;margin:0 auto;line-height:1.7">
-        Comic strip based on documented historical events. Quotes from real figures including President Ford, Julia Taft, Ke Huy Quan, and IRC archives. Linh is a fictional composite based on documented refugee testimony.
+
+    <!-- Dialogue -->
+    <div class="dialogue animate-in delay-3">
+      <div class="speaker gold-text">Tran Van Minh, 1979 Boat Person</div>
+      <p style="font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.6;">
+        "We left at midnight with nothing. The sea was our only road. Pirates attacked us twice. We had no food for five days. I was 14, holding my 6-year-old sister. We didn't choose to leave — staying was not an option."
+      </p>
+    </div>
+
+    <div class="dialogue animate-in delay-4" style="border-left-color: #5DADE2;">
+      <div class="speaker" style="color: #5DADE2;">Amira Al-Hassan, Syrian Refugee, 2016</div>
+      <p style="font-size: 13px; color: rgba(255,255,255,0.7); line-height: 1.6;">
+        "One morning our building was gone. Just rubble. My children's school, the market — everything. We walked for 12 days to reach Turkey. The journey was not the hardest part. Being told you don't belong anywhere — that is the hardest."
       </p>
     </div>
   </div>
- 
-  <div class="sources" style="background:var(--paper);color:var(--ink)">
-    <h4>Comic Strip Sources</h4>
-    <ul>
-      <li>IRC — Largest Refugee Resettlement in US History</li>
-      <li>Wikipedia — Operation Frequent Wind; Fort Chaffee</li>
-      <li>Mercury News — "Ford Was a Friend in Need to Vietnamese Refugees"</li>
-      <li>CBS News 2025 — Ke Huy Quan quote; Ford's moral obligation</li>
-    </ul>
-  </div>
-</div><!-- /comic -->
- 
- 
-<!-- ══════════════════════════════════════════════
-     SECTION 4: POSTER GALLERY
-══════════════════════════════════════════════ -->
-<div id="posters" class="section">
-  <div class="poster-section">
-    <div class="poster-header">
-      <h2>🖼 Poster Gallery</h2>
-      <p>Three documentary-style posters — each linked to a moment in the panel dialogue</p>
+
+  <!-- Side image -->
+  <div style="width: 320px; flex-shrink: 0; display: flex; flex-direction: column; gap: 12px;" class="slide-content">
+    <div class="img-overlay animate-right delay-3" style="height: 240px;">
+      <img src="https://picsum.photos/seed/saigonfall/640/480.jpg" alt="Fall of Saigon evacuation">
+      <div class="img-caption"><i class="fas fa-camera" style="margin-right: 4px;"></i> Evacuation of Saigon, April 1975</div>
     </div>
- 
-    <div class="poster-grid">
- 
-      <!-- POSTER 1: The Numbers -->
-      <div class="poster-item" id="poster1-anchor">
-        <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="p1bg" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#0d1f35"/>
-              <stop offset="100%" stop-color="#060e1a"/>
-            </linearGradient>
-          </defs>
-          <rect width="300" height="400" fill="url(#p1bg)"/>
-          <!-- Stars top -->
-          <g fill="#fff" opacity=".4">
-            <circle cx="20" cy="18" r="1"/><circle cx="50" cy="12" r="1.2"/>
-            <circle cx="90" cy="20" r="1"/><circle cx="140" cy="10" r="1.3"/>
-            <circle cx="180" cy="22" r="1"/><circle cx="220" cy="15" r="1.2"/>
-            <circle cx="260" cy="25" r="1"/><circle cx="285" cy="12" r="1.4"/>
-          </g>
-          <!-- US Flag stripe header -->
-          <rect x="0" y="0" width="300" height="8" fill="#B22234"/>
-          <rect x="0" y="8" width="300" height="8" fill="#fff" opacity=".9"/>
-          <rect x="0" y="16" width="300" height="8" fill="#B22234"/>
-          <!-- Title -->
-          <text x="150" y="55" font-family="Georgia,serif" font-weight="bold" font-size="22" fill="#f8d890" text-anchor="middle" letter-spacing="1">THE NUMBERS</text>
-          <text x="150" y="72" font-family="monospace" font-size="9" fill="#8090a0" text-anchor="middle" letter-spacing="3">VIETNAM · AMERICA · 1975</text>
-          <line x1="30" y1="80" x2="270" y2="80" stroke="#c49a2a" stroke-width="1"/>
-          <!-- Big stats -->
-          <text x="150" y="118" font-family="Georgia,serif" font-weight="bold" font-size="44" fill="#c49a2a" text-anchor="middle">130K</text>
-          <text x="150" y="135" font-family="monospace" font-size="9" fill="#8090a0" text-anchor="middle" letter-spacing="2">EVACUATED TO USA IN 1975</text>
-          <line x1="50" y1="142" x2="250" y2="142" stroke="#333" stroke-width=".5"/>
-          <text x="150" y="175" font-family="Georgia,serif" font-weight="bold" font-size="40" fill="#B22234" text-anchor="middle">54%</text>
-          <text x="150" y="192" font-family="monospace" font-size="9" fill="#8090a0" text-anchor="middle" letter-spacing="2">OF AMERICANS SAID NO — 1975 GALLUP</text>
-          <line x1="50" y1="198" x2="250" y2="198" stroke="#333" stroke-width=".5"/>
-          <text x="150" y="232" font-family="Georgia,serif" font-weight="bold" font-size="40" fill="#6abfff" text-anchor="middle">$455M</text>
-          <text x="150" y="249" font-family="monospace" font-size="9" fill="#8090a0" text-anchor="middle" letter-spacing="2">CONGRESS APPROVED FOR RESETTLEMENT</text>
-          <line x1="50" y1="255" x2="250" y2="255" stroke="#333" stroke-width=".5"/>
-          <text x="150" y="288" font-family="Georgia,serif" font-weight="bold" font-size="40" fill="#90d090" text-anchor="middle">1M+</text>
-          <text x="150" y="305" font-family="monospace" font-size="9" fill="#8090a0" text-anchor="middle" letter-spacing="2">INDOCHINESE ADMITTED BY 1992</text>
-          <!-- Bottom quote -->
-          <rect x="0" y="320" width="300" height="80" fill="rgba(0,0,0,.5)"/>
-          <text x="150" y="346" font-family="Georgia,serif" font-style="italic" font-size="10" fill="#f8e8c8" text-anchor="middle">"My conscience would have bothered</text>
-          <text x="150" y="359" font-family="Georgia,serif" font-style="italic" font-size="10" fill="#f8e8c8" text-anchor="middle">me the rest of my life."</text>
-          <text x="150" y="375" font-family="monospace" font-size="9" fill="#c49a2a" text-anchor="middle">— Pres. Gerald Ford</text>
-          <text x="150" y="391" font-family="monospace" font-size="8" fill="#506070" text-anchor="middle">Sources: Wikipedia · Gallup · IRC · CBS News</text>
-          <rect x="6" y="6" width="288" height="388" fill="none" stroke="#c49a2a" stroke-width="1" opacity=".3"/>
-        </svg>
-        <div class="poster-lbl">Poster I — "The Numbers" — Vietnam & America 1975</div>
-        <div class="poster-link-badge" onclick="linkToDialogue('panel', '.j-bub')">↩ Linked to: Margaret Chen's Opening Statement in Panel ▶</div>
-      </div>
- 
-      <!-- POSTER 2: Ford's Decision -->
-      <div class="poster-item" id="poster2-anchor">
-        <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="p2bg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#1a2a3a"/>
-              <stop offset="100%" stop-color="#0a1420"/>
-            </linearGradient>
-          </defs>
-          <rect width="300" height="400" fill="url(#p2bg)"/>
-          <!-- White House silhouette -->
-          <rect x="60" y="200" width="180" height="80" fill="#c8b890" opacity=".3"/>
-          <rect x="80" y="180" width="140" height="25" fill="#c8b890" opacity=".3"/>
-          <rect x="100" y="165" width="100" height="20" fill="#c8b890" opacity=".25"/>
-          <rect x="115" y="152" width="70" height="18" fill="#c8b890" opacity=".2"/>
-          <!-- Columns suggestion -->
-          <g fill="#c8b890" opacity=".15">
-            <rect x="90" y="180" width="8" height="100"/>
-            <rect x="110" y="180" width="8" height="100"/>
-            <rect x="130" y="180" width="8" height="100"/>
-            <rect x="150" y="180" width="8" height="100"/>
-            <rect x="170" y="180" width="8" height="100"/>
-            <rect x="190" y="180" width="8" height="100"/>
-            <rect x="210" y="180" width="8" height="100"/>
-          </g>
-          <!-- Header text -->
-          <rect x="0" y="0" width="300" height="55" fill="rgba(0,0,0,.4)"/>
-          <text x="150" y="24" font-family="Georgia,serif" font-size="11" font-weight="bold" fill="#c49a2a" text-anchor="middle" letter-spacing="3">THE DECISION THAT DEFINED AMERICA</text>
-          <text x="150" y="44" font-family="monospace" font-size="9" fill="#6080a0" text-anchor="middle">MAY 23, 1975 — PRESIDENT FORD SIGNS THE ACT</text>
-          <!-- Main quote centrepiece -->
-          <rect x="20" y="70" width="260" height="130" rx="3" fill="rgba(255,255,255,.05)" stroke="#c49a2a" stroke-width="1"/>
-          <text x="30" y="95" font-family="Georgia,serif" font-style="italic" font-size="10.5" fill="#f0e8d0">"We are a country built by</text>
-          <text x="30" y="110" font-family="Georgia,serif" font-style="italic" font-size="10.5" fill="#f0e8d0">immigrants from all areas of the</text>
-          <text x="30" y="125" font-family="Georgia,serif" font-style="italic" font-size="10.5" fill="#f0e8d0">world, and we've always been a</text>
-          <text x="30" y="140" font-family="Georgia,serif" font-style="italic" font-size="10.5" fill="#f0e8d0">very humanitarian nation."</text>
-          <line x1="30" y1="150" x2="270" y2="150" stroke="#c49a2a" stroke-width=".5"/>
-          <text x="150" y="168" font-family="monospace" font-size="9" fill="#c49a2a" text-anchor="middle">— President Gerald Ford</text>
-          <text x="150" y="183" font-family="monospace" font-size="8" fill="#506070" text-anchor="middle">Press Conference, May 5, 1975</text>
-          <!-- Four bases -->
-          <rect x="20" y="290" width="260" height="80" fill="rgba(0,0,0,.3)"/>
-          <text x="150" y="308" font-family="monospace" font-size="9" fill="#6abfff" text-anchor="middle" letter-spacing="2">4 MILITARY BASES CONVERTED</text>
-          <line x1="30" y1="313" x2="270" y2="313" stroke="#334455" stroke-width="1"/>
-          <text x="80" y="330" font-family="monospace" font-size="8" fill="#90a0b0" text-anchor="middle">Camp Pendleton</text>
-          <text x="80" y="342" font-family="monospace" font-size="7" fill="#5a6870" text-anchor="middle">California</text>
-          <text x="150" y="330" font-family="monospace" font-size="8" fill="#90a0b0" text-anchor="middle">Fort Chaffee</text>
-          <text x="150" y="342" font-family="monospace" font-size="7" fill="#5a6870" text-anchor="middle">Arkansas</text>
-          <text x="225" y="330" font-family="monospace" font-size="8" fill="#90a0b0" text-anchor="middle">Eglin AFB</text>
-          <text x="225" y="342" font-family="monospace" font-size="7" fill="#5a6870" text-anchor="middle">Florida</text>
-          <text x="150" y="358" font-family="monospace" font-size="8" fill="#90a0b0" text-anchor="middle">+ Fort Indiantown Gap, Pennsylvania</text>
-          <rect x="8" y="8" width="284" height="384" fill="none" stroke="#c49a2a" stroke-width=".8" opacity=".3"/>
-        </svg>
-        <div class="poster-lbl">Poster II — "Ford's Decision" — The Act of May 23, 1975</div>
-        <div class="poster-link-badge" onclick="linkToDialogue('panel', '.us-bub')">↩ Linked to: Julia Taft's defence of the programme in Panel ▶</div>
-      </div>
- 
-      <!-- POSTER 3: The Bet That Paid Off -->
-      <div class="poster-item" id="poster3-anchor">
-        <svg viewBox="0 0 300 400" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <linearGradient id="p3bg" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stop-color="#0a2010"/>
-              <stop offset="100%" stop-color="#050e08"/>
-            </linearGradient>
-          </defs>
-          <rect width="300" height="400" fill="url(#p3bg)"/>
-          <!-- Vietnamese flag colours suggestion (for origin) -->
-          <rect x="0" y="0" width="8" height="400" fill="#B22234" opacity=".4"/>
-          <!-- US flag colours (destination) -->
-          <rect x="292" y="0" width="8" height="400" fill="#3C3B6E" opacity=".4"/>
-          <!-- Title -->
-          <text x="150" y="38" font-family="Georgia,serif" font-weight="bold" font-size="16" fill="#90d090" text-anchor="middle" letter-spacing="1">THE BET THAT PAID OFF</text>
-          <text x="150" y="54" font-family="monospace" font-size="8" fill="#5a7a5a" text-anchor="middle" letter-spacing="3">50 YEARS LATER</text>
-          <line x1="30" y1="62" x2="270" y2="62" stroke="#2d6a4f" stroke-width="1"/>
-          <!-- Timeline arrow -->
-          <line x1="40" y1="170" x2="260" y2="170" stroke="#c49a2a" stroke-width="1.5"/>
-          <polygon points="260,166 270,170 260,174" fill="#c49a2a"/>
-          <circle cx="40" cy="170" r="4" fill="#B22234"/>
-          <circle cx="130" cy="170" r="4" fill="#6abfff"/>
-          <circle cx="200" cy="170" r="4" fill="#90d090"/>
-          <circle cx="260" cy="170" r="4" fill="#f8d890"/>
-          <text x="40" y="155" font-family="monospace" font-size="8" fill="#cc6060" text-anchor="middle">1975</text>
-          <text x="40" y="186" font-family="monospace" font-size="7" fill="#5a3030" text-anchor="middle">Saigon</text>
-          <text x="40" y="194" font-family="monospace" font-size="7" fill="#5a3030" text-anchor="middle">falls</text>
-          <text x="130" y="155" font-family="monospace" font-size="8" fill="#6abfff" text-anchor="middle">1980</text>
-          <text x="130" y="186" font-family="monospace" font-size="7" fill="#3a5a7a" text-anchor="middle">Refugee</text>
-          <text x="130" y="194" font-family="monospace" font-size="7" fill="#3a5a7a" text-anchor="middle">Act signed</text>
-          <text x="200" y="155" font-family="monospace" font-size="8" fill="#90d090" text-anchor="middle">1992</text>
-          <text x="200" y="186" font-family="monospace" font-size="7" fill="#2a5a3a" text-anchor="middle">1M+ in</text>
-          <text x="200" y="194" font-family="monospace" font-size="7" fill="#2a5a3a" text-anchor="middle">the US</text>
-          <text x="258" y="155" font-family="monospace" font-size="8" fill="#f8d890" text-anchor="middle">Today</text>
-          <text x="258" y="186" font-family="monospace" font-size="7" fill="#8a7040" text-anchor="middle">2M+</text>
-          <text x="258" y="194" font-family="monospace" font-size="7" fill="#8a7040" text-anchor="middle">thrive</text>
-          <!-- Achievements list -->
-          <rect x="20" y="210" width="260" height="130" rx="3" fill="rgba(255,255,255,.04)" stroke="#2d6a4f" stroke-width="1"/>
-          <text x="150" y="228" font-family="monospace" font-size="9" fill="#90d090" text-anchor="middle" letter-spacing="2">WHAT THEY BECAME</text>
-          <line x1="30" y1="234" x2="270" y2="234" stroke="#2d6a4f" stroke-width=".5"/>
-          <text x="35" y="250" font-family="Georgia,serif" font-size="9.5" fill="#d0e8d0">★  Federal judges and senators</text>
-          <text x="35" y="265" font-family="Georgia,serif" font-size="9.5" fill="#d0e8d0">★  Pulitzer Prize-winning novelists</text>
-          <text x="35" y="280" font-family="Georgia,serif" font-size="9.5" fill="#d0e8d0">★  Oscar-winning actors (Ke Huy Quan)</text>
-          <text x="35" y="295" font-family="Georgia,serif" font-size="9.5" fill="#d0e8d0">★  Above-average household income</text>
-          <text x="35" y="310" font-family="Georgia,serif" font-size="9.5" fill="#d0e8d0">★  Revived cities: Little Saigon,</text>
-          <text x="35" y="323" font-family="Georgia,serif" font-size="9.5" fill="#d0e8d0">    Fields Corner, Bellaire Houston</text>
-          <text x="35" y="333" font-family="Georgia,serif" font-size="9.5" fill="#d0e8d0">★  Huy Fong Sriracha — global icon</text>
-          <!-- Bottom closing -->
-          <rect x="0" y="352" width="300" height="48" fill="rgba(0,0,0,.5)"/>
-          <text x="150" y="372" font-family="Georgia,serif" font-style="italic" font-size="9.5" fill="#f8e8c8" text-anchor="middle">"The refugees so many feared would</text>
-          <text x="150" y="385" font-family="Georgia,serif" font-style="italic" font-size="9.5" fill="#f8e8c8" text-anchor="middle">be a burden became a blessing."</text>
-          <text x="150" y="396" font-family="monospace" font-size="7.5" fill="#5a7a5a" text-anchor="middle">— Boston Globe, 2026</text>
-          <rect x="8" y="8" width="284" height="384" fill="none" stroke="#2d6a4f" stroke-width="1" opacity=".4"/>
-        </svg>
-        <div class="poster-lbl">Poster III — "The Bet That Paid Off" — 50 Years Later</div>
-        <div class="poster-link-badge" onclick="linkToDialogue('panel', '.us-bub:last-of-type')">↩ Linked to: Taft's Closing Statement in Panel ▶</div>
-      </div>
- 
-    </div><!-- /poster-grid -->
-  </div>
- 
-  <div class="sources" style="background:var(--paper);color:var(--ink)">
-    <h4>Poster Gallery Sources</h4>
-    <ul>
-      <li>Wikipedia — Indochina Migration Act; Vietnamese Americans</li>
-      <li>IRC — US Refugee Resettlement History</li>
-      <li>CBS News 2025 — Ke Huy Quan; Ford's legacy</li>
-      <li>Boston Globe 2026 — Nativism is a Bipartisan Temptation</li>
-      <li>Migration Policy Institute 2018 — Vietnamese Immigrants</li>
-      <li>Quartz — The US Bet on Vietnamese Refugees</li>
-    </ul>
-  </div>
-</div><!-- /posters -->
- 
- 
-<!-- ══════════════════════════════════════════════
-     SECTION 5: LEARN MORE
-══════════════════════════════════════════════ -->
-<div id="learn" class="section">
-  <div class="panel-banner">
-    <div class="panel-label">Section 5 — Think Deeper</div>
-    <h2>Discussion Questions &amp; Key Takeaways</h2>
-    <p>Use these questions for class discussion, written assignments, or personal reflection. They are designed for Grade 10 critical thinking — there is no single right answer.</p>
-  </div>
- 
-  <div class="questions">
-    <h3>💬 Discussion Questions</h3>
-    <ul class="q-list">
-      <li>
-        <div class="q-num">1</div>
-        <div class="q-text">In 1975, 54% of Americans opposed taking in Vietnamese refugees. President Ford did it anyway. Do you think a democratic leader should follow public opinion or their own moral judgment? What are the risks of each approach? Give evidence from the panel.</div>
-      </li>
-      <li>
-        <div class="q-num">2</div>
-        <div class="q-text">Congressman Marsh worried about American jobs and welfare costs. Julia Taft argued America had a moral obligation. Whose argument is stronger? Can both be true at the same time? How would you balance compassion and practicality?</div>
-      </li>
-      <li>
-        <div class="q-num">3</div>
-        <div class="q-text">The Vietnamese diplomat Nguyễn Văn Long claims America was using the refugee crisis for Cold War politics, not genuine humanitarian reasons. Does a country need to have "pure" motives to do the right thing? Does it matter why America took in the refugees, as long as it did?</div>
-      </li>
-      <li>
-        <div class="q-num">4</div>
-        <div class="q-text">Linh says her father was "just a teacher" who was sent to a re-education camp. Nguyễn says these camps were necessary for "national reconciliation." What makes a policy fair or unfair? Who gets to decide?</div>
-      </li>
-      <li>
-        <div class="q-num">5</div>
-        <div class="q-text">Today there are 123 million displaced people in the world — the highest number ever recorded. What lessons from the Vietnamese refugee crisis (1975–1995) are most relevant today? What has the world learned — and what has it forgotten?</div>
-      </li>
-      <li>
-        <div class="q-num">6</div>
-        <div class="q-text">The comic strip shows Linh going from a refugee on a helicopter to a PhD holder decades later. Is this a success story — or does it put unfair pressure on refugees to "prove themselves"? Should refugees have to earn their welcome?</div>
-      </li>
-    </ul>
-  </div>
- 
-  <div class="glossary">
-    <h3>📋 Quick Reference: Key Laws &amp; Events</h3>
-    <div class="gloss-grid">
-      <div class="gloss-item">
-        <div class="gloss-term">April 30, 1975</div>
-        <div class="gloss-def">Fall of Saigon. North Vietnamese Army enters Saigon. US embassy evacuated by helicopter. 130,000 Vietnamese flee to America.</div>
-      </div>
-      <div class="gloss-item">
-        <div class="gloss-term">May 23, 1975</div>
-        <div class="gloss-def">President Ford signs the Indochina Migration and Refugee Assistance Act. $455 million approved. Four military bases set up as refugee camps.</div>
-      </div>
-      <div class="gloss-item">
-        <div class="gloss-term">1978–1979</div>
-        <div class="gloss-def">Second wave of "boat people." 400,000 flee by sea. President Carter doubles monthly US intake to 14,000 despite 62% public opposition.</div>
-      </div>
-      <div class="gloss-item">
-        <div class="gloss-term">1979 Geneva Conference</div>
-        <div class="gloss-def">International agreement: Southeast Asian countries give temporary shelter; rich countries take refugees permanently. The system that made mass resettlement possible.</div>
-      </div>
-      <div class="gloss-item">
-        <div class="gloss-term">Refugee Act of 1980</div>
-        <div class="gloss-def">Signed by Carter. Created America's permanent, systematic refugee programme for the first time in history. Still in use today (in modified form).</div>
-      </div>
-      <div class="gloss-item">
-        <div class="gloss-term">1992</div>
-        <div class="gloss-def">Over 1 million Indochinese refugees admitted to the US. The IRC alone helped resettle 120,000. Camps in Southeast Asia begin to close.</div>
-      </div>
-      <div class="gloss-item">
-        <div class="gloss-term">Today</div>
-        <div class="gloss-def">2+ million Vietnamese-Americans. Median income above national average. Oscar winners, federal judges, restaurant owners who revived American neighbourhoods.</div>
-      </div>
-      <div class="gloss-item">
-        <div class="gloss-term">The Global Crisis Now</div>
-        <div class="gloss-def">123.2 million displaced people worldwide (2024). 71% hosted by low-income countries. Resettlement numbers in 2025 are three times lower than 2024.</div>
-      </div>
+    <div class="img-overlay animate-right delay-4" style="height: 200px;">
+      <img src="https://picsum.photos/seed/syriancamp/640/400.jpg" alt="Modern refugee camp">
+      <div class="img-caption"><i class="fas fa-camera" style="margin-right: 4px;"></i> Refugee camp, Syrian crisis — UNHCR</div>
     </div>
-  </div>
- 
-  <div class="sources">
-    <h4>All Sources Used in This Panel Discussion</h4>
-    <ul>
-      <li>US House of Representatives History — Refugee Crisis Essay</li>
-      <li>Wikipedia — Indochina Migration Act; Vietnamese Americans; Boat People; Op. Frequent Wind</li>
-      <li>IRC — Largest Refugee Resettlement in American History (2008/updated)</li>
-      <li>Migration Policy Institute — Vietnamese Immigrants in the US (2018)</li>
-      <li>Quartz — "Forty-One Years Ago, the US Took a Big Gamble" (2022)</li>
-      <li>CBS News — "Gerald Ford and America's Moral Obligation" (April 2025)</li>
-      <li>Boston Globe — "Nativism is a Bipartisan American Temptation" (Feb 2026)</li>
-      <li>Mercury News — "Ford Was a Friend in Need to Vietnamese Refugees" (2007)</li>
-      <li>Refugee History org — "Rethinking April 30, 1975" (2021)</li>
-      <li>Learning for Justice — "Vietnamese Lessons in American History" PDF</li>
-      <li>UNHCR Global Trends 2024; Mid-Year Trends 2025</li>
-      <li>Snopes — Biden/Ford/Vietnam Refugees fact-check</li>
-    </ul>
-  </div>
-</div><!-- /learn -->
- 
-<!-- ═══════════════════════════════
-     MODALS (linked from badges)
-═══════════════════════════════ -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModalDirect()">✕</button>
-    <div class="modal-content" id="modalContent"></div>
+    <div class="stat-box animate-right delay-5" style="animation: pulse-glow 3s infinite;">
+      <div class="stat-number" style="font-size: 32px;">82.4M</div>
+      <div style="font-size: 11px; color: rgba(255,255,255,0.4); margin-top: 4px;">People forcibly displaced worldwide (2024)</div>
+    </div>
   </div>
 </div>
- 
-<footer>
-  GRADE 10 HISTORY &amp; SOCIAL STUDIES &nbsp;·&nbsp; VIETNAM REFUGEE CRISIS &amp; US POLICY 1975–PRESENT &nbsp;·&nbsp; ALL DIALOGUE IS HISTORICALLY GROUNDED · LINH IS A COMPOSITE CHARACTER
-</footer>
- 
+
+<!-- ===================== SLIDE 3: VIETNAMESE REFUGEE CRISIS ===================== -->
+<div class="slide slide-dark" id="slide-3" style="flex-direction: row; padding: 40px 60px; gap: 40px;">
+  <span class="slide-label">03 / 10</span>
+
+  <div style="flex: 1;" class="slide-content">
+    <div class="subsection-label animate-in">Deep Dive</div>
+    <h2 class="font-display animate-in delay-1" style="font-size: 28px; font-weight: 900; color: #fff; margin-bottom: 4px;">The Vietnamese Exodus</h2>
+    <p class="animate-in delay-1" style="font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 24px;">One of the largest mass displacements of the 20th century</p>
+
+    <!-- Stats row -->
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px;">
+      <div class="stat-box animate-in delay-2">
+        <div class="stat-number">1.5M</div>
+        <div style="font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 6px;">Total refugees</div>
+      </div>
+      <div class="stat-box animate-in delay-2">
+        <div class="stat-number">~250K</div>
+        <div style="font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 6px;">Died at sea</div>
+      </div>
+      <div class="stat-box animate-in delay-2">
+        <div class="stat-number">25+</div>
+        <div style="font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 6px;">Countries resettled</div>
+      </div>
+    </div>
+
+    <!-- Timeline -->
+    <div class="animate-in delay-3">
+      <div class="timeline-item">
+        <div style="font-size: 11px; color: var(--gold); font-weight: 600;">April 1975</div>
+        <div style="font-size: 13px; color: rgba(255,255,255,0.7);">Fall of Saigon — 130,000 evacuated in Operation Frequent Wind</div>
+      </div>
+      <div class="timeline-item">
+        <div style="font-size: 11px; color: var(--gold); font-weight: 600;">1976–1978</div>
+        <div style="font-size: 13px; color: rgba(255,255,255,0.7);">First wave of "boat people" — mostly ethnic Chinese fleeing persecution</div>
+      </div>
+      <div class="timeline-item">
+        <div style="font-size: 11px; color: var(--gold); font-weight: 600;">1979</div>
+        <div style="font-size: 13px; color: rgba(255,255,255,0.7);">Peak year — 200,000+ flee by sea. UN Geneva Conference held</div>
+      </div>
+      <div class="timeline-item">
+        <div style="font-size: 11px; color: var(--gold); font-weight: 600;">1979–1989</div>
+        <div style="font-size: 13px; color: rgba(255,255,255,0.7);">Orderly Departure Program & UNHCR resettlement agreements</div>
+      </div>
+      <div class="timeline-item">
+        <div style="font-size: 11px; color: var(--gold); font-weight: 600;">1990s</div>
+        <div style="font-size: 13px; color: rgba(255,255,255,0.7);">Repatriation programs for those in camps; US normalizes relations (1995)</div>
+      </div>
+    </div>
+
+    <div class="dialogue animate-in delay-4">
+      <div class="speaker gold-text">UNHCR Official, 1979 Geneva Conference</div>
+      <p style="font-size: 12px; color: rgba(255,255,255,0.65);">
+        "We are witnessing a human tragedy of staggering proportions. The sea has become a graveyard. The international community must act — not tomorrow, but today."
+      </p>
+    </div>
+  </div>
+
+  <div style="width: 340px; flex-shrink: 0; display: flex; flex-direction: column; gap: 12px;" class="slide-content">
+    <div class="img-overlay animate-right delay-2" style="height: 220px;">
+      <img src="https://picsum.photos/seed/boatpeople3/640/440.jpg" alt="Vietnamese boat people">
+      <div class="img-caption"><i class="fas fa-camera" style="margin-right: 4px;"></i> Overcrowded boat carrying Vietnamese refugees, 1978</div>
+    </div>
+    <div class="img-overlay animate-right delay-3" style="height: 180px;">
+      <img src="https://picsum.photos/seed/refugeecampvn/640/360.jpg" alt="Refugee camp">
+      <div class="img-caption"><i class="fas fa-camera" style="margin-right: 4px;"></i> Pulau Bidong refugee camp, Malaysia — housed 40,000+</div>
+    </div>
+    <div class="chart-container animate-right delay-4">
+      <div style="font-size: 11px; color: var(--gold); font-weight: 600; margin-bottom: 10px;">TOP RESETTLEMENT COUNTRIES</div>
+      <canvas id="chartVietnam" height="170"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SLIDE 4: TODAY'S REFUGEE CRISIS ===================== -->
+<div class="slide slide-warm" id="slide-4" style="flex-direction: row; padding: 40px 60px; gap: 40px;">
+  <span class="slide-label">04 / 10</span>
+
+  <div style="width: 340px; flex-shrink: 0; display: flex; flex-direction: column; gap: 12px;" class="slide-content">
+    <div class="img-overlay animate-left delay-2" style="height: 200px;">
+      <img src="https://picsum.photos/seed/ukrainerefugee/640/400.jpg" alt="Ukraine refugees">
+      <div class="img-caption"><i class="fas fa-camera" style="margin-right: 4px;"></i> Ukrainian refugees at Polish border, 2022</div>
+    </div>
+    <div class="img-overlay animate-left delay-3" style="height: 200px;">
+      <img src="https://picsum.photos/seed/rohingya1/640/400.jpg" alt="Rohingya refugees">
+      <div class="img-caption"><i class="fas fa-camera" style="margin-right: 4px;"></i> Rohingya refugee camp, Cox's Bazar, Bangladesh</div>
+    </div>
+    <div class="chart-container animate-left delay-4">
+      <div style="font-size: 11px; color: var(--gold); font-weight: 600; margin-bottom: 10px;">TOP SOURCE COUNTRIES (2024)</div>
+      <canvas id="chartToday" height="170"></canvas>
+    </div>
+  </div>
+
+  <div style="flex: 1;" class="slide-content">
+    <div class="subsection-label animate-in">Current Reality</div>
+    <h2 class="font-display animate-in delay-1" style="font-size: 28px; font-weight: 900; color: #fff; margin-bottom: 4px;">Today's Global Refugee Crisis</h2>
+    <p class="animate-in delay-1" style="font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 24px;">The largest displacement crisis since World War II</p>
+
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 24px;">
+      <div class="stat-box animate-in delay-2">
+        <div class="stat-number" style="font-size: 28px;">43.4M</div>
+        <div style="font-size: 9px; color: rgba(255,255,255,0.4); margin-top: 4px;">Refugees</div>
+      </div>
+      <div class="stat-box animate-in delay-2">
+        <div class="stat-number" style="font-size: 28px;">62.5M</div>
+        <div style="font-size: 9px; color: rgba(255,255,255,0.4); margin-top: 4px;">Internally displaced</div>
+      </div>
+      <div class="stat-box animate-in delay-3">
+        <div class="stat-number" style="font-size: 28px;">6.9M</div>
+        <div style="font-size: 9px; color: rgba(255,255,255,0.4); margin-top: 4px;">Asylum seekers</div>
+      </div>
+      <div class="stat-box animate-in delay-3">
+        <div class="stat-number" style="font-size: 28px;">69%</div>
+        <div style="font-size: 9px; color: rgba(255,255,255,0.4); margin-top: 4px;">From just 5 countries</div>
+      </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 20px;">
+      <div class="cause-card animate-in delay-3">
+        <h4 style="font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 8px;">
+          <i class="fas fa-triangle-exclamation" style="color: #E74C3C; margin-right: 6px;"></i>Key Crises
+        </h4>
+        <div style="font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.8;">
+          <strong style="color: rgba(255,255,255,0.8);">Syria:</strong> 13.8M displaced (since 2011)<br>
+          <strong style="color: rgba(255,255,255,0.8);">Ukraine:</strong> 10.2M displaced (since 2022)<br>
+          <strong style="color: rgba(255,255,255,0.8);">Afghanistan:</strong> 8.2M displaced<br>
+          <strong style="color: rgba(255,255,255,0.8);">Venezuela:</strong> 7.7M displaced<br>
+          <strong style="color: rgba(255,255,255,0.8);">Myanmar:</strong> 2.3M (Rohingya + civil war)
+        </div>
+      </div>
+      <div class="cause-card animate-in delay-4">
+        <h4 style="font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 8px;">
+          <i class="fas fa-chart-pie" style="color: #5DADE2; margin-right: 6px;"></i>Who Hosts?
+        </h4>
+        <div style="font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.8;">
+          <strong style="color: rgba(255,255,255,0.8);">75% hosted by developing nations</strong><br>
+          Turkey: 3.3M refugees<br>
+          Iran: 3.4M (mostly Afghan)<br>
+          Colombia: 2.9M (Venezuelan)<br>
+          Germany: 2.6M<br>
+          Pakistan: 2.1M
+        </div>
+      </div>
+    </div>
+
+    <div class="dialogue animate-in delay-5" style="border-left-color: #5DADE2;">
+      <div class="speaker" style="color: #5DADE2;">Filippo Grandi, UN High Commissioner for Refugees</div>
+      <p style="font-size: 12px; color: rgba(255,255,255,0.65);">
+        "We are in a century of displacement. Climate change, conflict, and inequality are creating a perfect storm. Yet the resources and political will lag far behind the need."
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SLIDE 5: DATA COMPARISON ===================== -->
+<div class="slide slide-dark" id="slide-5" style="flex-direction: column; padding: 40px 60px;">
+  <span class="slide-label">05 / 10</span>
+
+  <div style="text-align: center; margin-bottom: 24px;">
+    <div class="subsection-label animate-in">Comparative Analysis</div>
+    <h2 class="font-display animate-in delay-1" style="font-size: 28px; font-weight: 900; color: #fff;">By the Numbers</h2>
+  </div>
+
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; flex: 1;" class="slide-content">
+    <!-- Left: Charts -->
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div class="chart-container animate-left delay-2" style="flex: 1;">
+        <div style="font-size: 11px; color: var(--gold); font-weight: 600; margin-bottom: 8px;">ANNUAL REFUGEE FLOWS — PEAK YEARS</div>
+        <canvas id="chartCompare"></canvas>
+      </div>
+      <div class="chart-container animate-left delay-3" style="flex: 1;">
+        <div style="font-size: 11px; color: var(--gold); font-weight: 600; margin-bottom: 8px;">MORTALITY RATE DURING JOURNEY</div>
+        <canvas id="chartMortality"></canvas>
+      </div>
+    </div>
+
+    <!-- Right: Table -->
+    <div style="display: flex; flex-direction: column; gap: 16px;">
+      <div class="cause-card animate-right delay-2" style="padding: 0; overflow: hidden;">
+        <div style="padding: 16px 20px 8px; font-size: 11px; color: var(--gold); font-weight: 600;">HEAD-TO-HEAD COMPARISON</div>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Metric</th>
+              <th>Vietnamese (1975–95)</th>
+              <th>Modern (2015–24)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Total displaced</td>
+              <td>~1.5 million</td>
+              <td>~43.4 million refugees</td>
+            </tr>
+            <tr>
+              <td>Peak year</td>
+              <td>1979 (~200K)</td>
+              <td>2022 (10.2M Ukraine)</td>
+            </tr>
+            <tr>
+              <td>Journey mortality</td>
+              <td>10–15% (sea)</td>
+              <td>1–3% (land/sea)</td>
+            </tr>
+            <tr>
+              <td>Avg time in camp</td>
+              <td>2–5 years</td>
+              <td>10–17+ years</td>
+            </tr>
+            <tr>
+              <td>Resettlement rate</td>
+              <td>~60%</td>
+              <td><5%</td>
+            </tr>
+            <tr>
+              <td>Primary route</td>
+              <td>Sea (boat people)</td>
+              <td>Land, sea, air</td>
+            </tr>
+            <tr>
+              <td>Host countries</td>
+              <td>25+ (US, Aus, Canada)</td>
+              <td>160+ (mostly developing)</td>
+            </tr>
+            <tr>
+              <td>UNHCR budget</td>
+              <td>~$500M (1980)</td>
+              <td>~$10.2B (2024)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="cause-card animate-right delay-3">
+        <h4 style="font-size: 12px; font-weight: 700; color: #fff; margin-bottom: 10px;">
+          <i class="fas fa-lightbulb gold-text" style="margin-right: 6px;"></i>Key Insight
+        </h4>
+        <p style="font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.7;">
+          While today's crisis is <strong style="color: #fff;">30x larger in scale</strong>, the Vietnamese crisis had a <strong style="color: #fff;">higher per-capita mortality rate</strong> and yet achieved a <strong style="color: var(--teal);">12x higher resettlement rate</strong>. This reflects fundamental shifts in global political will.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SLIDE 6: EFFECTS ===================== -->
+<div class="slide slide-warm" id="slide-6" style="flex-direction: row; padding: 40px 60px; gap: 40px;">
+  <span class="slide-label">06 / 10</span>
+
+  <div style="flex: 1;" class="slide-content">
+    <div class="subsection-label animate-in">Impact Analysis</div>
+    <h2 class="font-display animate-in delay-1" style="font-size: 28px; font-weight: 900; color: #fff; margin-bottom: 4px;">Effects & Consequences</h2>
+    <p class="animate-in delay-1" style="font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 24px;">Short-term trauma, long-term transformation</p>
+
+    <!-- Short Term -->
+    <div style="margin-bottom: 20px;">
+      <h3 class="animate-in delay-2" style="font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 12px;">
+        <i class="fas fa-bolt" style="color: #E74C3C; margin-right: 6px;"></i>Short-Term Effects
+      </h3>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;" class="animate-in delay-2">
+        <span class="effect-tag effect-negative"><i class="fas fa-skull-crossbones"></i> ~250K Vietnamese died at sea</span>
+        <span class="effect-tag effect-negative"><i class="fas fa-heart-crack"></i> Family separation</span>
+        <span class="effect-tag effect-negative"><i class="fas fa-pirate"></i> Pirate attacks & robbery</span>
+        <span class="effect-tag effect-negative"><i class="fas fa-tent"></i> Overcrowded camps (Malaysia, Thailand, Philippines)</span>
+        <span class="effect-tag effect-negative"><i class="fas fa-brain"></i> PTSD & psychological trauma</span>
+        <span class="effect-tag effect-negative"><i class="fas fa-ban"></i> Host country resistance</span>
+        <span class="effect-tag effect-negative"><i class="fas fa-child"></i> Unaccompanied minors</span>
+        <span class="effect-tag effect-negative"><i class="fas fa-hand-holding-heart"></i> Modern: 50% of refugees are children</span>
+      </div>
+    </div>
+
+    <!-- Long Term -->
+    <div style="margin-bottom: 20px;">
+      <h3 class="animate-in delay-3" style="font-size: 14px; font-weight: 700; color: #fff; margin-bottom: 12px;">
+        <i class="fas fa-seedling" style="color: var(--teal); margin-right: 6px;"></i>Long-Term Effects
+      </h3>
+      <div style="display: flex; flex-wrap: wrap; gap: 8px;" class="animate-in delay-3">
+        <span class="effect-tag effect-positive"><i class="fas fa-graduation-cap"></i> Vietnamese: Highest college enrollment of any immigrant group in US</span>
+        <span class="effect-tag effect-positive"><i class="fas fa-store"></i> Vietnamese-American businesses: $50B+ annual revenue</span>
+        <span class="effect-tag effect-positive"><i class="fas fa-users"></i> Diaspora communities strengthening bilateral ties</span>
+        <span class="effect-tag effect-positive"><i class="fas fa-bowl-food"></i> Cultural enrichment (phở, boba, Little Saigons)</span>
+        <span class="effect-tag effect-positive"><i class="fas fa-stethoscope"></i> Modern refugees filling critical labor gaps (healthcare, agriculture)</span>
+        <span class="effect-tag effect-negative"><i class="fas fa-clock"></i> Modern: "Lost generation" — children with no education in protracted camps</span>
+        <span class="effect-tag effect-negative"><i class="fas fa-xmark"></i> Modern: Rise of anti-refugee politics globally</span>
+      </div>
+    </div>
+
+    <div class="dialogue animate-in delay-4">
+      <div class="speaker gold-text">Dr. Nguyen-Vo Thu-Huong, UCLA</div>
+      <p style="font-size: 12px; color: rgba(255,255,255,0.65);">
+        "The Vietnamese refugee experience shows that given the opportunity — not charity, but real opportunity — refugees don't just survive, they become engines of economic and cultural innovation."
+      </p>
+    </div>
+  </div>
+
+  <div style="width: 320px; flex-shrink: 0;" class="slide-content">
+    <div class="chart-container animate-right delay-3" style="margin-bottom: 16px;">
+      <div style="font-size: 11px; color: var(--gold); font-weight: 600; margin-bottom: 8px;">VIETNAMESE-AMERICAN EDUCATION (US CENSUS)</div>
+      <canvas id="chartEducation" height="200"></canvas>
+    </div>
+    <div class="img-overlay animate-right delay-4" style="height: 180px; margin-bottom: 16px;">
+      <img src="https://picsum.photos/seed/littlesaigon/640/360.jpg" alt="Little Saigon">
+      <div class="img-caption"><i class="fas fa-camera" style="margin-right: 4px;"></i> Little Saigon, Westminster, CA — largest Vietnamese community outside Vietnam</div>
+    </div>
+    <div class="stat-box animate-right delay-5">
+      <div class="stat-number" style="font-size: 26px;">$50B+</div>
+      <div style="font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 4px;">Vietnamese-American business revenue annually</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SLIDE 7: PERSPECTIVES ===================== -->
+<div class="slide slide-dark" id="slide-7" style="flex-direction: column; padding: 40px 60px;">
+  <span class="slide-label">07 / 10</span>
+
+  <div style="text-align: center; margin-bottom: 24px;">
+    <div class="subsection-label animate-in">Multiple Lenses</div>
+    <h2 class="font-display animate-in delay-1" style="font-size: 28px; font-weight: 900; color: #fff;">Perspectives</h2>
+    <p class="animate-in delay-1" style="font-size: 13px; color: rgba(255,255,255,0.4); max-width: 600px; margin: 0 auto;">Every story has multiple sides. Understanding the crisis through different viewpoints</p>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; flex: 1;" class="slide-content">
+    <!-- Refugee Perspective -->
+    <div class="perspective-card animate-in delay-2" style="background: linear-gradient(160deg, rgba(192,57,43,0.12), rgba(15,15,15,0.95)); border: 1px solid rgba(192,57,43,0.2);">
+      <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(192,57,43,0.2); display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+        <i class="fas fa-person-walking-arrow-right" style="color: #E74C3C; font-size: 18px;"></i>
+      </div>
+      <h3 style="font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 12px;">The Refugee</h3>
+      <p style="font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 16px;">
+        "We are not numbers. We are doctors, teachers, farmers, children. We didn't choose to leave. We chose to live."
+      </p>
+      <div class="dialogue" style="border-left-color: #E74C3C; margin: 0;">
+        <div class="speaker" style="color: #E74C3C;">Fatima, Afghan refugee, 2022</div>
+        <p style="font-size: 11px; color: rgba(255,255,255,0.6);">
+          "I was a university professor. Now I'm told I can only clean floors. My degrees mean nothing here. But my mind — they cannot take that."
+        </p>
+      </div>
+      <div style="margin-top: 12px; font-size: 11px; color: rgba(255,255,255,0.4);">
+        <strong style="color: rgba(255,255,255,0.7);">Key concerns:</strong> Safety, family unity, dignity, employment, education for children
+      </div>
+    </div>
+
+    <!-- Host Country Perspective -->
+    <div class="perspective-card animate-in delay-3" style="background: linear-gradient(160deg, rgba(36,113,163,0.12), rgba(15,15,15,0.95)); border: 1px solid rgba(36,113,163,0.2);">
+      <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(36,113,163,0.2); display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+        <i class="fas fa-city" style="color: #5DADE2; font-size: 18px;"></i>
+      </div>
+      <h3 style="font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 12px;">The Host Nation</h3>
+      <p style="font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 16px;">
+        Balancing compassion with capacity. Security concerns vs. humanitarian obligations. Economic impacts — both costs and gains.
+      </p>
+      <div class="dialogue" style="border-left-color: #5DADE2; margin: 0;">
+        <div class="speaker" style="color: #5DADE2;">Policy Analyst, Brookings Institution</div>
+        <p style="font-size: 11px; color: rgba(255,255,255,0.6);">
+          "Every credible study shows refugees contribute more in taxes than they receive in benefits within 5–10 years. The 'burden' narrative is not supported by data."
+        </p>
+      </div>
+      <div style="margin-top: 12px; font-size: 11px; color: rgba(255,255,255,0.4);">
+        <strong style="color: rgba(255,255,255,0.7);">Key concerns:</strong> Infrastructure strain, integration costs, political backlash, security screening
+      </div>
+    </div>
+
+    <!-- International Community -->
+    <div class="perspective-card animate-in delay-4" style="background: linear-gradient(160deg, rgba(212,168,83,0.12), rgba(15,15,15,0.95)); border: 1px solid rgba(212,168,83,0.2);">
+      <div style="width: 48px; height: 48px; border-radius: 50%; background: rgba(212,168,83,0.2); display: flex; align-items: center; justify-content: center; margin-bottom: 16px;">
+        <i class="fas fa-globe" style="color: var(--gold); font-size: 18px;"></i>
+      </div>
+      <h3 style="font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 12px;">The World</h3>
+      <p style="font-size: 12px; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 16px;">
+        The 1951 Refugee Convention defines rights. But enforcement is voluntary. Funding gaps grow while needs multiply.
+      </p>
+      <div class="dialogue" style="margin: 0;">
+        <div class="speaker gold-text">António Guterres, UN Secretary-General</div>
+        <p style="font-size: 11px; color: rgba(255,255,255,0.6);">
+          "We face not a refugee crisis, but a crisis of solidarity. The resources exist. What's missing is the political will to share responsibility equitably."
+        </p>
+      </div>
+      <div style="margin-top: 12px; font-size: 11px; color: rgba(255,255,255,0.4);">
+        <strong style="color: rgba(255,255,255,0.7);">Key concerns:</strong> Funding gaps, burden-sharing, climate displacement (no legal framework), human smuggling
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SLIDE 8: ACCOMPLISHMENTS - VIETNAMESE ===================== -->
+<div class="slide slide-warm" id="slide-8" style="flex-direction: row; padding: 40px 60px; gap: 40px;">
+  <span class="slide-label">08 / 10</span>
+
+  <div style="flex: 1;" class="slide-content">
+    <div class="subsection-label animate-in">Success Stories</div>
+    <h2 class="font-display animate-in delay-1" style="font-size: 28px; font-weight: 900; color: #fff; margin-bottom: 4px;">Vietnamese Refugee Accomplishments</h2>
+    <p class="animate-in delay-1" style="font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 24px;">From "boat people" to pillars of society — in one generation</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px;">
+      <div class="accomplishment-card animate-in delay-2">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+          <i class="fas fa-graduation-cap gold-text"></i>
+          <h4 style="font-size: 13px; font-weight: 700; color: #fff;">Education</h4>
+        </div>
+        <ul style="list-style: none; font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.9;">
+          <li>• <strong style="color: rgba(255,255,255,0.8);">54% college graduation rate</strong> (US) — highest among immigrant groups</li>
+          <li>• Median income exceeds national average</li>
+          <li>• 28% hold graduate or professional degrees</li>
+        </ul>
+      </div>
+
+      <div class="accomplishment-card animate-in delay-2">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+          <i class="fas fa-briefcase gold-text"></i>
+          <h4 style="font-size: 13px; font-weight: 700; color: #fff;">Business & Economy</h4>
+        </div>
+        <ul style="list-style: none; font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.9;">
+          <li>• Vietnamese own <strong style="color: rgba(255,255,255,0.8);">250,000+ businesses</strong> in the US</li>
+          <li>• Little Saigon economies generate billions</li>
+          <li>• High entrepreneurship rate (self-employment 25%)</li>
+        </ul>
+      </div>
+
+      <div class="accomplishment-card animate-in delay-3">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+          <i class="fas fa-landmark gold-text"></i>
+          <h4 style="font-size: 13px; font-weight: 700; color: #fff;">Politics & Public Service</h4>
+        </div>
+        <ul style="list-style: none; font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.9;">
+          <li>• <strong style="color: rgba(255,255,255,0.8);">Rep. Joseph Cao</strong> — first Vietnamese-American in US Congress (2009)</li>
+          <li>• Multiple mayors, state legislators</li>
+          <li>• US Ambassador to Vietnam (Marc Knapper)</li>
+        </ul>
+      </div>
+
+      <div class="accomplishment-card animate-in delay-3">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+          <i class="fas fa-masks-theater gold-text"></i>
+          <h4 style="font-size: 13px; font-weight: 700; color: #fff;">Culture & Science</h4>
+        </div>
+        <ul style="list-style: none; font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.9;">
+          <li>• <strong style="color: rgba(255,255,255,0.8);">Thi Bui</strong> — Pulitzer-nominated graphic novelist</li>
+          <li>• Viet Thanh Nguyen — Pulitzer Prize winner (2016)</li>
+          <li>• Dr. Quynh Pham — NASA JPL engineer</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dialogue animate-in delay-4">
+      <div class="speaker gold-text">Viet Thanh Nguyen, Pulitzer Prize Winner & Former Refugee</div>
+      <p style="font-size: 12px; color: rgba(255,255,255,0.65);">
+        "I am a refugee. My parents were refugees. We are evidence that refugees are not a burden — we are a testament to what human beings can endure and achieve when given a chance."
+      </p>
+    </div>
+  </div>
+
+  <div style="width: 320px; flex-shrink: 0; display: flex; flex-direction: column; gap: 12px;" class="slide-content">
+    <div class="img-overlay animate-right delay-2" style="height: 200px;">
+      <img src="https://picsum.photos/seed/vietbusiness/640/400.jpg" alt="Vietnamese business district">
+      <div class="img-caption"><i class="fas fa-camera" style="margin-right: 4px;"></i> Vietnamese-owned businesses thriving in Orange County, CA</div>
+    </div>
+    <div class="img-overlay animate-right delay-3" style="height: 180px;">
+      <img src="https://picsum.photos/seed/vietgraduation/640/360.jpg" alt="Graduation">
+      <div class="img-caption"><i class="fas fa-camera" style="margin-right: 4px;"></i> Vietnamese-American graduation — highest college rate among immigrants</div>
+    </div>
+    <div class="chart-container animate-right delay-4">
+      <div style="font-size: 11px; color: var(--gold); font-weight: 600; margin-bottom: 8px;">VIETNAMESE INCOME TRAJECTORY (US MEDIAN)</div>
+      <canvas id="chartIncome" height="160"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SLIDE 9: ACCOMPLISHMENTS - TODAY ===================== -->
+<div class="slide slide-dark" id="slide-9" style="flex-direction: row; padding: 40px 60px; gap: 40px;">
+  <span class="slide-label">09 / 10</span>
+
+  <div style="width: 320px; flex-shrink: 0; display: flex; flex-direction: column; gap: 12px;" class="slide-content">
+    <div class="img-overlay animate-left delay-2" style="height: 190px;">
+      <img src="https://picsum.photos/seed/refugeedoctor/640/380.jpg" alt="Refugee doctor">
+      <div class="img-caption"><i class="fas fa-camera" style="margin-right: 4px;"></i> Syrian refugee doctor working in German hospital</div>
+    </div>
+    <div class="img-overlay animate-left delay-3" style="height: 190px;">
+      <img src="https://picsum.photos/seed/refugeeentrepreneur/640/380.jpg" alt="Refugee entrepreneur">
+      <div class="img-caption"><i class="fas fa-camera" style="margin-right: 4px;"></i> Refugee-founded tech startup, Berlin 2023</div>
+    </div>
+    <div class="stat-box animate-left delay-4" style="animation: pulse-glow 3s infinite;">
+      <div class="stat-number" style="font-size: 26px;">$5.1B</div>
+      <div style="font-size: 10px; color: rgba(255,255,255,0.4); margin-top: 4px;">Net fiscal contribution of refugees to Germany (2015–2023)</div>
+    </div>
+  </div>
+
+  <div style="flex: 1;" class="slide-content">
+    <div class="subsection-label animate-in">Ongoing Impact</div>
+    <h2 class="font-display animate-in delay-1" style="font-size: 28px; font-weight: 900; color: #fff; margin-bottom: 4px;">Today's Refugee Accomplishments</h2>
+    <p class="animate-in delay-1" style="font-size: 13px; color: rgba(255,255,255,0.4); margin-bottom: 24px;">Despite fewer resettlement opportunities, modern refugees are already transforming host nations</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 20px;">
+      <div class="accomplishment-card animate-in delay-2">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+          <i class="fas fa-stethoscope" style="color: #5DADE2;"></i>
+          <h4 style="font-size: 13px; font-weight: 700; color: #fff;">Healthcare Heroes</h4>
+        </div>
+        <ul style="list-style: none; font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.9;">
+          <li>• <strong style="color: rgba(255,255,255,0.8);">3,000+ Syrian doctors</strong> registered in Germany</li>
+          <li>• Refugees fill 25% of NHS care worker vacancies in UK</li>
+          <li>• Afghan medical professionals rebuilding healthcare systems</li>
+        </ul>
+      </div>
+
+      <div class="accomplishment-card animate-in delay-2">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+          <i class="fas fa-rocket" style="color: #5DADE2;"></i>
+          <h4 style="font-size: 13px; font-weight: 700; color: #fff;">Entrepreneurship</h4>
+        </div>
+        <ul style="list-style: none; font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.9;">
+          <li>• Refugees start businesses at <strong style="color: rgba(255,255,255,0.8);">2x the rate</strong> of native-born (US)</li>
+          <li>• Turkish refugee companies employ 9,000+ people</li>
+          <li>• Chobani yogurt — founded by Kurdish refugee Hamdi Ulukaya</li>
+        </ul>
+      </div>
+
+      <div class="accomplishment-card animate-in delay-3">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+          <i class="fas fa-medal" style="color: #5DADE2;"></i>
+          <h4 style="font-size: 13px; font-weight: 700; color: #fff;">Sports & Culture</h4>
+        </div>
+        <ul style="list-style: none; font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.9;">
+          <li>• <strong style="color: rgba(255,255,255,0.8);">Refugee Olympic Team</strong> — 36 athletes in Paris 2024</li>
+          <li>• Mo Farah (Somali refugee) — 4x Olympic gold medalist</li>
+          <li>• Refugee film festivals, art collectives worldwide</li>
+        </ul>
+      </div>
+
+      <div class="accomplishment-card animate-in delay-3">
+        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+          <i class="fas fa-chart-line" style="color: #5DADE2;"></i>
+          <h4 style="font-size: 13px; font-weight: 700; color: #fff;">Economic Data</h4>
+        </div>
+        <ul style="list-style: none; font-size: 11px; color: rgba(255,255,255,0.6); line-height: 1.9;">
+          <li>• Germany: refugees contributed <strong style="color: rgba(255,255,255,0.8);">€33B in taxes</strong> (2022)</li>
+          <li>• US: refugees pay $23B more in taxes than they receive</li>
+          <li>• Uganda: refugee economy contributes 3% to GDP</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="dialogue animate-in delay-4" style="border-left-color: #5DADE2;">
+      <div class="speaker" style="color: #5DADE2;">Hamdi Ulukaya, CEO of Chobani & UNHCR Envoy</div>
+      <p style="font-size: 12px; color: rgba(255,255,255,0.65);">
+        "I was a refugee myself. I know what it means to be given a chance. Every refugee I've hired has become my best employee. Not because they're grateful — because they're resilient. Resilience is a superpower."
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== SLIDE 10: CONCLUSION ===================== -->
+<div class="slide" id="slide-10" style="background: linear-gradient(160deg, #0a0a0a, #0d1a0a, #0a0a0a); flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px;">
+  <span class="slide-label">10 / 10</span>
+
+  <div style="max-width: 800px; position: relative; z-index: 2;" class="slide-content">
+    <div class="animate-in">
+      <span class="badge badge-green" style="font-size: 11px;"><i class="fas fa-flag-checkered" style="margin-right: 4px;"></i> Conclusion & Call to Action</span>
+    </div>
+
+    <h2 class="font-display animate-in delay-1" style="font-size: clamp(26px, 4vw, 40px); font-weight: 900; color: #fff; margin: 16px 0 8px; line-height: 1.2;">
+      The Same Sea,<br><span class="gold-text">Different Shores</span>
+    </h2>
+
+    <div class="title-line animate-in delay-2"></div>
+
+    <p class="animate-in delay-2" style="font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 28px; max-width: 680px; margin-left: auto; margin-right: auto;">
+      Whether fleeing on overcrowded boats in 1979 or walking across borders in 2024, refugees share the same fundamental truth: they are not defined by what they fled from, but by what they build when given the chance. The Vietnamese experience proves it. Today's refugees are already proving it again.
+    </p>
+
+    <!-- Key Takeaways -->
+    <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 28px;">
+      <div class="cause-card animate-in delay-3" style="text-align: center; padding: 20px;">
+        <div style="font-size: 28px; margin-bottom: 8px;">🌊</div>
+        <h4 style="font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 6px;">Causes Differ, Pain Is Same</h4>
+        <p style="font-size: 11px; color: rgba(255,255,255,0.5);">War, persecution, collapse — the specifics change. The human cost doesn't.</p>
+      </div>
+      <div class="cause-card animate-in delay-4" style="text-align: center; padding: 20px;">
+        <div style="font-size: 28px; margin-bottom: 8px;">📊</div>
+        <h4 style="font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 6px;">Data Disproves the Myth</h4>
+        <p style="font-size: 11px; color: rgba(255,255,255,0.5);">Refugees are net economic contributors. Period. The data from both eras confirms this.</p>
+      </div>
+      <div class="cause-card animate-in delay-5" style="text-align: center; padding: 20px;">
+        <div style="font-size: 28px; margin-bottom: 8px;">🤝</div>
+        <h4 style="font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 6px;">Solidarity Is the Answer</h4>
+        <p style="font-size: 11px; color: rgba(255,255,255,0.5);">The Vietnamese resettlement succeeded because of political will. We need it again.</p>
+      </div>
+    </div>
+
+    <!-- Final dialogue -->
+    <div class="dialogue animate-in delay-5" style="text-align: left; max-width: 600px; margin: 0 auto 28px;">
+      <div class="speaker gold-text">Answering the Research Question</div>
+      <p style="font-size: 13px; color: rgba(255,255,255,0.75); line-height: 1.7;">
+        The Vietnamese War refugees and today's refugees share the same root experience — forced displacement — but differ dramatically in scale, global response, and resettlement outcomes. What we learn is clear: <strong style="color: #fff;">when the international community commits to resettlement and integration, refugees become one of the greatest return on investments a nation can make.</strong> The Vietnamese-American community, built from the wreckage of war, is living proof.
+      </p>
+    </div>
+
+    <div class="animate-in delay-5" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; font-size: 12px; color: rgba(255,255,255,0.3);">
+      <span><i class="fas fa-book gold-text" style="margin-right: 4px;"></i> Sources: UNHCR, US Census, Pew Research, World Bank</span>
+      <span><i class="fas fa-database gold-text" style="margin-right: 4px;"></i> Data as of 2024</span>
+    </div>
+  </div>
+
+  <!-- Background decoration -->
+  <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(212,168,83,0.04) 0%, transparent 70%); pointer-events: none;"></div>
+</div>
+
+<!-- Navigation -->
+<div class="nav-controls">
+  <button class="nav-btn" onclick="prevSlide()" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+  <div class="slide-dots" id="slideDots"></div>
+  <span class="slide-counter" id="slideCounter">1/10</span>
+  <button class="nav-btn" onclick="nextSlide()" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+</div>
+
 <script>
-/* ─── Navigation ─── */
-function show(id) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
-  const map = { panel:0, photos:1, comic:2, posters:3, learn:4 };
-  document.querySelectorAll('.nav-btn')[map[id]].classList.add('active');
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+// ========== SLIDE NAVIGATION ==========
+let currentSlide = 1;
+const totalSlides = 10;
+
+// Create dots
+const dotsContainer = document.getElementById('slideDots');
+for (let i = 1; i <= totalSlides; i++) {
+  const dot = document.createElement('div');
+  dot.className = `dot ${i === 1 ? 'active' : ''}`;
+  dot.onclick = () => goToSlide(i);
+  dotsContainer.appendChild(dot);
 }
- 
-/* ─── Link from comic/poster back to dialogue ─── */
-function linkToDialogue(sectionId, selector) {
-  show(sectionId);
-  setTimeout(() => {
-    const el = document.querySelector(selector);
-    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  }, 400);
+
+function goToSlide(n) {
+  document.getElementById(`slide-${currentSlide}`).classList.remove('active');
+  currentSlide = n;
+  const slide = document.getElementById(`slide-${currentSlide}`);
+  slide.classList.add('active');
+
+  // Update dots
+  document.querySelectorAll('.dot').forEach((d, i) => {
+    d.className = `dot ${i + 1 === currentSlide ? 'active' : ''}`;
+  });
+
+  // Update counter
+  document.getElementById('slideCounter').textContent = `${currentSlide}/${totalSlides}`;
+
+  // Update progress
+  document.getElementById('progressBar').style.width = `${(currentSlide / totalSlides) * 100}%`;
+
+  // Re-trigger animations
+  slide.querySelectorAll('.animate-in, .animate-left, .animate-right').forEach(el => {
+    const classes = [...el.classList];
+    el.classList.remove('animate-in', 'animate-left', 'animate-right');
+    void el.offsetWidth;
+    classes.forEach(c => {
+      if (['animate-in', 'animate-left', 'animate-right'].includes(c)) el.classList.add(c);
+    });
+  });
+
+  // Init charts if needed
+  if (currentSlide === 3) initVietnamChart();
+  if (currentSlide === 4) initTodayChart();
+  if (currentSlide === 5) { initCompareChart(); initMortalityChart(); }
+  if (currentSlide === 6) initEducationChart();
+  if (currentSlide === 8) initIncomeChart();
 }
- 
-/* ─── Modal system ─── */
-const modalData = {
-  comic1: {
-    type: '📖 Comic Strip — Panel 1',
-    title: 'The Evacuation — Saigon, April 30, 1975',
-    body: `<p>This is the moment Linh describes in her opening testimony. Over 630 US helicopter sorties were flown on April 29–30, 1975 in Operation Frequent Wind — the largest helicopter evacuation in history.</p>
-    <p>Thousands of Vietnamese crowded around the US Embassy. US Marines helped pull people over the compound wall. Linh, aged 9, was among those lifted to safety.</p>
-    <div class="quote-link">"We had to climb a wall. A US Marine helped pull me over. I can still feel his hands." — Linh, Panel I</div>
-    <p><strong>Historical fact:</strong> 130,000 Vietnamese were eventually evacuated and brought to the United States under special "parolee" status authorised by President Ford.</p>
-    <button class="modal-back-btn" onclick="closeModalDirect(); linkToDialogue('panel', '.r-bub')">↩ Go to Linh's testimony in Panel</button>`,
-  },
-  comic2: {
-    type: '📖 Comic Strip — Panel 2',
-    title: 'The Military Bases — Fort Chaffee, Arkansas',
-    body: `<p>Congress quickly set up four US military bases as refugee processing centres: Camp Pendleton (CA), Fort Chaffee (AR), Eglin AFB (FL), and Fort Indiantown Gap (PA).</p>
-    <p>The IRC assigned 30 full-time resettlement caseworkers to these camps from Day 1. They found housing, jobs, and English classes for the arriving refugees.</p>
-    <div class="quote-link">"By end of 1975, the IRC had opened 16 regional resettlement offices around the country." — IRC Archives</div>
-    <p><strong>Historical fact:</strong> During 1975 alone, the IRC helped more than 18,000 refugees — almost all Vietnamese — begin new lives in the US.</p>
-    <button class="modal-back-btn" onclick="closeModalDirect(); linkToDialogue('panel', '.us-bub')">↩ Go to Julia Taft's testimony in Panel</button>`,
-  },
-  comic3: {
-    type: '📖 Comic Strip — Panel 3',
-    title: 'Public Opposition — The Headlines, 1975',
-    body: `<p>Public opposition was fierce. A 1975 Gallup poll showed 54% of Americans opposed taking in Vietnamese refugees. One letter sent to Congress from Nebraska read: "They bring only disease, corruption, and apathy."</p>
-    <p>Senator Robert Byrd said the government should screen out "barmaids, prostitutes, and criminals." Senator George McGovern declared: "The Vietnamese are better off in Vietnam."</p>
-    <div class="quote-link">"The US unemployment rate sat at nearly 9%, a post-World War II high. To many, bringing destitute Vietnamese to American shores seemed nonsensical." — CBS News, 2025</div>
-    <p><strong>But Ford pressed on anyway.</strong></p>
-    <button class="modal-back-btn" onclick="closeModalDirect(); linkToDialogue('panel', '.cg-bub')">↩ Go to Congressman's opposition in Panel</button>`,
-  },
-  comic4: {
-    type: '📖 Comic Strip — Panel 4',
-    title: "Father's Story — Re-education Camps",
-    body: `<p>After the communist government took over South Vietnam in 1975, it sent over 1 million people to "re-education camps." These included former soldiers, government workers, teachers, journalists, and anyone considered a threat.</p>
-    <p>Linh's father — a primary school teacher — was assigned prisoner number A-247 and spent years in Camp Z30D near the Cambodian border.</p>
-    <div class="quote-link">"Not a soldier. Not a spy. A teacher. He spent two years in a re-education camp. When he came out, he shook all the time. He could not sleep. That is why we ran." — Linh, Panel I</div>
-    <p><strong>Historical fact:</strong> Over 1 million people were imprisoned in re-education camps between 1975 and the late 1980s. Many died; many more were permanently traumatised.</p>
-    <button class="modal-back-btn" onclick="closeModalDirect(); linkToDialogue('panel', '.r-bub')">↩ Go to Linh's response in Panel</button>`,
-  },
-  comic5: {
-    type: '📖 Comic Strip — Panel 5',
-    title: "New Roots — Mrs. Patterson's Class",
-    body: `<p>Refugees were deliberately dispersed across all 50 US states to prevent overloading any one area. This also helped them integrate faster into local communities.</p>
-    <p>Linh's fictional teacher, Mrs. Patterson, represents the many American volunteers and educators who welcomed Vietnamese children with kindness — often the first friendly face in a new country.</p>
-    <div class="quote-link">"There were virtually no Vietnamese students in American elementary schools before 1975. By 1997, Vietnamese students were the second largest non-English-speaking group in California schools." — Learning for Justice</div>
-    <p>Linh practised the sentence: "My father was a teacher." She says it on national television in the panel — in English, without a translator.</p>
-    <button class="modal-back-btn" onclick="closeModalDirect(); linkToDialogue('panel', '.cg-bub:last-of-type')">↩ Go to Congressman's change of heart in Panel</button>`,
-  },
-  comic6: {
-    type: '📖 Comic Strip — Panel 6',
-    title: 'The American Dream Arrived — Little Saigon',
-    body: `<p>Little Saigon in Orange County, California is the largest Vietnamese-American community in the world. It was built almost entirely by refugees and their descendants. Fields Corner in Boston, Bellaire in Houston — same story.</p>
-    <p>By 2012, Vietnamese immigrant households had a median income of $55,736 — higher than both the general immigrant population and US-born households.</p>
-    <div class="quote-link">"My journey started on a boat. I spent a year in a refugee camp, and somehow I ended up here, on Hollywood's biggest stage." — Ke Huy Quan, Oscar Acceptance Speech, 2023</div>
-    <p>The <em>Huy Fong Sriracha</em> sauce — created by Vietnamese refugee David Tran — is now a global icon. The refugees 54% of Americans feared in 1975 are, as Ford predicted, Americans in every sense of the word.</p>
-    <button class="modal-back-btn" onclick="closeModalDirect(); linkToDialogue('panel', '.us-bub:last-of-type')">↩ Go to Taft's closing statement in Panel</button>`,
-  },
-  poster1: {
-    type: '🖼 Poster Gallery — Poster I',
-    title: 'The Numbers — Vietnam & America 1975',
-    body: `<p>This poster captures the statistical scale of the crisis. 130,000 Vietnamese evacuated in the first wave. $455 million approved by Congress. 54% of Americans against.</p>
-    <p>President Ford acted against public opinion because, as he later said: "My conscience would have bothered me the rest of my life if we hadn't done that job."</p>
-    <div class="quote-link">"Ford prevailed over the nativists and Congress eventually relented. By the end of 1975, approximately 130,000 Vietnamese refugees had been resettled in the United States." — Boston Globe, 2026</div>
-    <button class="modal-back-btn" onclick="closeModalDirect(); linkToDialogue('panel', '.j-bub')">↩ Go to Chen's opening in Panel</button>`,
-  },
-  poster2: {
-    type: '🖼 Poster Gallery — Poster II',
-    title: "Ford's Decision — May 23, 1975",
-    body: `<p>The Indochina Migration and Refugee Assistance Act was a landmark moment in American refugee policy. It was the first time the US committed this level of funding and infrastructure to a refugee crisis.</p>
-    <p>Four military bases were converted: Camp Pendleton (CA), Fort Chaffee (AR), Eglin AFB (FL), and Fort Indiantown Gap (PA). They processed 130,000 people within months.</p>
-    <div class="quote-link">"It just burns me up. We didn't do it to the Hungarians, we didn't do it to the Cubans, and damn it, we're not going to do it now." — President Gerald Ford, May 5, 1975</div>
-    <button class="modal-back-btn" onclick="closeModalDirect(); linkToDialogue('panel', '.us-bub')">↩ Go to Taft's testimony in Panel</button>`,
-  },
-  poster3: {
-    type: '🖼 Poster Gallery — Poster III',
-    title: 'The Bet That Paid Off — 50 Years Later',
-    body: `<p>The refugees that 54% of Americans feared in 1975 have, in fifty years, become doctors, judges, novelists, Oscar winners, restaurant owners who revived entire urban neighbourhoods.</p>
-    <p>By 2012, Vietnamese-American households had a median income above the US national average. The Huy Fong Sriracha sauce — created by refugee David Tran — is sold in over 60 countries.</p>
-    <div class="quote-link">"The refugees so many feared would be a burden became, as refugees so often do, a blessing." — Boston Globe, 2026</div>
-    <p>This is the lesson Linh embodies at the end of the panel — and the lesson history keeps needing to relearn.</p>
-    <button class="modal-back-btn" onclick="closeModalDirect(); linkToDialogue('panel', '.r-bub')">↩ Go to Linh's final word in Panel</button>`,
-  },
+
+function nextSlide() {
+  if (currentSlide < totalSlides) goToSlide(currentSlide + 1);
+}
+
+function prevSlide() {
+  if (currentSlide > 1) goToSlide(currentSlide - 1);
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight' || e.key === ' ') nextSlide();
+  if (e.key === 'ArrowLeft') prevSlide();
+});
+
+// Touch navigation
+let touchStartX = 0;
+document.addEventListener('touchstart', e => touchStartX = e.changedTouches[0].screenX);
+document.addEventListener('touchend', e => {
+  const diff = touchStartX - e.changedTouches[0].screenX;
+  if (Math.abs(diff) > 50) {
+    if (diff > 0) nextSlide();
+    else prevSlide();
+  }
+});
+
+// ========== PARTICLES ==========
+const particlesDiv = document.getElementById('particles');
+for (let i = 0; i < 30; i++) {
+  const p = document.createElement('div');
+  p.className = 'particle';
+  p.style.left = Math.random() * 100 + '%';
+  p.style.top = 50 + Math.random() * 50 + '%';
+  p.style.animationDelay = Math.random() * 8 + 's';
+  p.style.animationDuration = 5 + Math.random() * 6 + 's';
+  particlesDiv.appendChild(p);
+}
+
+// ========== CHARTS ==========
+const chartDefaults = {
+  color: 'rgba(255,255,255,0.6)',
+  borderColor: 'rgba(255,255,255,0.08)',
 };
- 
-function openModal(key) {
-  const d = modalData[key];
-  if (!d) return;
-  document.getElementById('modalContent').innerHTML = `
-    <div class="modal-type">${d.type}</div>
-    <h3>${d.title}</h3>
-    <hr style="border:none;border-top:1px solid #c8b090;margin:16px 0">
-    ${d.body}
-  `;
-  document.getElementById('modalOverlay').classList.add('open');
+
+Chart.defaults.color = chartDefaults.color;
+Chart.defaults.borderColor = chartDefaults.borderColor;
+
+let chartsInit = {};
+
+function initVietnamChart() {
+  if (chartsInit.vietnam) return;
+  chartsInit.vietnam = true;
+  new Chart(document.getElementById('chartVietnam'), {
+    type: 'bar',
+    data: {
+      labels: ['USA', 'Australia', 'Canada', 'France', 'Germany', 'UK'],
+      datasets: [{
+        data: [450000, 137000, 120000, 96000, 40000, 22000],
+        backgroundColor: [
+          'rgba(212,168,83,0.7)',
+          'rgba(212,168,83,0.55)',
+          'rgba(212,168,83,0.45)',
+          'rgba(212,168,83,0.35)',
+          'rgba(212,168,83,0.25)',
+          'rgba(212,168,83,0.18)',
+        ],
+        borderRadius: 6,
+        borderSkipped: false,
+      }]
+    },
+    options: {
+      responsive: true,
+      indexAxis: 'y',
+      plugins: { legend: { display: false } },
+      scales: {
+        x: {
+          grid: { color: 'rgba(255,255,255,0.04)' },
+          ticks: { font: { size: 10 }, callback: v => v >= 1000 ? (v/1000)+'K' : v }
+        },
+        y: {
+          grid: { display: false },
+          ticks: { font: { size: 10 } }
+        }
+      }
+    }
+  });
 }
-function closeModal(e) {
-  if (e.target === document.getElementById('modalOverlay')) closeModalDirect();
+
+function initTodayChart() {
+  if (chartsInit.today) return;
+  chartsInit.today = true;
+  new Chart(document.getElementById('chartToday'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Syria', 'Ukraine', 'Afghanistan', 'Venezuela', 'S. Sudan', 'Myanmar', 'Other'],
+      datasets: [{
+        data: [13.8, 10.2, 8.2, 7.7, 2.3, 2.3, 8.9],
+        backgroundColor: [
+          '#E74C3C', '#3498DB', '#D4A853', '#1ABC9C', '#9B59B6', '#E67E22', 'rgba(255,255,255,0.1)'
+        ],
+        borderWidth: 0,
+      }]
+    },
+    options: {
+      responsive: true,
+      cutout: '60%',
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: { boxWidth: 10, font: { size: 9 }, padding: 8 }
+        }
+      }
+    }
+  });
 }
-function closeModalDirect() {
-  document.getElementById('modalOverlay').classList.remove('open');
+
+function initCompareChart() {
+  if (chartsInit.compare) return;
+  chartsInit.compare = true;
+  new Chart(document.getElementById('chartCompare'), {
+    type: 'bar',
+    data: {
+      labels: ['1975', '1978', '1979', '1980', '1985', '2015', '2016', '2020', '2022', '2024'],
+      datasets: [
+        {
+          label: 'Vietnamese',
+          data: [130, 80, 200, 100, 40, 0, 0, 0, 0, 0],
+          backgroundColor: 'rgba(212,168,83,0.7)',
+          borderRadius: 4,
+          borderSkipped: false,
+        },
+        {
+          label: 'Modern',
+          data: [0, 0, 0, 0, 0, 1.2, 1.5, 1.8, 10.2, 5.4],
+          backgroundColor: 'rgba(52,152,219,0.7)',
+          borderRadius: 4,
+          borderSkipped: false,
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          labels: { boxWidth: 10, font: { size: 10 }, padding: 12 }
+        }
+      },
+      scales: {
+        x: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { font: { size: 10 } } },
+        y: {
+          grid: { color: 'rgba(255,255,255,0.04)' },
+          ticks: { font: { size: 10 }, callback: v => v + 'M' }
+        }
+      }
+    }
+  });
 }
+
+function initMortalityChart() {
+  if (chartsInit.mortality) return;
+  chartsInit.mortality = true;
+  new Chart(document.getElementById('chartMortality'), {
+    type: 'bar',
+    data: {
+      labels: ['Vietnamese\n(Sea, 1979)', 'Syrians\n(Land, 2015)', 'Rohingya\n(Sea, 2017)', 'Ukrainians\n(Land, 2022)', 'Afghans\n(Air/Land, 2021)'],
+      datasets: [{
+        label: 'Estimated mortality %',
+        data: [12, 2.5, 4, 0.5, 1],
+        backgroundColor: [
+          'rgba(231,76,60,0.7)',
+          'rgba(231,76,60,0.5)',
+          'rgba(231,76,60,0.6)',
+          'rgba(26,188,156,0.5)',
+          'rgba(231,76,60,0.4)',
+        ],
+        borderRadius: 4,
+        borderSkipped: false,
+      }]
+    },
+    options: {
+      responsive: true,
+      indexAxis: 'y',
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => ctx.parsed.x + '% estimated mortality during journey'
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { color: 'rgba(255,255,255,0.04)' },
+          ticks: { font: { size: 10 }, callback: v => v + '%' },
+          max: 15
+        },
+        y: { grid: { display: false }, ticks: { font: { size: 9 }, autoSkip: false } }
+      }
+    }
+  });
+}
+
+function initEducationChart() {
+  if (chartsInit.education) return;
+  chartsInit.education = true;
+  new Chart(document.getElementById('chartEducation'), {
+    type: 'bar',
+    data: {
+      labels: ['College\nDegree', 'Graduate\nDegree', 'STEM\nDegree', 'Professional\nDegree'],
+      datasets: [
+        {
+          label: 'Vietnamese-American',
+          data: [54, 28, 22, 12],
+          backgroundColor: 'rgba(212,168,83,0.7)',
+          borderRadius: 4,
+          borderSkipped: false,
+        },
+        {
+          label: 'US National Avg',
+          data: [33, 13, 18, 9],
+          backgroundColor: 'rgba(255,255,255,0.12)',
+          borderRadius: 4,
+          borderSkipped: false,
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { labels: { boxWidth: 10, font: { size: 9 }, padding: 8 } }
+      },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 9 }, autoSkip: false } },
+        y: {
+          grid: { color: 'rgba(255,255,255,0.04)' },
+          ticks: { font: { size: 10 }, callback: v => v + '%' },
+          max: 60
+        }
+      }
+    }
+  });
+}
+
+function initIncomeChart() {
+  if (chartsInit.income) return;
+  chartsInit.income = true;
+  new Chart(document.getElementById('chartIncome'), {
+    type: 'line',
+    data: {
+      labels: ['1980', '1990', '2000', '2010', '2020', '2023'],
+      datasets: [{
+        label: 'Vietnamese-American median income ($K)',
+        data: [22, 38, 52, 62, 76, 82],
+        borderColor: '#D4A853',
+        backgroundColor: 'rgba(212,168,83,0.1)',
+        fill: true,
+        tension: 0.4,
+        pointRadius: 4,
+        pointBackgroundColor: '#D4A853',
+        pointBorderWidth: 0,
+      }, {
+        label: 'US national median ($K)',
+        data: [20, 30, 42, 50, 68, 74],
+        borderColor: 'rgba(255,255,255,0.25)',
+        borderDash: [5, 5],
+        fill: false,
+        tension: 0.4,
+        pointRadius: 0,
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { labels: { boxWidth: 10, font: { size: 9 }, padding: 8 } }
+      },
+      scales: {
+        x: { grid: { color: 'rgba(255,255,255,0.04)' }, ticks: { font: { size: 10 } } },
+        y: {
+          grid: { color: 'rgba(255,255,255,0.04)' },
+          ticks: { font: { size: 10 }, callback: v => '$' + v + 'K' }
+        }
+      }
+    }
+  });
+}
+
+// Initialize first slide progress
+document.getElementById('progressBar').style.width = '10%';
 </script>
- 
+
 </body>
 </html>
